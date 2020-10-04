@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <!-- Text -->
 <body>
 <center>
-<p><h1><strong>Hey!</strong></h1></p>
+<h1><strong>Hey!</strong></h1>
 <p>Welcome to my website!</p>
 </center>
 </body>
 <!-- Other Stuff -->
-<style>body { background-color: #ffffb3; }</style>
+<body style="background-color:#ffffb3;">
