@@ -1,10 +1,3 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<body onload="myFunction()" style="margin:0;">
-
-<div id="loader"></div>
-
-<div style="display:none;" id="myDiv" class="animate-bottom">
-  <center>
 <p><h1><strong>Hogwarts Great Hall Menu</strong></h1></p>
   <p style="font-family: 'Charmonman', cursive;">Welcome to the Great Hall!</p>
   <p style="color:#FF0000; font-family: 'Charmonman', cursive;"><strong><u>Please Note:</u></strong></p>
