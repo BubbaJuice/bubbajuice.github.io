@@ -6,6 +6,4 @@
 </center>
 </body>
 <!-- Other Stuff -->
-<style>
-body { background-color: #ffffb3; }
-</style>
+<style>body { background-color: #ffffb3; }</style>
