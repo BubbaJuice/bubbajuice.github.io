@@ -24,12 +24,12 @@
             <p style="font-family: 'Indie Flower', cursive;" title="Freshly Baked Bread Cut and Toasted">Toast
               <p style="font-family: 'Indie Flower', cursive;" title="Freshly Baked Bread Cut and Toasted Topped with Butter and Jam">Buttered Toast with Jam
   <p style="font-family: 'Indie Flower', cursive;" title="Corn Flakes with Milk Avaliable for Pouring onto The Flakes">Corn Flakes<sup>2</sup></p>
-<h3><p><em>Main Course</em></p></h3
+<h3><p><em>Main Course</em></p></h3>
   <!-- This Line is Cursed -->
   <p style="font-family: 'Indie Flower', cursive;" title="Freshly Cooked Steak Wrapped with Freshly Cut Pig Bacon Greased in Premuim Quality Butter Topped with Fresh Chives">Bacon and Steak
  <p style="font-family: 'Indie Flower', cursive;" title="Casserole with High Quality Beef Topped Many Cheeses">Beef Casserole
       <p style="font-family: 'Indie Flower', cursive;" title="Pudding Consisting of Pork, Beef, snd Oats">Black Pudding
-        <p style="font-family: 'Indie Flower', cursive;"title="Premuim Quality Beef and Potatoes Inside a Delicous Crust">Cornish Pasties
+        <p style="font-family: 'Indie Flower', cursive;" title="Premuim Quality Beef and Potatoes Inside a Delicous Crust">Cornish Pasties
           <p style="font-family: 'Indie Flower', cursive;" title="Delicous Lamb Chops Freshly Cooked and Seasoned">Lamb Chops
             <p style="font-family: 'Indie Flower', cursive;" title="Delicous Pork Chops Freshly Cooked and Seasoned">Pork Chops
               <p style="font-family: 'Indie Flower', cursive;" title="Freshly Seasoned and Roasted Beef">Roast Beef
