@@ -6,13 +6,13 @@
   <p style="font-family: 'Charmonman', cursive;">The <u>Great Hall</u> and the <u>Divination Workshop</u> are both located at the address shown below.</p>
 <p style="font-family: 'Charmonman', cursive;"><strong><a herf="https://www.google.com/maps/place/Alnwick+Castle/@55.4158203,-1.706017,17z/data=!4m5!3m4!1s0x487e00e0ed23bc0d:0x8783a98b290f641!8m2!3d55.4155829!4d-1.7059205"><u>Hogwarts Castle<br> Scotland<br> United Kingdom</u></a></strong></p>
 <hr>
+<center>
 <p><h1>MENU</h1></p>
 <p><strong>DRINKS</strong></p>
 <p style="font-family: 'Indie Flower', cursive;" title="Purified Spring Water">Water
   <p style="font-family: 'Indie Flower', cursive;" title="Freshly Extracted Pumpkin Juice From Pumpkins Grown at Hogwarts">Pumpkin Juice
     <p style="font-family: 'Indie Flower', cursive;" title="Freshly Squeezed From Prenium Quality Oranges at Hogwarts">Orange Juice
       <p style="font-family: 'Indie Flower', cursive;" title="Fresh Natural Tea Freshly Gathered From The Hogwarts Greenhouse">Tea
-</>
 <h3><p><strong>FOOD</strong></p></h3>
 <h3><p><em>Breakfast</em></p></h3>
   <p style="font-family: 'Indie Flower', cursive;" title="Fine Quality Oats Heated with Granola and Freshly Picked Blueberrys">Porridge
