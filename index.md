@@ -1,4 +1,66 @@
-d here in the <u>Great Hall</u>. All of the Hogwarts' students are to eat their meals together with their respective houses. If you recive an owl post please clean up after any mess made by said owl. Please finish your lunch meal by 12:30p.m. and vacate the hall. The <u>Divination Workshop</u> starts at 12:45p.m.<sup>1</sup></p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #cfcfcf;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+</head>
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"></div>
+
+<div style="display:none;" id="myDiv" class="animate-bottom">
+  <center>
+<p><h1><strong>Hogwarts Great Hall Menu</strong></h1></p>
+  <p style="font-family: 'Charmonman', cursive;">Welcome to the Great Hall!</p>
+  <p style="color:#FF0000; font-family: 'Charmonman', cursive;"><strong><u>Please Note:</u></strong></p>
+  <p style="font-family: 'Charmonman', cursive;">Breakfast, lunch and dinner are all served here in the <u>Great Hall</u>. All of the Hogwarts' students are to eat their meals together with their respective houses. If you recive an owl post please clean up after any mess made by said owl. Please finish your lunch meal by 12:30p.m. and vacate the hall. The <u>Divination Workshop</u> starts at 12:45p.m.<sup>1</sup></p>
   <p style="font-family: 'Charmonman', cursive;"><em>All</em> beverages including water must be consumed prior to leaving the <u>Great Hall</u>.</p>
   <p style="font-family: 'Charmonman', cursive;">The <u>Great Hall</u> and the <u>Divination Workshop</u> are both located at the address shown below.</p>
 <p style="font-family: 'Charmonman', cursive;"><strong><a herf="https://www.google.com/maps/place/Alnwick+Castle/@55.4158203,-1.706017,17z/data=!4m5!3m4!1s0x487e00e0ed23bc0d:0x8783a98b290f641!8m2!3d55.4155829!4d-1.7059205"><u>Hogwarts Castle<br> Scotland<br> United Kingdom</u></a></strong></p>
