@@ -1,0 +1,59 @@
+{
+  "triggers_format": "2",
+  "meta": {
+    "version": "1.0.0",
+    "upload_date": "2020-11-16",
+    "note": "Dream sucks."
+  },
+  "servers": {
+    "^(?:.+\\.)?hypixel\\.(?:net|io)$": {
+      "gg_triggers": {
+        "triggers": [
+          "^ +The game starts in 5 seconds!$"
+        ],
+        "casual_triggers": [
+        ]
+      },
+      "other_patterns": {
+        "antigg": "^(?:.* )?(?:\\[.+] )?\\w{1,16}(?: .+)?: (?:❤|${antigg_strings})$",
+        "anti_karma": "^\\+(?<karma>\\d)+ Karma!$"
+      },
+      "other": {
+        "msg": "/ac "
+      }
+    },
+    "^(?:(?:us|eu)\\.)?mineplex\\.com$": {
+      "gg_triggers": {
+        "triggers": [
+          "^ .* won the game!$",
+	  "^ 1st Place \\w{1,16}(?:, \\w{1,16})*$"
+        ],
+        "casual_triggers": [
+        ]
+      },
+      "other_patterns": {
+        "antigg": "^\\d+ [A-Z ]+ (?:. )?\\w{1,16} (?:${antigg_strings})$",
+        "anti_karma": "$^"
+      },
+      "other": {
+        "msg": ""
+      }
+    },
+    "^superawesome\\.dk$": {
+      "gg_triggers": {
+        "triggers": [
+          "^(?:RØD|BLÅ) HOLD VINDER #GG$"
+        ],
+        "casual_triggers": [
+        ]
+      },
+      "other_patterns": {
+        "antigg": "$^",
+        "anti_karma": "$^"
+      },
+      "other": {
+        "msg": ""
+      }
+    }
+  }
+}
