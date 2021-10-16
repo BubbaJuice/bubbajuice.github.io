@@ -30,10 +30,18 @@
       #map {
         height: 400px;
         width: 600px;
-        float: right;
+  
       }
       table, th, td {
         border: 1px solid #ffffff;
+      }
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+      .right {
+        float: right;
       }
     </style>
   </head>
@@ -47,6 +55,7 @@
     <p><a href="https://bubbajuice.github.io/benchmarks" class="link">Benchmarks</a> <a href="https://bubbajuice.github.io/apps" class="link">Apps</a> <a href="https://bubbajuice.github.io/" class="link">Home</a> <a href="https://bubbajuice.github.io/gcstats" class="link">Geocaching Stats</a></p>
     </center>
     <hr>
+    <div class="right">
     <div id="map"></div>
     <script>
       var mainGood = new L.Icon({
@@ -120,6 +129,7 @@
       L.marker([32.371972, -110.939267], {icon: none}).addTo(reference).bindPopup('PUSCH NO. 2').openPopup();
 
       var azimuth = L.layerGroup();
+      L.marker([32.326989, -110.976028], {icon: azimuthBad}).addTo(reference).bindPopup('Q 19').openPopup();
     
       var caltopo = L.tileLayer('https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>', maxNativeZoom: 16}),
         osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
@@ -128,16 +138,23 @@
         ersi = L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution: 'Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community'})
         ersiClarity = L.tileLayer('https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution: 'Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community'})
 
+      var route = L.layerGroup();
+
       var map = L.map('map', {
-        center: [32.3746, -110.9494],
-        zoom: 14,
-        layers: [caltopo, main, reference, azimuth]
+        center: [32.3550, -110.9617],
+        zoom: 13,
+        layers: [caltopo, main, reference, azimuth, route]
       });
 
-      var gpx = 'https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx'; // Remove icon at start and end. Allow for togglable gpx.
-      new L.GPX(gpx, {async: true}).on('loaded', function(e) {
-        map.fitBounds(e.target.getBounds());
-      }).addTo(map);
+      var gpx = 'https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx';
+      new L.GPX(gpx, {async: true,
+      marker_options: {
+        startIconUrl: '../images/empty.png',
+        endIconUrl: '../images/empty.png',
+        shadowUrl: '../images/empty.png',
+        iconSize:     [1, 1],
+      }
+      }).on('loaded', function(e){}).addTo(route);
 
       var baseMaps = {
         "Scanned USGS Topo Maps": caltopo,
@@ -151,48 +168,48 @@
       var overlays = {
 		    "Benchmark": main,
         "Reference Marks": reference,
-        "Azimuth Mark": azimuth
+        "Azimuth Mark": azimuth,
+        "GPX Route": route
 	    };
 
       L.control.layers(baseMaps, overlays).addTo(map);
     </script>
-    <table style="width:100%">
-      <tr>
-        <th>Marker</th>
-        <th>Meaning</th>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="25" height="41"></td>
-        <td>Main benchmarks recovered in good or poor condition.</td>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="25" height="41"></td>
-        <td>Main benchmarks that have been destroyed.</td>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png" width="25" height="41"></td>
-        <td>Reference benchmarks recovered in good or poor condition.</td>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" width="25" height="41"></td>
-        <td>Reference benchmarks that have been destroyed.</td>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" width="25" height="41"></td>
-        <td>Azimuth benchmarks recovered in good or poor condition.</td>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="25" height="41"></td>
-        <td>Azimuth benchmarks that have been destroyed.</td>
-      </tr>
-      <tr>
-        <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png" width="25" height="41"></td>
-        <td>A main, reference, or azimuth benchmark not searched for.</td>
-      </tr>
-      
-      
-      
-      
-    </table>
+    <div class="table">
+      <table>
+        <tr>
+          <th>Marker</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="25" height="41"></td>
+          <td>Main benchmarks recovered in good or poor condition.</td>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="25" height="41"></td>
+          <td>Main benchmarks that have been destroyed.</td>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png" width="25" height="41"></td>
+          <td>Reference benchmarks recovered in good or poor condition.</td>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" width="25" height="41"></td>
+          <td>Reference benchmarks that have been destroyed.</td>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" width="25" height="41"></td>
+          <td>Azimuth benchmarks recovered in good or poor condition.</td>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="25" height="41"></td>
+          <td>Azimuth benchmarks that have been destroyed.</td>
+        </tr>
+        <tr>
+          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png" width="25" height="41"></td>
+          <td>A main, reference, or azimuth benchmark not searched for.</td>
+        </tr>
+      </table>
+    </div>
+    </div>
 </body>
 </html>

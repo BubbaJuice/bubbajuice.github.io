@@ -1079,6 +1079,24 @@
       <trkpt lat="32.3719584" lon="-110.9390984">
         <time>2021-01-01T16:56:49Z</time>
       </trkpt>
+      <trkpt lat="32.3724466" lon="-110.9392367">
+        <time>2021-01-01T16:56:49Z</time>
+      </trkpt>
+      <trkpt lat="32.3724045" lon="-110.9392321">
+        <time>2021-01-01T16:56:49Z</time>
+      </trkpt>
+      <trkpt lat="32.3723561" lon="-110.9392103">
+        <time>2021-01-01T16:56:49Z</time>
+      </trkpt>
+      <trkpt lat="32.3722999" lon="-110.9392439">
+        <time>2021-01-01T16:56:49Z</time>
+      </trkpt>
+      <trkpt lat="32.3722335" lon="-110.9392472">
+        <time>2021-01-01T16:56:49Z</time>
+      </trkpt>
+      <trkpt lat="32.372192" lon="-110.939209">
+        <time>2014-11-24T22:37:18Z</time>
+      </trkpt>
     </trkseg>
   </trk>
 </gpx>
