@@ -38,10 +38,10 @@
     </style>
   </head>
   <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
     <center>
     <h1><strong>PUSCH</strong></h1>
     <p><a href="https://bubbajuice.github.io/benchmarks" class="link">Benchmarks</a> <a href="https://bubbajuice.github.io/apps" class="link">Apps</a> <a href="https://bubbajuice.github.io/" class="link">Home</a> <a href="https://bubbajuice.github.io/gcstats" class="link">Geocaching Stats</a></p>
@@ -134,7 +134,7 @@
         layers: [caltopo, main, reference, azimuth]
       });
 
-      var gpx = 'https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx'; // URL to your GPX file or the GPX itself
+      var gpx = 'https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx'; // Remove icon at start and end. Allow for togglable gpx.
       new L.GPX(gpx, {async: true}).on('loaded', function(e) {
         map.fitBounds(e.target.getBounds());
       }).addTo(map);
