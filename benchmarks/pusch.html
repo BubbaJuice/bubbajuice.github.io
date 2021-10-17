@@ -16,9 +16,11 @@
         color: #ffffff;
         max-width: 69420ex;
       }
+
       .link {
         color: #2f8aee;
       }
+
       .image {
         border-color: mediumpurple;
         border-style: solid;
@@ -27,6 +29,7 @@
         box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
         float: left;
       }
+
       #map {
         height: 400px;
         width: 600px;
@@ -41,11 +44,34 @@
         width: 600px;
         top: 415px;
       }
+
       .right {
         float: right;
       }
-      .desc {
+
+      .descr {
         width: 50%
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
       }
     </style>
   </head>
@@ -95,6 +121,7 @@
           </table>
         </div>
       </div>
+      <h2>"PUSCH"</h2>
       <table>
         <tr><td><strong>NGS PointID: </strong></td><td>CZ1865</td></tr>
         <tr><td><strong>Reference Benchmarks: </strong></td><td><a href="https://bubbajuice.github.io/benchmarks/PUSCH1" class="link">PUSCH NO: 1</a>, <a href="https://bubbajuice.github.io/benchmarks/PUSCH2" class="link">PUSCH NO: 2</a></td></tr>
@@ -106,16 +133,32 @@
         <tr><td><strong>Setting: </strong></td><td>A rock outcrop</td></tr>
         <tr><td><strong>Monumentor: </strong></td><td>USGS</td></tr>
       </table>
-      <div class="desc">
+      <p><strong>Datasheet Description:</strong></p>
+      <p>About 7 miles, air line, north of Tucson on the southwest end of the Catalina Mountains.  The station mark is a standard U.S. Geological Survey disk set in drill hole in large boulder. Reference Mark NO. 1, a standard bronze reference disk, is 13.510 meters (44.32 feet) from station S 41 deg 47 min E. Reference Mark NO. 2, a standard bronze reference disk, is 16.550 meters (54.30 feet) from station S 76 deg 13 min W. The azimuth mark, a standard U.S. Coast and Geodetic Survey bench mark stamped Q 19 1933 is at the west side of highways 80 and 89 and at the northwest side of a road crossing, 0.85 mile north of the point of leaving the highway, 11 paces north of the los altos road center and 13 paces west of the center of highways 80 and 89.  It is about 3 miles from station S 34 deg 50 min 10 sec W.</p>
+      <div class="descr">
         <p>"PUSCH" is a benchmark monumented by the USGS in 1935 located in Pima County, Arizona. It has 2 reference marks and a non-dedicated azimuth.</p>
+        <hr style="margin-top: 30px; margin-bottom: 30px;">
         <p>The best way to get to "PUSCH" is to start at the Linda Vista Trail head located on Linda Vista Road east of the interesction of Linda Vista Road and Oracle Road (AZ 77). (<a href="https://geohack.toolforge.org/geohack.php?pagename=Template:Coord&params=32.380722_N_110.961139_W_" class="link">32.380722, -110.961139</a>)</p>
         <p>Follow the trail that leads follows the wash. The GPX track follows the whole route. Continue on the trail heading southeast until you intersect with another trail. Take a left for a short distance until a trail splits off to the right. Note the "NOT A FOREST SYSTEM TRAIL BEYOND THIS POINT" sign. You will tell why continuing the hike. Follow the steep trail until the summit of Pusch Peak. The benchmark disk is located on the rock outcrop the summit is located at. The benchmark is just below the summit.</p>
         <p>"PUSCH NO: 1" is located 44.272 feet or 13.494 meters 138 degrees from the main benchmark. It is located just below the summit of a rock outcrop. It should be visible from the main benchmark.</p>
         <p>"PUSCH NO: 2" is located 54.140 feet or 16.502 meters 256 degrees from the main benchmark. It is located at about the same elevation as the main benchmark in a rock outcrop.</p>
         <p>"Q 19" has been destroyed.</p>
       </div>
-    </div>
+      <!-- Gallery -->
+      <div class="gallery">
+        <a target="_blank" href="images/PUSCH.jpg">
+          <img src="images/PUSCH.jpg" alt="PUSCH benchmark" width="600" height="400">
+        </a>
+        <div class="desc">A closeup of the main benchmark.</div>
+      </div>
 
+      <div class="gallery">
+        <a target="_blank" href="images/PUSCH-svg.svg">
+          <img src="images/PUSCH-svg.svg" alt="PUSCH benchmark" width="600" height="400">
+        </a>
+        <div class="desc">A digitalization of the benchmark.</div>
+      </div>
+    </div>
     <script>
       var mainGood = new L.Icon({
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
