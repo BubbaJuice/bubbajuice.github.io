@@ -60,10 +60,10 @@
     </center>
     <hr>
     <div style="margin-left: 10%">
-      <div class="right">
+      <div class="right" style="margin-right: 10%">
         <div id="map"></div>
         <div class="table">
-          <table style="float: right">
+          <table style="float: right; margin-top: 10px">
             <tr>
               <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="25" height="41"></td>
               <td>Main benchmarks recovered in good or poor condition.</td>
@@ -102,7 +102,7 @@
         <tr><td><strong>Condition: </strong></td><td>Intact, gashes and scratches present</td></tr>
         <tr><td><strong>Stamping: </strong></td><td>PUSCH 1934 1935</td></tr>
         <tr><td><strong>Coordinates: </strong></td><td>32.372008, -110.939097</td></tr> <!-- Source: Datasheet-->
-        <tr><td><strong>Elevation: </strong></td><td>1635.5</td></tr> <!-- Source: Datasheet-->
+        <tr><td><strong>Elevation: </strong></td><td>5365 ft (1635.5 m)</td></tr> <!-- Source: Datasheet-->
         <tr><td><strong>Setting: </strong></td><td>A rock outcrop</td></tr>
         <tr><td><strong>Monumentor: </strong></td><td>USGS</td></tr>
       </table>
@@ -115,6 +115,7 @@
         <p>"Q 19" has been destroyed.</p>
       </div>
     </div>
+
     <script>
       var mainGood = new L.Icon({
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -232,6 +233,5 @@
 
       L.control.layers(baseMaps, overlays).addTo(map);
     </script>
-    
 </body>
 </html>
