@@ -30,11 +30,12 @@
       #map {
         height: 400px;
         width: 600px;
-  
       }
-      table, th, td {
+
+      .whiteBorder {
         border: 1px solid #ffffff;
       }
+
       .table {
         height: 400px;
         width: 600px;
@@ -55,6 +56,23 @@
     <p><a href="https://bubbajuice.github.io/benchmarks" class="link">Benchmarks</a> <a href="https://bubbajuice.github.io/apps" class="link">Apps</a> <a href="https://bubbajuice.github.io/" class="link">Home</a> <a href="https://bubbajuice.github.io/gcstats" class="link">Geocaching Stats</a></p>
     </center>
     <hr>
+    <table>
+      <tr><td><strong>NGS PointID: </strong></td><td>CZ1865</td></tr>
+      <tr><td><strong>Reference Benchmarks: </strong></td><td><a href="https://bubbajuice.github.io/benchmarks/PUSCH1" class="link">PUSCH NO: 1</a>, <a href="https://bubbajuice.github.io/benchmarks/PUSCH2" class="link">PUSCH NO: 2</a></td></tr>
+      <tr><td><strong>Azimuth Benchmark: </strong></td><td><a href="https://bubbajuice.github.io/benchmarks/Q19" class="link">Q 19</a></td></tr>
+      <tr><td><strong>Condition: </strong></td><td>Intact, gashes and scratches present</td></tr>
+      <tr><td><strong>Stamping: </strong></td><td>PUSCH 1934 1935</td></tr>
+      <tr><td><strong>Coordinates: </strong></td><td>32.372008, -110.939097</td></tr> <!-- Source: Datasheet-->
+      <tr><td><strong>Elevation: </strong></td><td>1635.5</td></tr> <!-- Source: Datasheet-->
+      <tr><td><strong>Setting: </strong></td><td>A rock outcrop</td></tr>
+      <tr><td><strong>Monumentor: </strong></td><td>USGS</td></tr>
+    </table>
+    <p>"PUSCH" is a benchmark monumented by the USGS in 1935 located in Pima County, Arizona. It has 2 reference marks and a non-dedicated azimuth.</p>
+    <p>The best way to get to "PUSCH" is to start at the Linda Vista Trail head located on Linda Vista Road east of the interesction of Linda Vista Road and Oracle Road (AZ 77). (<a href="https://goo.gl/maps/yg7sQjBpFtnNMZrX6">32.380722, -110.961139</a>)</p>
+    <p>Follow the trail that leads follows the wash. The GPX track follows the whole route. Continue on the trail heading southeast until you intersect with another trail. Take a left for a short distance until a trail splits off to the right. Note the "NOT A FOREST SYSTEM TRAIL BEYOND THIS POINT" sign. You will tell why continuing the hike. Follow the steep trail until the summit of Pusch Peak. The benchmark disk is located on the rock outcrop the summit is located at. The benchmark is just below the summit.</p>
+    <p>"PUSCH NO: 1" is located 44.272 feet or 13.494 meters 138 degrees from the main benchmark. It is located just below the summit of a rock outcrop. It should be visible from the main benchmark.</p>
+    <p>"PUSCH NO: 2" is located 54.140 feet or 16.502 meters 256 degrees from the main benchmark. It is located at about the same elevation as the main benchmark in a rock outcrop.</p>
+    <p>"Q 19" has been destroyed.</p>
     <div class="right">
     <div id="map"></div>
     <script>
@@ -125,8 +143,8 @@
       L.marker([32.372008, -110.939097], {icon: mainGood}).addTo(main).bindPopup('PUSCH').openPopup();
 
       var reference = L.layerGroup();
-      L.marker([32.371917, -110.939], {icon: none}).addTo(reference).bindPopup('PUSCH NO. 1').openPopup();
-      L.marker([32.371972, -110.939267], {icon: none}).addTo(reference).bindPopup('PUSCH NO. 2').openPopup();
+      L.marker([32.371917, -110.939], {icon: none}).addTo(reference).bindPopup('PUSCH NO: 1').openPopup();
+      L.marker([32.371972, -110.939267], {icon: none}).addTo(reference).bindPopup('PUSCH NO: 2').openPopup();
 
       var azimuth = L.layerGroup();
       L.marker([32.326989, -110.976028], {icon: azimuthBad}).addTo(reference).bindPopup('Q 19').openPopup();
@@ -177,35 +195,31 @@
     <div class="table">
       <table>
         <tr>
-          <th>Marker</th>
-          <th>Meaning</th>
-        </tr>
-        <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="25" height="41"></td>
           <td>Main benchmarks recovered in good or poor condition.</td>
         </tr>
         <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="25" height="41"></td>
           <td>Main benchmarks that have been destroyed.</td>
         </tr>
         <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png" width="25" height="41"></td>
           <td>Reference benchmarks recovered in good or poor condition.</td>
         </tr>
         <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" width="25" height="41"></td>
           <td>Reference benchmarks that have been destroyed.</td>
         </tr>
         <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" width="25" height="41"></td>
           <td>Azimuth benchmarks recovered in good or poor condition.</td>
         </tr>
         <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="25" height="41"></td>
           <td>Azimuth benchmarks that have been destroyed.</td>
         </tr>
         <tr>
-          <td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png" width="25" height="41"></td>
+          <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png" width="25" height="41"></td>
           <td>A main, reference, or azimuth benchmark not searched for.</td>
         </tr>
       </table>
