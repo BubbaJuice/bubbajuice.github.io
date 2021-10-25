@@ -1,18 +1,38 @@
 <html>
   <head>
     <title>e</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""/>
+      crossorigin=""
+    />
     <style>
       body {
         font-family: "Open Sans";
-        background-color:#36393f;
+        background-color: #36393f;
         color: #ffffff;
         max-width: 69420ex;
       }
@@ -50,7 +70,7 @@
       }
 
       .descr {
-        width: 50%
+        width: 50%;
       }
 
       div.gallery {
@@ -76,46 +96,100 @@
     </style>
   </head>
   <body>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""></script>
+      crossorigin=""
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <center>
-    <h1><strong>PUSCH</strong></h1>
-    <p><a href="https://bubbajuice.github.io/benchmarks" class="link">Benchmarks</a> <a href="https://bubbajuice.github.io/apps" class="link">Apps</a> <a href="https://bubbajuice.github.io/" class="link">Home</a> <a href="https://bubbajuice.github.io/gcstats" class="link">Geocaching Stats</a></p>
+      <h1><strong>PUSCH</strong></h1>
+      <p>
+        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+          >Benchmarks</a
+        >
+        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
+        <a href="https://bubbajuice.github.io/" class="link">Home</a>
+        <a href="https://bubbajuice.github.io/gcstats" class="link"
+          >Geocaching Stats</a
+        >
+      </p>
     </center>
-    <hr>
+    <hr />
     <div style="margin-left: 10%">
       <div class="right" style="margin-right: 10%">
         <div id="map"></div>
         <div class="table">
           <table style="float: right; margin-top: 10px">
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>Main benchmarks recovered in good or poor condition.</td>
             </tr>
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>Main benchmarks that have been destroyed.</td>
             </tr>
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>Reference benchmarks recovered in good or poor condition.</td>
             </tr>
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>Reference benchmarks that have been destroyed.</td>
             </tr>
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>Azimuth benchmarks recovered in good or poor condition.</td>
             </tr>
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>Azimuth benchmarks that have been destroyed.</td>
             </tr>
             <tr>
-              <td style="text-align: center;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png" width="25" height="41"></td>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
               <td>A main, reference, or azimuth benchmark not searched for.</td>
             </tr>
           </table>
@@ -123,158 +197,411 @@
       </div>
       <h2>"PUSCH"</h2>
       <table>
-        <tr><td><strong>NGS PointID: </strong></td><td>CZ1865</td></tr>
-        <tr><td><strong>Reference Benchmarks: </strong></td><td><a href="https://bubbajuice.github.io/benchmarks/PUSCH1" class="link">PUSCH NO: 1</a>, <a href="https://bubbajuice.github.io/benchmarks/PUSCH2" class="link">PUSCH NO: 2</a></td></tr>
-        <tr><td><strong>Azimuth Benchmark: </strong></td><td><a href="https://bubbajuice.github.io/benchmarks/Q19" class="link">Q 19</a></td></tr>
-        <tr><td><strong>Condition: </strong></td><td>Intact, gashes and scratches present</td></tr>
-        <tr><td><strong>Stamping: </strong></td><td>PUSCH 1934 1935</td></tr>
-        <tr><td><strong>Coordinates: </strong></td><td>32.372008, -110.939097</td></tr> <!-- Source: Datasheet-->
-        <tr><td><strong>Elevation: </strong></td><td>5365 ft (1635.5 m)</td></tr> <!-- Source: Datasheet-->
-        <tr><td><strong>Setting: </strong></td><td>A rock outcrop</td></tr>
-        <tr><td><strong>Monumentor: </strong></td><td>USGS</td></tr>
+        <tr>
+          <td><strong>NGS PointID: </strong></td>
+          <td>CZ1865</td>
+        </tr>
+        <tr>
+          <td><strong>Reference Benchmarks: </strong></td>
+          <td>
+            <a
+              href="https://bubbajuice.github.io/benchmarks/PUSCH1"
+              class="link"
+              >PUSCH NO: 1</a
+            >,
+            <a
+              href="https://bubbajuice.github.io/benchmarks/PUSCH2"
+              class="link"
+              >PUSCH NO: 2</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Azimuth Benchmark: </strong></td>
+          <td>
+            <a href="https://bubbajuice.github.io/benchmarks/Q19" class="link"
+              >Q 19</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Condition: </strong></td>
+          <td>Intact, gashes and scratches present</td>
+        </tr>
+        <tr>
+          <td><strong>Stamping: </strong></td>
+          <td>PUSCH 1934 1935</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinates: </strong></td>
+          <td>32.372008, -110.939097</td>
+        </tr>
+        <!-- Source: Datasheet-->
+        <tr>
+          <td><strong>Elevation: </strong></td>
+          <td>5365 ft (1635.5 m)</td>
+        </tr>
+        <!-- Source: Datasheet-->
+        <tr>
+          <td><strong>Setting: </strong></td>
+          <td>A rock outcrop</td>
+        </tr>
+        <tr>
+          <td><strong>Monumentor: </strong></td>
+          <td>USGS</td>
+        </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <p>About 7 miles, air line, north of Tucson on the southwest end of the Catalina Mountains.  The station mark is a standard U.S. Geological Survey disk set in drill hole in large boulder. Reference Mark NO. 1, a standard bronze reference disk, is 13.510 meters (44.32 feet) from station S 41 deg 47 min E. Reference Mark NO. 2, a standard bronze reference disk, is 16.550 meters (54.30 feet) from station S 76 deg 13 min W. The azimuth mark, a standard U.S. Coast and Geodetic Survey bench mark stamped Q 19 1933 is at the west side of highways 80 and 89 and at the northwest side of a road crossing, 0.85 mile north of the point of leaving the highway, 11 paces north of the los altos road center and 13 paces west of the center of highways 80 and 89.  It is about 3 miles from station S 34 deg 50 min 10 sec W.</p>
+      <p>
+        About 7 miles, air line, north of Tucson on the southwest end of the
+        Catalina Mountains. The station mark is a standard U.S. Geological
+        Survey disk set in drill hole in large boulder. Reference Mark NO. 1, a
+        standard bronze reference disk, is 13.510 meters (44.32 feet) from
+        station S 41 deg 47 min E. Reference Mark NO. 2, a standard bronze
+        reference disk, is 16.550 meters (54.30 feet) from station S 76 deg 13
+        min W. The azimuth mark, a standard U.S. Coast and Geodetic Survey bench
+        mark stamped Q 19 1933 is at the west side of highways 80 and 89 and at
+        the northwest side of a road crossing, 0.85 mile north of the point of
+        leaving the highway, 11 paces north of the los altos road center and 13
+        paces west of the center of highways 80 and 89. It is about 3 miles from
+        station S 34 deg 50 min 10 sec W.
+      </p>
       <div class="descr">
-        <hr style="margin-top: 30px; margin-bottom: 30px;">
-        <p>"PUSCH" is a benchmark monumented by the USGS in 1935 located in Pima County, Arizona. It has 2 reference marks and a non-dedicated azimuth.</p>
-        <p>The best way to get to "PUSCH" is to start at the Linda Vista Trail head located on Linda Vista Road east of the interesction of Linda Vista Road and Oracle Road (AZ 77). (<a href="https://geohack.toolforge.org/geohack.php?pagename=Template:Coord&params=32.380722_N_110.961139_W_" class="link">32.380722, -110.961139</a>)</p>
-        <p>Follow the trail that leads follows the wash. The GPX track follows the whole route. Continue on the trail heading southeast until you intersect with another trail. Take a left for a short distance until a trail splits off to the right. Note the "NOT A FOREST SYSTEM TRAIL BEYOND THIS POINT" sign. You will tell why continuing the hike. Follow the steep trail until the summit of Pusch Peak. The benchmark disk is located on the rock outcrop the summit is located at. The benchmark is just below the summit.</p>
-        <p>"PUSCH NO: 1" is located 44.272 feet or 13.494 meters 138 degrees from the main benchmark. It is located just below the summit of a rock outcrop. It should be visible from the main benchmark.</p>
-        <p>"PUSCH NO: 2" is located 54.140 feet or 16.502 meters 256 degrees from the main benchmark. It is located at about the same elevation as the main benchmark in a rock outcrop.</p>
+        <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>
+          "PUSCH" is a benchmark monumented by the USGS in 1935 located in Pima
+          County, Arizona. It has 2 reference marks and a non-dedicated azimuth.
+        </p>
+        <p>
+          The best way to get to "PUSCH" is to start at the Linda Vista Trail
+          head located on Linda Vista Road east of the interesction of Linda
+          Vista Road and Oracle Road (AZ 77). (<a
+            href="https://geohack.toolforge.org/geohack.php?pagename=Template:Coord&params=32.380722_N_110.961139_W_"
+            class="link"
+            >32.380722, -110.961139</a
+          >)
+        </p>
+        <p>
+          Follow the trail that follows the wash. The GPX track follows the
+          whole route. Continue on the trail heading southeast until you
+          intersect with another trail. Take a left for a short distance until a
+          trail splits off to the right. Note the "NOT A FOREST SYSTEM TRAIL
+          BEYOND THIS POINT" sign. You will tell why continuing the hike. Follow
+          the steep trail until the summit of Pusch Peak. The benchmark disk is
+          located on the rock outcrop the summit is located at. The benchmark is
+          just below the summit.
+        </p>
+        <p>
+          "PUSCH NO: 1" is located 44.272 feet or 13.494 meters 138 degrees from
+          the main benchmark. It is located just below the summit of a rock
+          outcrop. It should be visible from the main benchmark.
+        </p>
+        <p>
+          "PUSCH NO: 2" is located 54.140 feet or 16.502 meters 256 degrees from
+          the main benchmark. It is located at about the same elevation as the
+          main benchmark in a rock outcrop.
+        </p>
         <p>"Q 19" has been destroyed.</p>
       </div>
       <!-- Gallery -->
       <div class="gallery">
         <a target="_blank" href="images/PUSCH.jpg">
-          <img src="images/PUSCH.jpg" alt="PUSCH benchmark" width="600" height="400">
+          <img
+            src="images/PUSCH.jpg"
+            alt="PUSCH benchmark"
+            width="600"
+            height="400"
+          />
         </a>
         <div class="desc">A closeup of the main benchmark.</div>
       </div>
 
       <div class="gallery">
         <a target="_blank" href="images/PUSCH-svg.svg">
-          <img src="images/PUSCH-svg.svg" alt="PUSCH benchmark" width="600" height="400">
+          <img
+            src="images/PUSCH-svg.svg"
+            alt="PUSCH benchmark"
+            width="600"
+            height="400"
+          />
         </a>
         <div class="desc">A digitalization of the benchmark.</div>
       </div>
     </div>
     <script>
-      var mainGood = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+      var loadJson = function (obj) {
+        /* Add icons for marker status. */
+        var mainGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var refGood = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        var refGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var azimuthGood = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        var azimuthGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var mainBad = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        var mainBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var refBad = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        var refBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var azimuthBad = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        var azimuthBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var none = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        var none = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
 
-      var main = L.layerGroup(); 
-      L.marker([32.372008, -110.939097], {icon: mainGood}).addTo(main).bindPopup('PUSCH').openPopup();
+        /* Convert status in JSON to variable for interpretation below */
+        var main = L.layerGroup();
+        function statusToIcon(status) {
+          if (status == "mainGood") {
+            return mainGood;
+          }
+          if (status == "mainBad") {
+            return mainBad;
+          }
+          if (status == "refGood") {
+            return refGood;
+          }
+          if (status == "refBad") {
+            return refBad;
+          }
+          if (status == "azimuthGood") {
+            return azimuthGood;
+          }
+          if (status == "azimuthBad") {
+            return azimuthBad;
+          }
+          if (status == "none") {
+            return none;
+          }
+        }
 
-      var reference = L.layerGroup();
-      L.marker([32.371917, -110.939], {icon: none}).addTo(reference).bindPopup('PUSCH NO: 1').openPopup();
-      L.marker([32.371972, -110.939267], {icon: none}).addTo(reference).bindPopup('PUSCH NO: 2').openPopup();
+        /* Main marker icon */
+        L.marker([obj.mainCoordLat, obj.mainCoordLong], {
+          icon: statusToIcon(obj.mainStatus),
+        })
+          .addTo(main)
+          .bindPopup(obj.mainName)
+          .openPopup();
 
-      var azimuth = L.layerGroup();
-      L.marker([32.326989, -110.976028], {icon: azimuthBad}).addTo(reference).bindPopup('Q 19').openPopup();
-    
-      var caltopo = L.tileLayer('https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>', maxNativeZoom: 16}),
-        osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
-        naip = L.tileLayer('https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}', {attribution: 'USDA-NAIP', layers: 'SDA_CONUS_PRIME (NAIP/USDA_CONUS_PRIME)'}),
-        usgsImagery = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}', {attribution: 'USDA-NAIP', maxNativeZoom: 16});
-        ersi = L.tileLayer('https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution: 'Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community'})
-        ersiClarity = L.tileLayer('https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution: 'Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community'})
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
 
-      var route = L.layerGroup();
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: obj.referenceStatus1,
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: obj.referenceStatus2,
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: obj.referenceStatus3,
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: obj.referenceStatus4,
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: obj.referenceStatus5,
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+        }
+        /*
+          {
+            key: "value",
+            references: []
+              {
+                lat: <>, 
+                long: <>,
+                status: <>
 
-      var map = L.map('map', {
-        center: [32.3550, -110.9617],
-        zoom: 13,
-        layers: [caltopo, main, reference, azimuth, route]
-      });
+              },
+              {
+                lat: <>, 
+                long: <>,
+                name: <>
 
-      var gpx = 'https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx';
-      new L.GPX(gpx, {async: true,
-      marker_options: {
-        startIconUrl: '../images/empty.png',
-        endIconUrl: '../images/empty.png',
-        shadowUrl: '../images/empty.png',
-        iconSize:     [1, 1],
-      }
-      }).on('loaded', function(e){}).addTo(route);
+              }
+            ]
+          }
+        */
+        var caltopo = L.tileLayer(
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            {
+              attribution:
+                '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
+              maxNativeZoom: 16,
+            }
+          ),
+          osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }),
+          naip = L.tileLayer(
+            "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution: "USDA-NAIP",
+              layers: "SDA_CONUS_PRIME (NAIP/USDA_CONUS_PRIME)",
+            }
+          ),
+          usgsImagery = L.tileLayer(
+            "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+            { attribution: "USDA-NAIP", maxNativeZoom: 16 }
+          );
+        ersi = L.tileLayer(
+          "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution:
+              "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+          }
+        );
+        ersiClarity = L.tileLayer(
+          "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            attribution:
+              "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+          }
+        );
 
-      var baseMaps = {
-        "Scanned USGS Topo Maps": caltopo,
-        "OpenStreetMap": osm,
-        "NAIP": naip,
-        "USGS Imagery": usgsImagery,
-        "Ersi World Imagery": ersi,
-        "Ersi Clarity": ersiClarity
+        var route = L.layerGroup();
+        var layers = [caltopo, main]; //main, reference, route
+
+        if (obj.azimuth == "y") {
+          var azimuth = L.layerGroup();
+          L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
+            icon: obj.azimuthStatus,
+          })
+            .addTo(azimuth)
+            .bindPopup(obj.azimuthName)
+            .openPopup();
+          layers.push(azimuth);
+        }
+
+        var gpx = "https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx";
+        new L.GPX(gpx, {
+          async: true,
+          marker_options: {
+            startIconUrl: "../images/empty.png",
+            endIconUrl: "../images/empty.png",
+            shadowUrl: "../images/empty.png",
+            iconSize: [1, 1],
+          },
+        })
+          .on("loaded", function (e) {})
+          .addTo(route);
+
+        var baseMaps = {
+          "Scanned USGS Topo Maps": caltopo,
+          OpenStreetMap: osm,
+          NAIP: naip,
+          "USGS Imagery": usgsImagery,
+          "Ersi World Imagery": ersi,
+          "Ersi Clarity": ersiClarity,
+        };
+
+        var overlays = {
+          Benchmark: main,
+          "Reference Marks": reference,
+          "GPX Route": route,
+        };
+
+        if (obj.azimuth == "y") {
+          overlays.push({ Azimuth: azimuth });
+        }
+        var map = L.map("map", {
+          center: [32.355, -110.9617],
+          zoom: 13,
+          layers: layers,
+        });
+        L.control.layers(baseMaps, overlays).addTo(map);
       };
-
-      var overlays = {
-		    "Benchmark": main,
-        "Reference Marks": reference,
-        "Azimuth Mark": azimuth,
-        "GPX Route": route
-	    };
-
-      L.control.layers(baseMaps, overlays).addTo(map);
+      $.getJSON(
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/pusch.json",
+        loadJson
+      );
     </script>
-</body>
+  </body>
 </html>
