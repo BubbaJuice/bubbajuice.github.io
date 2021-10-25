@@ -26,8 +26,8 @@
   "referenceStatus5": "n",
   "azimuth": "y",
   "azimuthName": "Q 19",
-  "azimuthCoordLat": "32.326989, -110.976028",
-  "azimuthCoordLong": "32.326989, -110.976028",
+  "azimuthCoordLat": "32.326989",
+  "azimuthCoordLong": "-110.976028",
   "azimuthStatus": "azimuthBad",
   "gpx": "y",
   "gpxFile": "pusch.gpx"
