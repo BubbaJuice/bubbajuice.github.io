@@ -516,38 +516,50 @@
               maxNativeZoom: 16,
             }
           ),
-          osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          }),
+
+          osm = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            {
+              attribution: 
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ),
+
           naip = L.tileLayer(
             "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
             {
-              attribution: "USDA-NAIP",
-              layers: "SDA_CONUS_PRIME (NAIP/USDA_CONUS_PRIME)",
+              attribution: 
+                "USDA-NAIP",
             }
-          ),
+          );
+
           usgsImagery = L.tileLayer(
             "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
-            { attribution: "USDA-NAIP", maxNativeZoom: 16 }
+            { 
+              attribution: 
+                "USDA-NAIP", 
+              maxNativeZoom: 16 
+            }
           );
-        ersi = L.tileLayer(
-          "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-          {
-            attribution:
-              "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
-          }
-        );
-        ersiClarity = L.tileLayer(
-          "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-          {
-            attribution:
-              "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
-          }
-        );
+
+          ersi = L.tileLayer(
+            "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+            }
+          );
+
+          ersiClarity = L.tileLayer(
+            "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+            }
+          );
 
         var route = L.layerGroup();
-        var layers = [caltopo, main]; //main, reference, route
+        var layers = [caltopo, main, reference, route];
 
         if (obj.azimuth == "y") {
           var azimuth = L.layerGroup();
