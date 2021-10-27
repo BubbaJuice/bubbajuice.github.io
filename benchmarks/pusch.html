@@ -432,6 +432,7 @@
           if (status == "none") {
             return none;
           }
+          console.log("Couldn't find a status!")
         }
 
         /* Main marker icon */
@@ -441,73 +442,6 @@
           .addTo(main)
           .bindPopup(obj.mainName)
           .openPopup();
-
-        /* Reference mark icons */  
-        if (obj.reference == "y") {
-          var reference = L.layerGroup();
-
-          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
-            icon: obj.referenceStatus1,
-          })
-            .addTo(reference)
-            .bindPopup(obj.referenceName1)
-            .openPopup();
-          if (obj.referenceCoordLat2 == "n") {
-          } else {
-            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
-              icon: obj.referenceStatus2,
-            })
-              .addTo(reference)
-              .bindPopup(obj.referenceName2)
-              .openPopup();
-          }
-          if (obj.referenceCoordLat3 == "n") {
-          } else {
-            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
-              icon: obj.referenceStatus3,
-            })
-              .addTo(reference)
-              .bindPopup(obj.referenceName3)
-              .openPopup();
-          }
-          if (obj.referenceCoordLat4 == "n") {
-          } else {
-            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
-              icon: obj.referenceStatus4,
-            })
-              .addTo(reference)
-              .bindPopup(obj.referenceName4)
-              .openPopup();
-          }
-          if (obj.referenceCoordLat5 == "n") {
-          } else {
-            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
-              icon: obj.referenceStatus5,
-            })
-              .addTo(reference)
-              .bindPopup(obj.referenceName5)
-              .openPopup();
-          }
-        }
-        /*
-          {
-            key: "value",
-            references: []
-              {
-                lat: <>, 
-                long: <>,
-                status: <>
-
-              },
-              {
-                lat: <>, 
-                long: <>,
-                name: <>
-
-              }
-            ]
-          }
-        */
 
         /* Base Layers */
         var caltopo = L.tileLayer(
@@ -561,18 +495,81 @@
           );
 
         var route = L.layerGroup();
-        var layers = [caltopo, main, reference, route];
 
+        var layers = [caltopo, main, route];
+
+        var overlays = {};
+
+        var overlays = Object.assign({
+          "GPX Route": route
+        }, overlays );
+
+        /* Azimuth Markers */
         if (obj.azimuth == "y") {
           var azimuth = L.layerGroup();
           L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
-            icon: obj.azimuthStatus,
+            icon: statusToIcon(obj.azimuthStatus),
           })
             .addTo(azimuth)
             .bindPopup(obj.azimuthName)
             .openPopup();
           layers.push(azimuth);
+          overlays = Object.assign({"Azimuth": azimuth}, overlays);
         }
+
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
+
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: statusToIcon(obj.referenceStatus1),
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: statusToIcon(obj.referenceStatus2),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: statusToIcon(obj.referenceStatus3),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: statusToIcon(obj.referenceStatus4),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: statusToIcon(obj.referenceStatus5),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+          layers.push(reference);
+          overlays = Object.assign({"Reference Marks": reference}, overlays);
+        }
+
+        var overlays = Object.assign({
+          "Benchmark": main,
+        }, overlays );
 
         var gpx = "https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx";
         new L.GPX(gpx, {
@@ -596,15 +593,6 @@
           "Ersi Clarity": ersiClarity,
         };
 
-        var overlays = {
-          Benchmark: main,
-          "Reference Marks": reference,
-          "GPX Route": route,
-        };
-
-        if (obj.azimuth == "y") {
-          overlays.push({ Azimuth: azimuth });
-        }
         var map = L.map("map", {
           center: [32.355, -110.9617],
           zoom: 13,
