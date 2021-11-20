@@ -510,18 +510,21 @@
           "Benchmark": main,
         }, overlays );
 
-        var gpx = "https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx";
-        new L.GPX(gpx, {
-          async: true,
-          marker_options: {
-            startIconUrl: "../images/empty.png",
-            endIconUrl: "../images/empty.png",
-            shadowUrl: "../images/empty.png",
-            iconSize: [1, 1],
-          },
-        })
-          .on("loaded", function (e) {})
-          .addTo(route);
+        if (obj.gpx == "n") {
+        } else {
+          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx";
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
 
         var baseMaps = {
           "Scanned USGS Topo Maps": caltopo,
@@ -540,7 +543,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/pusch.json",
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/q19.json",
         loadJson
       );
     </script>
