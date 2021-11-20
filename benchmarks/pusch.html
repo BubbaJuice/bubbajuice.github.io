@@ -572,18 +572,21 @@
           "Benchmark": main,
         }, overlays );
 
-        var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + gpxFile;
-        new L.GPX(gpx, {
-          async: true,
-          marker_options: {
-            startIconUrl: "../images/empty.png",
-            endIconUrl: "../images/empty.png",
-            shadowUrl: "../images/empty.png",
-            iconSize: [1, 1],
-          },
-        })
-          .on("loaded", function (e) {})
-          .addTo(route);
+        if (obj.gpx == "n") {
+          } else {
+          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
 
         var baseMaps = {
           "Scanned USGS Topo Maps": caltopo,
