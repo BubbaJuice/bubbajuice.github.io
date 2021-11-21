@@ -607,8 +607,8 @@
         };
 
         var map = L.map("map", {
-          center: [32.355, -110.9617],
-          zoom: 13,
+          center: [obj.mapCenterLat, obj.mapCenterLong],
+          zoom: obj.mapZoom,
           layers: layers,
         });
         L.control.layers(baseMaps, overlays).addTo(map);
