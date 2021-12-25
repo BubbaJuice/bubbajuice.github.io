@@ -30,7 +30,7 @@
     "azimuthCoordLong": "-110.922206",
     "azimuthStatus": "azimuthBad",
     "gpx": "y",
-    "gpxFile": "n",
+    "gpxFile": "del.gpx",
     "mapCenterLat": "32.478907",
     "mapCenterLong": "-110.928990",
     "mapZoom": "15"
