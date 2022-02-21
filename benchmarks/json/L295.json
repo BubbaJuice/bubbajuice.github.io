@@ -31,7 +31,7 @@
     "azimuthStatus": "n",
     "gpx": "n",
     "gpxFile": "n",
-    "mainCenterLat": "32.396125",
-    "mainCenterLong": "-111.144697",
+    "mapCenterLat": "32.396125",
+    "mapCenterLong": "-111.144697",
     "mapZoom": "18"
 }
