@@ -1,7 +1,7 @@
 {
-    "mainName": "NOGLS 3531",
-    "mainCoordLat": "31.993078",
-    "mainCoordLong": "-110.684701",
+    "mainName": "NOGLS 4534",
+    "mainCoordLat": "31.846934",
+    "mainCoordLong": "-110.711022",
     "mainStatus": "mainGood",
     "reference": "n",
     "referenceName1": "n",
@@ -31,7 +31,7 @@
     "azimuthStatus": "n",
     "gpx": "n",
     "gpxFile": "n",
-    "mapCenterLat": "31.993078",
-    "mapCenterLong": "-110.684701",
+    "mapCenterLat": "31.846934",
+    "mapCenterLong": "-110.711022",
     "mapZoom": "18"
   }

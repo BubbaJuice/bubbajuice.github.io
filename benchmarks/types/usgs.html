@@ -1,0 +1,344 @@
+<html>
+  <head>
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+
+      .text {
+        margin-left: 15%;
+        margin-right: 15%;
+      }
+
+      .link {
+        color: #2f8aee;
+      }
+
+      .image {
+        border-color: mediumpurple;
+        border-style: solid;
+        border-radius: 12px;
+        margin: 10px;
+        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
+      }
+
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+
+      .whiteBorder {
+        border: 1px solid #ffffff;
+      }
+
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .descr {
+        width: 50%;
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>USGS Benchmarks - The Origin Story</strong></h1>
+      <p>
+        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
+        <a href="https://bubbajuice.github.io/" class="link">Home</a>
+        <a href="https://bubbajuice.github.io/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr/>
+    <p class="text">
+        The United States Geological Survey or USGS, founded in 1879, is a governmental agency. It was originally created to explore and document the 
+        lands of the United States that had been relatively unexplored.
+    </p>
+    <p class="text">
+        The first topographic maps were made in 1882. In order to triangulate, 
+        The first benchmarks developed by the USGS that predated the act were a wedge and bolt. The bolt was 4 inches long 
+        and 1 inch in diamteter. By driving it on
+        a brass wedge placed in the bottom of a vertical hole the size of the bolt, so that
+        the top of the bolt was horizontal, it formed the benchmark. This would then have sometimes been enscribed 
+        with "USGS", the elevation, and "B.M.". These were often used in triangulation on topographic maps before traditional benchmark designs were made.
+    </p>
+    <center>
+      <a target="_blank" href="../images/boltAndWedge.jpg">
+        <img 
+          class="image"
+          src="../images/boltAndWedge.jpg"
+          alt=""
+          width=""
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+        However, the agency changed June 11, 1896 because of the Sundry Civil Appropriation Act. The following was stated:
+    </p>
+    <p class="text">
+        “Provided, that hereafter in such surveys west of the
+        95th meridian elevations above a base level located
+        in each area under survey shall be determined and
+        marked on the ground by iron, or stone, posts, or
+        permanent bench marks, at least two such
+        posts or bench marks to be established in each township or equivalent area, except in the forest-clad and
+        mountain areas, where at least one shall be established, and these shall be placed whenever practicable, near the township corners of the public land
+        surveys; and in the areas east of the 95th meridian at
+        least one such post or bench mark shall be similarly
+        established, in each area equivalent to the area of a
+        township of the public land surveys.”
+    </p>
+    <center>
+      <a target="_blank" href="../images/SundryCivilAppropriationAct1896.png">
+        <img
+          class="image"
+          src="../images/SundryCivilAppropriationAct1896.png"
+          alt=""
+          width=""
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+        By this act passed by Congress, the USGS was to manage the task of establishing these permanent monuments in "Indian Lands".
+        Earlier that year, designs were being made for triangulation networks planned in the great plains. This amounted to the first ever benchmark disks.
+        Two designs were made, one for rock and building and the other for soft ground.
+    </p>
+    <p class="text">
+      The one made for rock and buildings was a disk 3.5 inches in diameter and 1/4 of an inch thick. 
+      A 3 inch stem protruded from the bottom. This stem would be placed in a drill hole and cemented in.
+    </p>
+    <p class="text">
+      The one made for soft ground had the same disk was 1 inch think stead of 1/4 of an inch thich. 
+      This disk was the cap of a pipe 4 feet long. At the end of the pipe, the pipe split in half making 2 roots for the benchmark.
+      These would be placed so that the disk would be close to ground level, if possible. These disks would be made out of copper or aluminum. 
+    </p>
+    <center>
+      <a target="_blank" href="../images/oldPost.png">
+        <img 
+          class="image"
+          src="../images/oldPost.png"
+          alt=""
+          width=""
+          height=""
+        />
+      </a>
+      <a target="_blank" href="../images/NOGLS3290.jpg">
+        <img 
+          class="image"
+          src="../images/NOGLS3290.jpg"
+          alt=""
+          width=""
+          height="815"
+        />
+      </a>
+    </center>
+    <p class="text">
+      At this point, the bolts had not been completely phased out, still sometimes used as triangulation stations. Around 1899, a new style
+      for triangulation stations was designed and started being used. This design was exclusively made for placement in rock or buildings.
+      This design got rid of the "B.M." at the bottom of the benchmark and added the classic triangle with a point in the middle of the mark.
+      There was no spot for a datum on these benchmarks, only an elevation. Most often than not these benchmarks were left unstamped.
+    </p>
+    <center>
+      <figure>
+        <a target="_blank" href="../images/CC-BY-SA-4.0_CharlestonPeak.jpg">
+          <img 
+            class="image"
+            src="../images/CC-BY-SA-4.0_CharlestonPeak.jpg"
+            alt=""
+            width="20%"
+            height=""
+          />
+        </a>
+        <figcaption>
+          CC BY-SA 4.0, 
+          <a href="https://commons.wikimedia.org/wiki/File:2015-07-13_11_47_03_United_States_Geological_Survey_marker_on_the_summit_of_Charleston_Peak,_Nevada.jpg" class="link">Original Image</a> by "<a href="https://commons.wikimedia.org/wiki/User:Famartin" class="link">Famartin</a>", cropped and transformed perspective
+        </figcaption>
+      </figure>
+    </center>
+    <p class="text">
+      In 1903, a small revision was made adding the "B.M" back from the typical elevation markers to the triangulation disks. 
+      The old version still was used past 1903 but became much rarer.
+    </p>
+    <center>
+      <a target="_blank" href="../images/PUSCH-c.jpg">
+        <img 
+          class="image"
+          src="../images/PUSCH-c.jpg"
+          alt=""
+          width="20%"
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+      Some triangulation disks and vertical control disks had the state they were in pre-printed across the top of the disk. 
+      These were likely concepted in the very early 1900s.
+    </p>
+    <center>
+      <a target="_blank" href="../images/SF200-c.png">
+        <img 
+          class="image"
+          src="../images/SF200-c.png"
+          alt=""
+          width="20%"
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+      In 1907, a new design of benchmark was made. This removed the "plus" from the old design and added a small triangle with a plus inside of it. 
+      The old design for triangulation and vertical control was used rarely after 1908.
+    </p>
+    <center>
+      <a target="_blank" href="../images/6883-c.jpg">
+        <img 
+          class="image"
+          src="../images/6883-c.jpg"
+          alt=""
+          width="20%"
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+      An alternate design of this featured the 1907 design but without the big "UNITED STATES GEOLOGICAL SURVEY" and said 
+      "IN COOPERATION WITH THE STATE OF". One much rarer version had no "DATUM" printed on it.
+    </p>
+    <center>
+      <figure>
+        <a target="_blank" href="../images/CC-BY-SA-4.0_131-1913.jpg">
+          <img 
+            class="image"
+            src="../images/CC-BY-SA-4.0_131-1913.jpg"
+            alt=""
+            width="20%"
+            height=""
+          />
+        </a>
+        <figcaption>
+          CC BY-SA 4.0, 
+          <a href="https://commons.wikimedia.org/wiki/File:Datum_1913_3539.jpg" class="link">Original Image</a> by "<a href="https://commons.wikimedia.org/wiki/User:Chris_Light" class="link">Chris Light</a>", cropped and rotated
+        </figcaption>
+      </figure>
+      <a target="_blank" href="../images/1907redesign.png">
+        <img 
+          class="image"
+          src="../images/1907redesign.png"
+          alt=""
+          width="20%"
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+      The next change came in 1932 when the "IN COOPERATION WITH THE STATE" design became fully embraced. 
+      These new benchmarks did not feature the $250 fine warning for disturbing the mark. They had no datum label.
+    </p>
+    <center>
+      <a target="_blank" href="../images/K5-c.jpg">
+        <img 
+          class="image"
+          src="../images/K5-c.jpg"
+          alt=""
+          width="20%"
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+      In 1962 the next change embraced "U.S. Department of Interior", the parent agency of the USGS.
+      It now warned that it is unlawful to distrub. From what I have found, this was the last change made to the markers.
+      Benchmarks in the disk form have been phased out from modern surveying and such a large network has been built that new
+      benchmarks are in many cases not necessary.
+    </p> 
+    <center>
+      <figure>
+        <a target="_blank" href="../images/73MLS.jpg">
+          <img 
+            class="image"
+            src="../images/73MLS.jpg"
+            alt=""
+            width="20%"
+            height=""
+          />
+        </a>
+        <figcaption>
+          Public Domain, 
+          <a href="https://commons.wikimedia.org/wiki/File:Blackrock_Gap_survey_marker.jpg" class="link">Original Image</a> by "<a href="https://en.wikipedia.org/wiki/User:Nyttend" class="link">Nyttend</a>", cropped and rotated
+        </figcaption>
+      </figure>
+    </center>
+  </body>
+</html>
