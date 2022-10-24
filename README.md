@@ -11,8 +11,8 @@ All files in repository are under the license unless said otherwise in a comment
 
 ## Website Summary
 
-My website has a few [andriod apps](https://bubbajuice.github.io/apps) and a in-depth list of [benchmarks](https://bubbajuice.github.io/benchmarks), each with helpful information and photos to aid finding said benchmark.
+My website has a few [android apps](https://bubbajuice.github.io/apps) and a in-depth list of [benchmarks](https://bubbajuice.github.io/benchmarks), each with helpful information and photos to aid finding said benchmark.
 
 ## Website Future
 
-My goals for my website are to have tools to aid in converting coordinates into different formats, an in depth benchmark compiled from multiple resources, and in-depth pages for each benchmark I have personally found, along with some of the ones I have not found, but searched for. Progress on benchmarks I have added and not added can be found in [this project](https://github.com/BubbaJuice/bubbajuice.github.io/projects/1). The benchmarks page will hopefully be able to be sorted by certain fields, (date monumented, date of recovery, condition, etc.)
+My goals for my website are to have tools to aid in converting coordinates into different formats, an in depth list of benchmarks compiled from multiple resources, and in-depth pages for each benchmark I have personally found, along with some of the ones I have not found, but searched for. Progress on benchmarks I have added and not added can be found in [this project](https://github.com/users/BubbaJuice/projects/1/views/1). The benchmarks page will hopefully be able to be sorted by certain fields, (date monumented, date of recovery, condition, etc.)
