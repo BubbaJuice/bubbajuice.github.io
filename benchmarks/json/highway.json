@@ -9,10 +9,10 @@
     "referenceName3": "n",
     "referenceName4": "n",
     "referenceName5": "n",
-    "referenceCoordLat1": "32.479747",
-    "referenceCoordLong1": "-110.936617",
-    "referenceCoordLat2": "32.479583",
-    "referenceCoordLong2": "-110.936561",
+    "referenceCoordLat1": "32.638019",
+    "referenceCoordLong1": "-110.733603",
+    "referenceCoordLat2": "32.637969",
+    "referenceCoordLong2": "-110.733694",
     "referenceCoordLat3": "n",
     "referenceCoordLong3": "n",
     "referenceCoordLat4": "n",
@@ -33,5 +33,5 @@
     "gpxFile": "highway.gpx",
     "mapCenterLat": "32.6377",
     "mapCenterLong": "-110.7347",
-    "mapZoom": "15"
+    "mapZoom": "16"
   }
