@@ -105,7 +105,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Title -->
     <center>
-      <h1><strong>HIGHWAY NO 2</strong></h1>
+      <h1><strong>Y 18</strong></h1>
       <p>
         <a href="https://bubbajuice.github.io/benchmarks" class="link"
           >Benchmarks</a>
@@ -196,111 +196,79 @@
         </div>
       </div>
       <!-- Start of description -->
-      <h2>"HIGHWAY NO 2"</h2>
+      <h2>"Y 18"</h2>
       <table>
         <tr>
           <td><strong>NGS PointID: </strong></td>
-          <td>CC6672</td>
+          <td>CZ0300</td>
         </tr>
         <tr>
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
-            <a
-              href="https://bubbajuice.github.io/benchmarks/highway"
-              class="link"
-              >HIGHWAY</a
-            >,
-            <a
-              href="https://bubbajuice.github.io/benchmarks/highway_1"
-              class="link"
-              >HIGHWAY NO 1</a
-            >
+            None
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Azimuth Benchmark: </strong></td>
+          <td>
+            None
           </td>
         </tr>
         <tr>
           <td><strong>Condition: </strong></td>
-          <td>Ware</td>
+          <td>2 Large scratches/gashes, Minor ware</td>
         </tr>
         <tr>
           <td><strong>Stamping: </strong></td>
-          <td>HIGHWAY NO 1 1946</td>
+          <td>4081.301 Y 18 1933</td>
         </tr>
         <tr>
           <td><strong>Coordinates: </strong></td>
-          <td>32.637969, -110.733694</td>
+          <td>32.649192, -110.732533</td>
         </tr>
-        <!-- Source: 3DEP -->
+        <!-- Source: Benchmark -->
         <tr>
           <td><strong>Elevation: </strong></td>
-          <td>4286.15 ft (1306.42 m)</td>
+          <td>4081.301 ft (1243.981 m)</td>
         </tr>
         <!-- Source: Datasheet -->
         <tr>
           <td><strong>Setting: </strong></td>
-          <td>Minor ware</td>
+          <td>Rock outcrop</td>
         </tr>
         <tr>
           <td><strong>Monumentor: </strong></td>
-          <td>USGS</td>
+          <td>USC&GS</td>
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
-        <p>
-          RM 2--standard RM tablet stamped---HIGHWAY NO 2 1946---, set in
-          rock.
-        </p>
-      </div>
+      <p>
+        4.1 miles northeast along State Highway 77 from Oracle, Pinal County,
+        on a west slope on the north side of the first ravine north of a sharp
+        curve, 62 yards southwest of a low pole at the head of the ravine, 45
+        feet west of the centerline of the highway, in the top of a 3-foot
+        granite outcrop, about 1 foot above the ground, and about 2 feet lower
+        than the highway.  A standard disk, stamped 4081.301 Y 18 1933.
+      </p>
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>"Y 18" is a benchmark monumented by the USC&GS in 1933 located in Pinal County, Arizona.</p>
         <p>
-          "HIGHWAY NO 2" is a benchmark monumented by the USGS in 1946 located in Pinal County, 
-          Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/highway" class="link">HIGHWAY</a>.
-        </p>
-        <p>
-          The best way to get to "HIGHWAY NO 2" is to drive north on old State Route 77 from State Route 77 for half a mile. This road is passable with most-all passenger vehicles.
-          From here, walk on the power line road to ridge. Pack up the ridge to top of hill. The reference mark #1 is on the ridge under a tree just before the summit.
-        </p>
-        <p>
-          "HIGHWAY NO 2" is located 25.820 feet or 7.870 meters 265 degrees from
-          the main benchmark. It is located above the station on a boulder.
+          The best way to get to "Y 18" is to drive north on old State Route 77 from State Route 77 for 1.2 miles. This road is passable with most-all passenger vehicles.
+          From here, walk to the coordinates of the benchmark which is west of the road down a slope. It is placed horizontally in a boulder.
         </p>
       </div>
       <!-- Gallery -->
       <div class="gallery">
-        <a target="_blank" href="images/HIGHWAY2.png">
+        <a target="_blank" href="images/Y18.png">
           <img
-            src="images/HIGHWAY2.png"
-            alt="HIGHWAY NO 2 benchmark"
+            src="images/Y18.png"
+            alt="Y 18 benchmark"
             width="600"
             height="400"
           />
         </a>
-        <div class="desc">A closeup of HIGHWAY NO 2.</div>
-      </div>
-
-      <div class="gallery">
-        <a target="_blank" href="images/HIGHWAYangle2.png">
-          <img
-            src="images/HIGHWAYangle2.png"
-            alt="HIGHWAY benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">HIGHWAY looking towards HIGHWAY NO 2.</div>
-      </div>
-
-      <div class="gallery">
-        <a target="_blank" href="images/HIGHWAY2angle.png">
-          <img
-            src="images/HIGHWAY2angle.png"
-            alt="HIGHWAY NO 2 benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">HIGHWAY NO 2 looking towards the main benchmark.</div>
+        <div class="desc">The benchmark.</div>
       </div>
     </div>
     <script>
@@ -547,8 +515,8 @@
         }, overlays );
 
         if (obj.gpx == "n") {
-          } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+        } else {
+          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx";
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -579,7 +547,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/highway.json",
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/Y18.json",
         loadJson
       );
     </script>
