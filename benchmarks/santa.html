@@ -1,0 +1,686 @@
+<html>
+  <head>
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+
+      .link {
+        color: #2f8aee;
+      }
+
+      .image {
+        border-color: mediumpurple;
+        border-style: solid;
+        border-radius: 12px;
+        margin: 10px;
+        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
+        float: left;
+      }
+
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+
+      .whiteBorder {
+        border: 1px solid #ffffff;
+      }
+
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .descr {
+        width: 50%;
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>SANTA</strong></h1>
+      <p>
+        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
+        <a href="https://bubbajuice.github.io/" class="link">Home</a>
+        <a href="https://bubbajuice.github.io/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr />
+    <!-- Make markers -->
+    <div style="margin-left: 10%">
+      <div class="right" style="margin-right: 10%">
+        <div id="map"></div>
+        <div class="table">
+          <table style="float: right; margin-top: 10px">
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>A main, reference, or azimuth benchmark not searched for.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Start of description -->
+      <h2>"SANTA"</h2>
+      <table>
+        <tr>
+          <td><strong>NGS PointID: </strong></td>
+          <td>CZ1648</td>
+        </tr>
+        <tr>
+          <td><strong>Reference Benchmarks: </strong></td>
+          <td>
+            <a
+              href="https://bubbajuice.github.io/benchmarks/santa_1"
+              class="link"
+              >SANTA NO 1</a
+            >,
+            <a
+              href="https://bubbajuice.github.io/benchmarks/santa_2"
+              class="link"
+              >SANTA NO 2</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Condition: </strong></td>
+          <td>Minor ware.</td>
+        </tr>
+        <tr>
+          <td><strong>Stamping: </strong></td>
+          <td>SANTA 1962</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinates: </strong></td>
+          <td>32.598452, -110.887608</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Elevation: </strong></td>
+          <td>3676.38 ft (1120.56 m)</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Setting: </strong></td>
+          <td>Circular conrete monument</td>
+        </tr>
+        <tr>
+          <td><strong>Monumentor: </strong></td>
+          <td>USC&GS</td>
+        </tr>
+      </table>
+      <p><strong>Datasheet Description:</strong></p>
+      <div>
+        <p>
+          The station is 26 miles north-northeast of Tucson, 4 miles
+          northeast of Oracle Junction, 1/4 mile northwest of State
+          Highway 77, on rolling range land which drains west into Big Wash.
+        </p>
+        <p>
+          To reach the station from the junction of U.S. highways 80
+          and 89 and State Highway 77 at Oracle Junction, about 23 miles
+          north of Tucson, drive northeast on State Highway 77 for
+          3.85 miles to a macadam surfaced side road on the left.  Continue
+          northeast on the highway for 0.95 mile to a bladed side road
+          on the left.  Turn left, cross over a cattle guard, thence
+          turn left onto a track road and drive southwest and west
+          on the track road for 1.0 mile to the station.
+        </p>
+        <p>
+          Surface and underground-station marks are standard disks,
+          each stamped SANTA 1962.  The surface-station mark is set
+          in the top of a cylindrical concrete monument, 12 inches in
+          diameter, projecting 1-inch above the surface of the ground.
+          It is 100 yards south of a wash, 142.5 feet northeast of a
+          fence corner and 4.5 feet west of a wooden witness post with
+          a metal sign attached.
+        </p>
+        <p>
+          Reference mark 1, a standard disk stamped SANTA NO 1 1962,
+          is set in the top of a cylindrical concrete monument, 12
+          inches in diameter, projecting 8 inches above the surface
+          of the ground.  It is about the same elevation as the station
+          mark.
+        </p>
+        <p>
+          Reference mark 2, a standard disk stamped SANTA NO 2 1962,
+          is set in the top of a cylindrical concrete monument, 12
+          inches in diameter, projection 1-inch above the surface of
+          the ground.  It is about the same elevation as the station mark.
+        </p>
+      </div>
+      <div class="descr">
+        <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>
+          "SANTA" is a benchmark monumented by the USGS in 1946 located in Pinal
+          County, Arizona. It has 2 deticated reference marks.
+        </p>
+        <p>
+          The best way to get to "SANTA" is to enter the Saddlebrooke Ranch community and turn 
+          right onto Robson Circle. Stop at the end of the pavement and embark on the gravel "emergency road".
+          There will be a gate but it was not locked. Continue from the gate for 2,500 feet along the road. Then head south to the the benchmark.
+          The witness post is gone.
+        </p>
+        <p>
+          "SANTA NO 1" is located 26.447 feet or 8.061 meters 3 degrees from
+          the main benchmark. It is located at about the same elevation than the station.
+        </p>
+        <p>
+          "SANTA NO 2" is located 26.037 feet or 7.936 meters 285 degrees from
+          the main benchmark. It is located at about the same elevation than the station.
+        </p>
+      </div>
+      <!-- Gallery -->
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA.png">
+          <img
+            src="images/SANTA.png"
+            alt="SANTA benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of SANTA.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTAabove.png">
+          <img
+            src="images/SANTAabove.png"
+            alt="SANTA benchmark from above"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">SANTA from above.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA1.png">
+          <img
+            src="images/SANTA1.png"
+            alt="SANTA NO 1 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of SANTA NO 1.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA1above.png">
+          <img
+            src="images/SANTA1above.png"
+            alt="SANTA NO 1 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">SANTA NO 1 from above.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA1angle.png">
+          <img
+            src="images/SANTA1angle.png"
+            alt="SANTA NO 1 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">SANTA NO 1 looking towards SANTA.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA2.png">
+          <img
+            src="images/SANTA2.png"
+            alt="SANTA NO 2 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of SANTA NO 2.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA2above.png">
+          <img
+            src="images/SANTA2above.png"
+            alt="SANTA NO 2 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">SANTA NO 2 from above.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/SANTA2angle.png">
+          <img
+            src="images/SANTA2angle.png"
+            alt="SANTA NO 2 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">SANTA NO 2 looking towards SANTA.</div>
+      </div>
+    </div>
+    <script>
+      var loadJson = function (obj) {
+        /* Add icons for marker status. */
+        var mainGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var mainBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var none = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        /* Convert status in JSON to variable for interpretation below */
+        var main = L.layerGroup();
+        function statusToIcon(status) {
+          if (status == "mainGood") {
+            return mainGood;
+          }
+          if (status == "mainBad") {
+            return mainBad;
+          }
+          if (status == "refGood") {
+            return refGood;
+          }
+          if (status == "refBad") {
+            return refBad;
+          }
+          if (status == "azimuthGood") {
+            return azimuthGood;
+          }
+          if (status == "azimuthBad") {
+            return azimuthBad;
+          }
+          if (status == "none") {
+            return none;
+          }
+          console.log("Couldn't find a status!")
+        }
+
+        /* Main marker icon */
+        L.marker([obj.mainCoordLat, obj.mainCoordLong], {
+          icon: statusToIcon(obj.mainStatus),
+        })
+          .addTo(main)
+          .bindPopup(obj.mainName)
+          .openPopup();
+
+        /* Base Layers */
+        var caltopo = L.tileLayer(
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            {
+              attribution:
+                '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
+              maxNativeZoom: 16,
+            }
+          ),
+
+          osm = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            {
+              attribution: 
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ),
+
+          naip = L.tileLayer(
+            "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution: 
+                "USDA-NAIP",
+            }
+          );
+
+          usgsImagery = L.tileLayer(
+            "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+            { 
+              attribution: 
+                "USDA-NAIP", 
+              maxNativeZoom: 16 
+            }
+          );
+
+          ersi = L.tileLayer(
+            "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+            }
+          );
+
+          ersiClarity = L.tileLayer(
+            "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+            }
+          );
+
+        var route = L.layerGroup();
+
+        var layers = [caltopo, main, route];
+
+        var overlays = {};
+
+        var overlays = Object.assign({
+          "GPX Route": route
+        }, overlays );
+
+        /* Azimuth Markers */
+        if (obj.azimuth == "y") {
+          var azimuth = L.layerGroup();
+          L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
+            icon: statusToIcon(obj.azimuthStatus),
+          })
+            .addTo(azimuth)
+            .bindPopup(obj.azimuthName)
+            .openPopup();
+          layers.push(azimuth);
+          overlays = Object.assign({"Azimuth": azimuth}, overlays);
+        }
+
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
+
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: statusToIcon(obj.referenceStatus1),
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: statusToIcon(obj.referenceStatus2),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: statusToIcon(obj.referenceStatus3),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: statusToIcon(obj.referenceStatus4),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: statusToIcon(obj.referenceStatus5),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+          layers.push(reference);
+          overlays = Object.assign({"Reference Marks": reference}, overlays);
+        }
+
+        var overlays = Object.assign({
+          "Benchmark": main,
+        }, overlays );
+
+        if (obj.gpx == "n") {
+          } else {
+          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
+
+        var baseMaps = {
+          "Scanned USGS Topo Maps": caltopo,
+          OpenStreetMap: osm,
+          NAIP: naip,
+          "USGS Imagery": usgsImagery,
+          "Ersi World Imagery": ersi,
+          "Ersi Clarity": ersiClarity,
+        };
+
+        var map = L.map("map", {
+          center: [obj.mapCenterLat, obj.mapCenterLong],
+          zoom: obj.mapZoom,
+          layers: layers,
+        });
+        L.control.layers(baseMaps, overlays).addTo(map);
+      };
+      $.getJSON(
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/santa.json",
+        loadJson
+      );
+    </script>
+  </body>
+</html>
