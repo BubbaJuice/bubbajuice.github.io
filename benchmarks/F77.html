@@ -41,10 +41,6 @@
         color: #2f8aee;
       }
 
-      .redLink {
-        color: #ff0000;
-      }
-
       .image {
         border-color: mediumpurple;
         border-style: solid;
@@ -109,7 +105,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Title -->
     <center>
-      <h1><strong>COMSTOCK RESET Azimuth</strong></h1>
+      <h1><strong>F 77</strong></h1>
       <p>
         <a href="https://bubbajuice.github.io/benchmarks" class="link"
           >Benchmarks</a>
@@ -200,53 +196,33 @@
         </div>
       </div>
       <!-- Start of description -->
-      <h2>"COMSTOCK RESET Azimuth"</h2>
+      <h2>"F 77"</h2>
       <table>
         <tr>
           <td><strong>NGS PointID: </strong></td>
-          <td>CC7186</td>
-        </tr>
-        <tr>
-          <td><strong>Reference Benchmarks: </strong></td>
-          <td>
-            <a
-              href="https://bubbajuice.github.io/benchmarks/comstock"
-              class="link"
-              >COMSTOCK</a
-            >,
-            <a
-              href="https://bubbajuice.github.io/benchmarks/comstock_1"
-              class="redLink"
-              >COMSTOCK NO 1</a
-            >,
-            <a
-              href="https://bubbajuice.github.io/benchmarks/comstock_2"
-              class="redLink"
-              >COMSTOCK NO 2</a
-            >
-          </td>
+          <td>CG0322</td>
         </tr>
         <tr>
           <td><strong>Condition: </strong></td>
-          <td>Large gashes and scratches.</td>
+          <td>Ware and minor scratching</td>
         </tr>
         <tr>
           <td><strong>Stamping: </strong></td>
-          <td>COMSTOCK 1946 RESET 1963</td>
+          <td>F 77 1934</td>
         </tr>
         <tr>
           <td><strong>Coordinates: </strong></td>
-          <td>31.716148, -110.070689</td>
+          <td>31.663306, -110.682333</td>
         </tr>
-        <!-- Source: 3DEP -->
+        <!-- Source: NGS Datasheet -->
         <tr>
           <td><strong>Elevation: </strong></td>
-          <td>4509.12 ft (1374.38 m)</td>
+          <td>4737.17 ft (1443.89 m)</td>
         </tr>
         <!-- Source: Datasheet -->
         <tr>
           <td><strong>Setting: </strong></td>
-          <td>A rock outcrop</td>
+          <td>A square concrete post.</td>
         </tr>
         <tr>
           <td><strong>Monumentor: </strong></td>
@@ -256,56 +232,60 @@
       <p><strong>Datasheet Description:</strong></p>
       <div>
         <p>
-          The new azimuth mark could not be set on line since a power
-          line has been constructed with a pole exactly on line between
-          the station and the azimuth mark.  The reset azimuth mark can
-          be located by the original description, however, it is now
-          set on the same side of the highway in a new concrete curb
-          and not in a headwall as previously.  The old mark was not
-          removed and has since been buried in the new highway fill.
-
-          Airline distance and direction from nearest town--Ltr of
-          Arizona Hwy Dept. Dated may 20, 1964--
+          1.9 mi SW from Sonoita.
+          1.9 miles southwest along the Southern Pacific Co. Railroad from
+          Sonoita, Santa Cruz County, 3 feet southwest of milepost 1084, 40 feet
+          north of the centerline of the track, and 20 feet south of a fence
+          line.  A standard disk, stamped F 77 1934 and set in the top of a
+          concrete post.
         </p>
       </div>
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
-          "COMSTOCK RESET" is a benchmark monumented by the ADOT in 1963 located in Cochise County, 
-          Arizona. It is a deticated azimuth mark for <a href="https://bubbajuice.github.io/benchmarks/comstock" class="link">COMSTOCK</a>.
+          "F 77" is a benchmark monumented by the USC&GS in 1934 located in Santa Cruz
+          County, Arizona.
         </p>
         <p>
-          <p>
-            The reset azimuth mark is located on the curb at AZ 80 and Safford Street. The original azimuth mark 
-          is under the highway fill after the highway was expanded.
-          </p>
+          The benchmark is on the highway right of way and can be accessed from AZ 82.
         </p>
       </div>
       <!-- Gallery -->
       <div class="gallery">
-        <a target="_blank" href="images/COMSTOCK_RESET.png">
+        <a target="_blank" href="images/F77.png">
           <img
-            src="images/COMSTOCK_RESET.png"
-            alt="COMSTOCK RESET benchmark"
+            src="images/F77.png"
+            alt="F 77  benchmark"
             width="600"
             height="400"
           />
         </a>
-        <div class="desc">COMSTOCK RESET azimuth.</div>
+        <div class="desc">A closeup of F 77.</div>
       </div>
 
       <div class="gallery">
-        <a target="_blank" href="images/COMSTOCK_RESETback.png">
+        <a target="_blank" href="images/F77back.png">
           <img
-            src="images/COMSTOCK_RESETback.png"
-            alt="COMSTOCK RESET benchmark"
+            src="images/F77back.png"
+            alt="F 77 benchmark from further back"
             width="600"
             height="400"
           />
         </a>
-        <div class="desc">COMSTOCK RESET azimuth from further back.</div>
+        <div class="desc">F 77 from further back.</div>
       </div>
-    </div>
+    
+      <div class="gallery">
+        <a target="_blank" href="images/F77distance.png">
+          <img
+            src="images/F77distance.png"
+            alt="F 77 benchmark from a distance"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">F 77 from a distance.</div>
+      </div>
     <script>
       var loadJson = function (obj) {
         /* Add icons for marker status. */
@@ -582,7 +562,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/comstock.json",
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/F77.json",
         loadJson
       );
     </script>

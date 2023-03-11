@@ -41,10 +41,6 @@
         color: #2f8aee;
       }
 
-      .redLink {
-        color: #ff0000;
-      }
-
       .image {
         border-color: mediumpurple;
         border-style: solid;
@@ -109,7 +105,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Title -->
     <center>
-      <h1><strong>COMSTOCK RESET Azimuth</strong></h1>
+      <h1><strong>H 77</strong></h1>
       <p>
         <a href="https://bubbajuice.github.io/benchmarks" class="link"
           >Benchmarks</a>
@@ -200,112 +196,59 @@
         </div>
       </div>
       <!-- Start of description -->
-      <h2>"COMSTOCK RESET Azimuth"</h2>
+      <h2>"Comstock Hill"</h2>
       <table>
         <tr>
-          <td><strong>NGS PointID: </strong></td>
-          <td>CC7186</td>
-        </tr>
-        <tr>
-          <td><strong>Reference Benchmarks: </strong></td>
-          <td>
-            <a
-              href="https://bubbajuice.github.io/benchmarks/comstock"
-              class="link"
-              >COMSTOCK</a
-            >,
-            <a
-              href="https://bubbajuice.github.io/benchmarks/comstock_1"
-              class="redLink"
-              >COMSTOCK NO 1</a
-            >,
-            <a
-              href="https://bubbajuice.github.io/benchmarks/comstock_2"
-              class="redLink"
-              >COMSTOCK NO 2</a
-            >
-          </td>
-        </tr>
-        <tr>
           <td><strong>Condition: </strong></td>
-          <td>Large gashes and scratches.</td>
+          <td>Ware and very shallow gashes</td>
         </tr>
         <tr>
           <td><strong>Stamping: </strong></td>
-          <td>COMSTOCK 1946 RESET 1963</td>
+          <td>(none)</td>
         </tr>
         <tr>
           <td><strong>Coordinates: </strong></td>
-          <td>31.716148, -110.070689</td>
+          <td>31.719611, -110.074181</td>
         </tr>
         <!-- Source: 3DEP -->
         <tr>
           <td><strong>Elevation: </strong></td>
-          <td>4509.12 ft (1374.38 m)</td>
+          <td>4592.59 ft (1399.82 m)</td>
         </tr>
         <!-- Source: Datasheet -->
         <tr>
           <td><strong>Setting: </strong></td>
-          <td>A rock outcrop</td>
+          <td>A rock outcrop.</td>
         </tr>
         <tr>
           <td><strong>Monumentor: </strong></td>
           <td>USC&GS</td>
         </tr>
       </table>
-      <p><strong>Datasheet Description:</strong></p>
-      <div>
-        <p>
-          The new azimuth mark could not be set on line since a power
-          line has been constructed with a pole exactly on line between
-          the station and the azimuth mark.  The reset azimuth mark can
-          be located by the original description, however, it is now
-          set on the same side of the highway in a new concrete curb
-          and not in a headwall as previously.  The old mark was not
-          removed and has since been buried in the new highway fill.
-
-          Airline distance and direction from nearest town--Ltr of
-          Arizona Hwy Dept. Dated may 20, 1964--
-        </p>
-      </div>
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
-          "COMSTOCK RESET" is a benchmark monumented by the ADOT in 1963 located in Cochise County, 
-          Arizona. It is a deticated azimuth mark for <a href="https://bubbajuice.github.io/benchmarks/comstock" class="link">COMSTOCK</a>.
+          "Comstock Hill" is a benchmark monumented by the USGS in 1903 located in Cochise County, Arizona. 
+          It has no stamped information and the datasheet is presumably somewhere deep in a file cabnet in Denver 
+          that regards its name. The name I have given it is based off of the name of the hill descibed on USGS
+          topographic maps upon which the benchmark is situated.
         </p>
         <p>
-          <p>
-            The reset azimuth mark is located on the curb at AZ 80 and Safford Street. The original azimuth mark 
-          is under the highway fill after the highway was expanded.
-          </p>
+          The benchmark is on top of Comstock Hill at the west of the concrete ring.
         </p>
       </div>
       <!-- Gallery -->
       <div class="gallery">
-        <a target="_blank" href="images/COMSTOCK_RESET.png">
+        <a target="_blank" href="images/COMSTOCK_HILL.png">
           <img
-            src="images/COMSTOCK_RESET.png"
-            alt="COMSTOCK RESET benchmark"
+            src="images/COMSTOCK_HILL.png"
+            alt="Comstock Hill benchmark"
             width="600"
             height="400"
           />
         </a>
-        <div class="desc">COMSTOCK RESET azimuth.</div>
+        <div class="desc">A closeup of the benchmark.</div>
       </div>
-
-      <div class="gallery">
-        <a target="_blank" href="images/COMSTOCK_RESETback.png">
-          <img
-            src="images/COMSTOCK_RESETback.png"
-            alt="COMSTOCK RESET benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">COMSTOCK RESET azimuth from further back.</div>
-      </div>
-    </div>
     <script>
       var loadJson = function (obj) {
         /* Add icons for marker status. */
@@ -582,7 +525,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/comstock.json",
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/comstock_hill.json",
         loadJson
       );
     </script>
