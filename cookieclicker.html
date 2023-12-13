@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<title>Cookie Clicker Calculator</title>
+<body>
+
+<h2>Cookie Clicker Calculator</h2>
+<p>Values in textboxes not cached. Values change in-game frequently so update often enough.</p>
+<p>Type the amount of cookies per building and the cost for one building:</p>
+
+<h3>Building 1 <input></input></h3>
+<p>
+  <label>Cost: (Cost to buy upgrade)</label>
+  <input id="inputCost" type="number" placeholder="Cookies" oninput="Calculator()" onchange="Calculator()">
+</p>
+<p>
+  <label>Reward: (Cookies per second earned from one building)</label>
+  <input id="inputReward" type="number" placeholder="Cookies per second" oninput="Calculator()" onchange="Calculator()">
+</p>
+<p>Cost per Cookie a second: <span id="result"></span></p>
+
+<h3>Building 2 <input></input></h3>
+<p>
+  <label>Cost: (Cost to buy upgrade)</label>
+  <input id="inputCost1" type="number" placeholder="Cookies" oninput="Calculator1()" onchange="Calculator1()">
+</p>
+<p>
+  <label>Reward: (Cookies per second earned from one building)</label>
+  <input id="inputReward1" type="number" placeholder="Cookies per second" oninput="Calculator1()" onchange="Calculator1()">
+</p>
+<p>Cost per Cookie a second: <span id="result1"></span></p>
+
+<h3>Building 3 <input></input></h3>
+<p>
+  <label>Cost: (Cost to buy upgrade)</label>
+  <input id="inputCost2" type="number" placeholder="Cookies" oninput="Calculator2()" onchange="Calculator2()">
+</p>
+<p>
+  <label>Reward: (Cookies per second earned from one building)</label>
+  <input id="inputReward2" type="number" placeholder="Cookies per second" oninput="Calculator2()" onchange="Calculator2()">
+</p>
+<p>Cost per Cookie a second: <span id="result2"></span></p>
+
+<h3>Building 4 <input></input></h3>
+<p>
+  <label>Cost: (Cost to buy upgrade)</label>
+  <input id="inputCost3" type="number" placeholder="Cookies" oninput="Calculator3()" onchange="Calculator3()">
+</p>
+<p>
+  <label>Reward: (Cookies per second earned from one building)</label>
+  <input id="inputReward3" type="number" placeholder="Cookies per second" oninput="Calculator3()" onchange="Calculator3()">
+</p>
+<p>Cost per Cookie a second: <span id="result3"></span></p>
+
+<h3>Building 5 <input></input></h3>
+<p>
+  <label>Cost: (Cost to buy upgrade)</label>
+  <input id="inputCost4" type="number" placeholder="Cookies" oninput="Calculator4()" onchange="Calculator4()">
+</p>
+<p>
+  <label>Reward: (Cookies per second earned from one building)</label>
+  <input id="inputReward4" type="number" placeholder="Cookies per second" oninput="Calculator4()" onchange="Calculator4()">
+</p>
+<p>Cost per Cookie a second: <span id="result4"></span></p>
+
+<script>
+  function Calculator() {
+    var inputCost = parseFloat(document.getElementById("inputCost").value);
+			var inputReward = parseFloat(document.getElementById("inputReward").value);
+			var result = inputCost / inputReward;
+			document.getElementById("result").innerHTML = result;
+  }
+  function Calculator1() {
+    var inputCost1 = parseFloat(document.getElementById("inputCost1").value);
+			var inputReward1 = parseFloat(document.getElementById("inputReward1").value);
+			var result1 = inputCost1 / inputReward1;
+			document.getElementById("result1").innerHTML = result1;
+  }
+  function Calculator2() {
+    var inputCost2 = parseFloat(document.getElementById("inputCost2").value);
+			var inputReward2 = parseFloat(document.getElementById("inputReward2").value);
+			var result2 = inputCost2 / inputReward2;
+			document.getElementById("result2").innerHTML = result2;
+  }
+  function Calculator3() {
+    var inputCost3 = parseFloat(document.getElementById("inputCost3").value);
+			var inputReward3 = parseFloat(document.getElementById("inputReward3").value);
+			var result3 = inputCost3 / inputReward3;
+			document.getElementById("result3").innerHTML = result3;
+  }
+  function Calculator4() {
+    var inputCost4 = parseFloat(document.getElementById("inputCost4").value);
+			var inputReward4 = parseFloat(document.getElementById("inputReward4").value);
+			var result4 = inputCost4 / inputReward4;
+			document.getElementById("result4").innerHTML = result4;
+  }
+</script>
+</body>
+</html>
