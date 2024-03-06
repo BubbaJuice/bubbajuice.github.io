@@ -61,13 +61,88 @@
       <option value="4">USAFGS</option>
       <option value="5">BLM</option>
     </select>
+    <select id="typeCriteria" style="display:none;">
+      <option value="1">USGS bolt</option>
+      <option value="2">USGS "plus" disk</option>
+      <option value="3">USGS "plus" pipe</option>
+      <option value="4">USGS "plus" disk with state</option>
+      <option value="5">USGS triangulation no BM</option>
+      <option value="6">USGS triangulation with BM</option>
+      <option value="7">USGS triangulation with state no BM</option>
+      <option value="8">USGS 1907-1932 disk</option>
+      <option value="9">USGS 1907-1932 pipe</option>
+      <option value="10">USGS "in cooperation with the state of"</option>
+      <option value="11">USGS 1932-1962 no datum</option>
+      <option value="12">USGS DOI 1962-</option>
+      <option value="13">USGS old reference</option>
+      <option value="14">USGS newer reference</option>
+      <option value="15">USGS DOI reference</option>
+      <option value="16">USGS DOI gaging station</option>
+      <option value="17">USGS other</option>
+      <option value="18">Marking in a rock (or other unspecified surface)</option>
+      <option value="19">unmarked bolt</option>
+      <option value="20">unmarked washer (and nail)</option>
+      <option value="21">USGS washer</option>
+      <option value="22">stone washer</option>
+      <option value="23">metal monument</option>
+      <option value="24">CGS triangulation ~2.5 cm triangle variant ~1910-1912</option>
+      <option value="25">CGS triangulation ~2 cm triangle variant 1909-1922</option>
+      <option value="26">CGS triangulation ~2 cm triangle variant large lettering</option>
+      <option value="27">CGS triangulation 1919-1972 original ~2 cm triangle</option>
+      <option value="28">CGS triangulation 1919-1972 ~1 cm triangle</option>
+      <option value="45">CGS vertical slash</option>
+      <option value="69">CGS vertial triple cross</option>
+      <option value="70">CGS vertial single cross</option>
+      <option value="72">NGS vertical</option>
+      <option value="29">NGS horizontal control</option>
+      <option value="30">CGS flat 1913-1922 reference</option>
+      <option value="31">CGS concave 1919-1972 reference</option>
+      <option value="32">CGS short arrow reference</option>
+      <option value="33">NGS reference</option>
+      <option value="34">CGS azimuth original arrow 1935-1972</option>
+      <option value="35">CGS azimuth shorter arrow</option>
+      <option value="36">NGS azimuth</option>
+      <option value="37">CGS gravity hexagon</option>
+      <option value="71">CGS gravity circle</option>
+      <option value="38">NGS gravity</option>
+      <option value="39">CGS gravity reference (hexagon)</option>
+      <option value="40">CGS tidal</option>
+      <option value="41">CGS cup style plus disk (1900-1913)</option>
+      <option value="42">CGS cup style triangle disk (1900-1913)</option>
+      <option value="43">CGS cup style blank disk (1900-1913)</option>
+      <option value="44">CGS WWII Cast Iron Disk</option>
+      <option value="46">CGS topographic</option>
+      <option value="47">CGS traverse</option>
+      <option value="48">CGS meridian</option>
+      <option value="49">CGS magnetic</option>
+      <option value="50">CGS state survey</option>
+      <option value="51">USACE</option>
+      <option value="52">USACE war department</option>
+      <option value="53">USACE other</option>
+      <option value="54">USCE pipe</option>
+      <option value="55">air forces geodetic survey marker</option>
+      <option value="56">NOS marker</option>
+      <option value="57">DOI marker (not USGS)</option>
+      <option value="58">DOI marker Bureau of Land Management</option>
+      <option value="59">GLO pipe plus</option>
+      <option value="73">GLO pipe "T"</option>
+      <option value="60">GLO pipe line</option>
+      <option value="61">regional survey marker (except below)</option>
+      <option value="62">regional survey triangulation</option>
+      <option value="63">regional survey reference</option>
+      <option value="64">regional survey azimuth</option>
+      <option value="65">unmarked rod</option>
+      <option value="66">NGS rod</option>
+      <option value="67">other agency rod</option>
+      <option value="68">boundary disk</option>
+    </select>
     <button onclick="sortBenchmarks()">Sort</button>
     </center>
     <br>
     <div id="benchmarksContainer">
       <!-- PUSCH -->
       <!-- for div classifications see DIVCLASSES.md -->
-      <div class="benchmark" ngs-id="CZ1865" mon="1903" agency="1" rr="2023-12-27" setting="" con="" type="" name="PUSCH" material="">
+      <div class="benchmark" ngs-id="CZ1865" mon="1903" agency="1" rr="2023-12-27" setting="" con="" type="6" name="PUSCH" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/pusch"><img src="benchmarks/images/compressed/PUSCH-c.png" alt="PUSCH disk" width="275" height="275" class="image"></a>
             <br>
@@ -82,7 +157,7 @@
         <br>
       </div>
       
-      <div class="benchmark" ngs-id="CC8062" mon="1935" agency="2" rr="2023-12-27" setting="" con="" type="" name="PUSCH NO: 2" material="">
+      <div class="benchmark" ngs-id="CC8062" mon="1935" agency="2" rr="2023-12-27" setting="" con="" type="31" name="PUSCH NO: 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/pusch_2"><img src="benchmarks/images/compressed/PUSCHref2-c.png" alt="PUSCH RM 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -98,7 +173,7 @@
       </div>
 
       <!-- SOTOL -->
-      <div class="benchmark" ngs-id="CZ1887" mon="1946" agency="1" rr="" setting="" con="" type="" name="SOTOL" material="">
+      <div class="benchmark" ngs-id="CZ1887" mon="1946" agency="1" rr="" setting="" con="" type="11" name="SOTOL" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/sotol"><img src="benchmarks/images/compressed/SOTOL-c.png" alt="SOTOL disk" width="275" height="275" class="image"></a>
             <br>
@@ -114,7 +189,7 @@
       </div>
 
       <!-- NOGLS 4503 RESET -->
-      <div class="benchmark" ngs-id="CC8280" mon="1946" agency="1" rr="" setting="" con="" type="" name="NOGLS 4503 RESET" material="">
+      <div class="benchmark" ngs-id="CC8280" mon="1946" agency="1" rr="" setting="" con="" type="3" name="NOGLS 4503 RESET" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4503_reset"><img src="benchmarks/images/compressed/SOTOL1-c.png" alt="NOGLS 4503 RESET disk" width="275" height="275" class="image"></a>
             <br>
@@ -130,7 +205,7 @@
       </div>
 
       <!-- PA 2 -->
-      <div class="benchmark" ngs-id="CZ1835" mon="1973" agency="3" rr="" setting="" con="" type="" name="PA 2" material="">
+      <div class="benchmark" ngs-id="CZ1835" mon="1973" agency="3" rr="" setting="" con="" type="29" name="PA 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/PA2"><img src="benchmarks/images/compressed/PA2-c.png" alt="PA 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -145,7 +220,7 @@
         <br>
       </div>
       
-      <div class="benchmark" ngs-id="CC7928" mon="1959" agency="2" rr="" setting="" con="" type="" name="PA 2 NO 1" material="">
+      <div class="benchmark" ngs-id="CC7928" mon="1959" agency="2" rr="" setting="" con="" type="31" name="PA 2 NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/PA2_1"><img src="benchmarks/images/compressed/PA2ref1-c.png" alt="PA 2 RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -160,7 +235,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CR8310" mon="1982" agency="3" rr="" setting="" con="" type="" name="PA 2 NO 3" material="">
+      <div class="benchmark" ngs-id="CR8310" mon="1982" agency="3" rr="" setting="" con="" type="33" name="PA 2 NO 3" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/PA2_3"><img src="benchmarks/images/compressed/PA2ref3-c.png" alt="PA 2 RM 3 disk" width="275" height="275" class="image"></a>
             <br>
@@ -176,7 +251,7 @@
       </div>
 
       <!-- WASSON -->
-      <div class="benchmark" ngs-id="CH5703" mon="1919" agency="2" rr="" setting="" con="" type="" name="WASSON NO 2" material="">
+      <div class="benchmark" ngs-id="CH5703" mon="1919" agency="2" rr="" setting="" con="" type="31" name="WASSON NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/wasson_2"><img src="benchmarks/images/compressed/WASSON2-c.png" alt="WASSON RM 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -191,7 +266,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CH5701" mon="1935" agency="2" rr="" setting="" con="" type="" name="WASSON AZI NO. 3" material="">
+      <div class="benchmark" ngs-id="CH5701" mon="1935" agency="2" rr="" setting="" con="" type="31" name="WASSON AZI NO. 3" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/wasson_3"><img src="benchmarks/images/compressed/WASSON3-c.png" alt="WASSON azimuth disk" width="275" height="275" class="image"></a>
             <br>
@@ -207,7 +282,7 @@
       </div>
 
       <!-- MAGNETIC -->
-      <div class="benchmark" ngs-id="CZ2410" mon="1935" agency="2" rr="" setting="" con="" type="" name="MAGNETIC AZIMUTH NO: 3" material="">
+      <div class="benchmark" ngs-id="CZ2410" mon="1935" agency="2" rr="" setting="" con="" type="31" name="MAGNETIC AZIMUTH NO: 3" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/magnetic_3"><img src="benchmarks/images/compressed/MAGNETIC3-c.png" alt="MAGNETIC azimuth disk" width="275" height="275" class="image"></a>
             <br>
@@ -223,7 +298,7 @@
       </div>
 
       <!-- TUCSON CAMERA -->
-      <div class="benchmark" ngs-id="CZ1829" mon="1964" agency="4" rr="" setting="" con="" type="" name="TUCSON CAMERA" material="">
+      <div class="benchmark" ngs-id="CZ1829" mon="1964" agency="4" rr="" setting="" con="" type="55" name="TUCSON CAMERA" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/tucson_camera"><img src="benchmarks/images/compressed/TUCSON_CAMERA-c.png" alt="TUCSON CAMERA disk" width="275" height="275" class="image"></a>
             <br>
@@ -239,7 +314,7 @@
       </div>
 
       <!-- TUCSON GRAVITY -->
-      <div class="benchmark" ngs-id="DE5827" mon="1937" agency="2" rr="" setting="" con="" type="" name="TUCSON A" material="">
+      <div class="benchmark" ngs-id="DE5827" mon="1937" agency="2" rr="" setting="" con="" type="71" name="TUCSON A" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/tucson_a"><img src="benchmarks/images/compressed/TUCSON_A-c.png" alt="TUCSON A disk" width="275" height="275" class="image"></a>
             <br>
@@ -254,7 +329,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="DE5834" mon="1937" agency="2" rr="" setting="" con="" type="" name="TUCSON B" material="">
+      <div class="benchmark" ngs-id="DE5834" mon="1937" agency="2" rr="" setting="" con="" type="71" name="TUCSON B" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/tucson_b"><img src="benchmarks/images/compressed/TUCSON_B-c.png" alt="TUCSON B disk" width="275" height="275" class="image"></a>
             <br>
@@ -270,7 +345,7 @@
       </div>
 
       <!-- TUCSON -->
-      <div class="benchmark" ngs-id="CZ0276" mon="1933" agency="2" rr="" setting="" con="" type="" name="TUCSON" material="">
+      <div class="benchmark" ngs-id="CZ0276" mon="1933" agency="2" rr="" setting="" con="" type="69" name="TUCSON" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/tucson"><img src="benchmarks/images/compressed/TUCSON-c.png" alt="TUCSON disk" width="275" height="275" class="image"></a>
             <br>
@@ -286,7 +361,7 @@
       </div>
 
       <!-- ORO -->
-      <div class="benchmark" ngs-id="CZ0118" mon="1962" agency="2" rr="" setting="" con="" type="" name="ORO" material="">
+      <div class="benchmark" ngs-id="CZ0118" mon="1962" agency="2" rr="" setting="" con="" type="28" name="ORO" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/oro"><img src="benchmarks/images/compressed/ORO-c.png" alt="ORO disk" width="275" height="275" class="image"></a>
             <br>
@@ -301,7 +376,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ0119" mon="1962" agency="2" rr="" setting="" con="" type="" name="ORO NO 1" material="">
+      <div class="benchmark" ngs-id="CZ0119" mon="1962" agency="2" rr="" setting="" con="" type="32" name="ORO NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/oro_1"><img src="benchmarks/images/compressed/ORO1-c.png" alt="ORO RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -316,7 +391,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ0120" mon="1962" agency="2" rr="" setting="" con="" type="" name="ORO NO 2" material="">
+      <div class="benchmark" ngs-id="CZ0120" mon="1962" agency="2" rr="" setting="" con="" type="32" name="ORO NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/oro_2"><img src="benchmarks/images/compressed/ORO2-c.png" alt="ORO RM 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -332,7 +407,7 @@
       </div>
 
       <!-- DEL -->
-      <div class="benchmark" ngs-id="CZ1693" mon="1962" agency="2" rr="" setting="" con="" type="" name="DEL" material="">
+      <div class="benchmark" ngs-id="CZ1693" mon="1962" agency="2" rr="" setting="" con="" type="27" name="DEL" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/del"><img src="benchmarks/images/compressed/DEL-c.png" alt="DEL disk" width="275" height="275" class="image"></a>
             <br>
@@ -347,7 +422,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1694" mon="1962" agency="2" rr="" setting="" con="" type="" name="DEL NO 1" material="">
+      <div class="benchmark" ngs-id="CZ1694" mon="1962" agency="2" rr="" setting="" con="" type="32" name="DEL NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/del_1"><img src="benchmarks/images/compressed/DEL1-c.png" alt="DEL RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -362,7 +437,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1692" mon="1962" agency="2" rr="" setting="" con="" type="" name="DEL NO 2" material="">
+      <div class="benchmark" ngs-id="CZ1692" mon="1962" agency="2" rr="" setting="" con="" type="32" name="DEL NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/del_2"><img src="benchmarks/images/compressed/DEL2-c.png" alt="DEL RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -378,7 +453,7 @@
       </div>
 
       <!-- COMSTOCK -->
-      <div class="benchmark" ngs-id="CG0960" mon="1946" agency="2" rr="" setting="" con="" type="" name="COMSTOCK" material="">
+      <div class="benchmark" ngs-id="CG0960" mon="1946" agency="2" rr="" setting="" con="" type="27" name="COMSTOCK" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/comstock"><img src="benchmarks/images/compressed/COMSTOCK-c.png" alt="COMSTOCK disk" width="275" height="275" class="image"></a>
             <br>
@@ -394,7 +469,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CC7187" mon="1946" agency="2" rr="" setting="" con="" type="" name="COMSTOCK NO 1" material="">
+      <div class="benchmark" ngs-id="CC7187" mon="1946" agency="2" rr="" setting="" con="" type="32" name="COMSTOCK NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/comstock_1"><img src="benchmarks/images/compressed/COMSTOCK1-c.png" alt="DEL RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -409,7 +484,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CC7186" mon="1963" agency="2" rr="" setting="" con="" type="" name="COMSTOCK RESET" material="">
+      <div class="benchmark" ngs-id="CC7186" mon="1963" agency="2" rr="" setting="" con="" type="34" name="COMSTOCK RESET" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/comstock_reset"><img src="benchmarks/images/compressed/COMSTOCK_RESET-c.png" alt="DEL RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -424,7 +499,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="none" mon="1903" agency="1" rr="" setting="" con="" type="" name="Comstock Hill" material="">
+      <div class="benchmark" ngs-id="none" mon="1903" agency="1" rr="" setting="" con="" type="6" name="Comstock Hill" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/comstock_hill"><img src="benchmarks/images/compressed/COMSTOCK_HILL-c.png" alt="DEL RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -443,7 +518,7 @@
       </div>
 
       <!-- SANTA -->
-      <div class="benchmark" ngs-id="CZ1648" mon="1962" agency="2" rr="" setting="" con="" type="" name="SANTA" material="">
+      <div class="benchmark" ngs-id="CZ1648" mon="1962" agency="2" rr="" setting="" con="" type="27" name="SANTA" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/santa"><img src="benchmarks/images/compressed/SANTA-c.png" alt="SANTA disk" width="275" height="275" class="image"></a>
             <br>
@@ -458,7 +533,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1649" mon="1962" agency="2" rr="" setting="" con="" type="" name="SANTA NO 1" material="">
+      <div class="benchmark" ngs-id="CZ1649" mon="1962" agency="2" rr="" setting="" con="" type="32" name="SANTA NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/santa_1"><img src="benchmarks/images/compressed/SANTA1-c.png" alt="SANTA RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -473,7 +548,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1650" mon="1962" agency="2" rr="" setting="" con="" type="" name="SANTA NO 2" material="">
+      <div class="benchmark" ngs-id="CZ1650" mon="1962" agency="2" rr="" setting="" con="" type="32" name="SANTA NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/santa_2"><img src="benchmarks/images/compressed/SANTA2-c.png" alt="SANTA RM 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -489,7 +564,7 @@
       </div>
 
       <!-- SAN -->
-      <div class="benchmark" ngs-id="CZ1644" mon="1962" agency="2" rr="" setting="" con="" type="" name="SAN" material="">
+      <div class="benchmark" ngs-id="CZ1644" mon="1962" agency="2" rr="" setting="" con="" type="28" name="SAN" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/san"><img src="benchmarks/images/compressed/SAN-c.png" alt="SAN disk" width="275" height="275" class="image"></a>
             <br>
@@ -504,7 +579,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1645" mon="1962" agency="2" rr="" setting="" con="" type="" name="SAN NO 1" material="">
+      <div class="benchmark" ngs-id="CZ1645" mon="1962" agency="2" rr="" setting="" con="" type="32" name="SAN NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/san_1"><img src="benchmarks/images/compressed/SAN1-c.png" alt="SAN RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -519,7 +594,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1646" mon="1962" agency="2" rr="" setting="" con="" type="" name="SAN NO 2" material="">
+      <div class="benchmark" ngs-id="CZ1646" mon="1962" agency="2" rr="" setting="" con="" type="32" name="SAN NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/san_2"><img src="benchmarks/images/compressed/SAN2-c.png" alt="SAN RM 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -535,7 +610,7 @@
       </div>
 
       <!-- STRONG -->
-      <div class="benchmark" ngs-id="DV0653" mon="1962" agency="2" rr="" setting="" con="" type="" name="STRONG NO 1d" material="">
+      <div class="benchmark" ngs-id="DV0653" mon="1962" agency="2" rr="" setting="" con="" type="32" name="STRONG NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/strong_1"><img src="benchmarks/images/compressed/STRONG1-c.png" alt="STRONG NO 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -550,7 +625,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="DV0651" mon="1962" agency="2" rr="" setting="" con="" type="" name="STRONG NO 2" material="">
+      <div class="benchmark" ngs-id="DV0651" mon="1962" agency="2" rr="" setting="" con="" type="32" name="STRONG NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/strong_2"><img src="benchmarks/images/compressed/STRONG2-c.png" alt="STRONG NO 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -566,7 +641,7 @@
       </div>
 
       <!-- BIG WASH -->
-      <div class="benchmark" ngs-id="AA7441" mon="1977" agency="3" rr="" setting="" con="" type="" name="BIG WASH RESET" material="">
+      <div class="benchmark" ngs-id="AA7441" mon="1977" agency="3" rr="" setting="" con="" type="29" name="BIG WASH RESET" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/big_wash_reset"><img src="benchmarks/images/compressed/BIG_WASH_RESET-c.png" alt="BIG WASH RESET disk" width="275" height="275" class="image"></a>
             <br>
@@ -580,7 +655,7 @@
         <p><a href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&PID=AA7441" target="_blank" rel="noopener noreferrer" class="link">Photographs</a></p>
       </div>
 
-      <div class="benchmark" ngs-id="CZ0316" mon="1936" agency="2" rr="" setting="" con="" type="" name="BIG WASH NO. 3" material="">
+      <div class="benchmark" ngs-id="CZ0316" mon="1936" agency="2" rr="" setting="" con="" type="32" name="BIG WASH NO. 3" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/big_wash_3"><img src="benchmarks/images/compressed/BIG_WASH3-c.png" alt="BIG WASH NO 3 disk" width="275" height="275" class="image"></a>
             <br>
@@ -596,7 +671,7 @@
       </div>
 
       <!-- T20S R17E S24 S25 T20S R18E S19 SC -->
-      <div class="benchmark" ngs-id="none" mon="1989" agency="5" rr="" setting="" con="" type="" name="T20S R17E S24 S25 T20S R18E S19 SC" material="">
+      <div class="benchmark" ngs-id="none" mon="1989" agency="5" rr="" setting="" con="" type="58" name="T20S R17E S24 S25 T20S R18E S19 SC" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/T20SR17ES24S25T20SR18ES19SC"><img src="benchmarks/images/compressed/T20SR17ES24S25T20SR18ES19SC-c.png" alt="T20S R17E S24 S25 T20S R18E S19 SC disk" width="275" height="275" class="image"></a>
             <br>
@@ -615,7 +690,7 @@
       </div>
 
       <!-- NOGLS 2573 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 2573" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 2573" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls2573"><img src="benchmarks/images/compressed/NOGLS2573-c.png" alt="NOGLS 2573 disk" width="275" height="275" class="image"></a>
             <br>
@@ -634,7 +709,7 @@
       </div>
 
       <!-- NOGLS 4534 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 4534" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="2" name="NOGLS 4534" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4534"><img src="benchmarks/images/compressed/NOGLS4534-c.png" alt="NOGLS 4534 disk" width="275" height="275" class="image"></a>
             <br>
@@ -653,7 +728,7 @@
       </div>
 
       <!-- NOGLS 2596 RESET -->
-      <div class="benchmark" ngs-id="none" mon="1974-09-04" agency="1" rr="" setting="" con="" type="" name="NOGLS 2596 RESET" material="">
+      <div class="benchmark" ngs-id="none" mon="1974-09-04" agency="1" rr="" setting="" con="" type="12" name="NOGLS 2596 RESET" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls2596_reset"><img src="benchmarks/images/compressed/NOGLS2596reset-c.png" alt="NOGLS 2596 RESET disk" width="275" height="275" class="image"></a>
             <br>
@@ -673,7 +748,7 @@
       </div>
 
       <!-- NOGLS 2835 -->
-      <div class="benchmark" ngs-id="CZ0122" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 2835" material="">
+      <div class="benchmark" ngs-id="CZ0122" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 2835" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls2835"><img src="benchmarks/images/compressed/NOGLS2835-c.png" alt="NOGLS 2835 disk" width="275" height="275" class="image"></a>
             <br>
@@ -689,7 +764,7 @@
       </div>
 
       <!-- NOGLS 4997 -->
-      <div class="benchmark" ngs-id="CG1001" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 4997" material="">
+      <div class="benchmark" ngs-id="CG1001" mon="1903" agency="1" rr="" setting="" con="" type="3" name="NOGLS 4997" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4997"><img src="benchmarks/images/compressed/NOGLS4997-c.png" alt="NOGLS 4997 disk" width="275" height="275" class="image"></a>
             <br>
@@ -705,7 +780,7 @@
       </div>
 
       <!-- NOGLS 4653 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 4653" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="2" name="NOGLS 4653" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4653"><img src="benchmarks/images/compressed/NOGLS4653-c.png" alt="NOGLS 4653 disk" width="275" height="275" class="image"></a>
             <br>
@@ -724,7 +799,7 @@
       </div>
 
       <!-- NOGLS 5442 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 5442" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="2" name="NOGLS 5442" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls5442"><img src="benchmarks/images/compressed/NOGLS5442-c.png" alt="NOGLS 5442 disk" width="275" height="275" class="image"></a>
             <br>
@@ -743,7 +818,7 @@
       </div>
 
       <!-- NOGLS 5496 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 5496" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 5496" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls5496"><img src="benchmarks/images/compressed/NOGLS5496-c.png" alt="NOGLS 5496 disk" width="275" height="275" class="image"></a>
             <br>
@@ -762,7 +837,7 @@
       </div>
 
       <!-- NOGLS 4772 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 4772" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 4772" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4772"><img src="benchmarks/images/compressed/NOGLS4772-c.png" alt="NOGLS 4772 disk" width="275" height="275" class="image"></a>
             <br>
@@ -781,7 +856,7 @@
       </div>
 
       <!-- NOGLS 4835 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 4835" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 4835" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4835"><img src="benchmarks/images/compressed/NOGLS4835-c.png" alt="NOGLS 4835 disk" width="275" height="275" class="image"></a>
             <br>
@@ -800,7 +875,7 @@
       </div>
 
       <!-- NOGLS 3290 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 3290" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 3290" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3290"><img src="benchmarks/images/compressed/NOGLS3290-c.png" alt="NOGLS 3290 disk" width="275" height="275" class="image"></a>
             <br>
@@ -818,7 +893,7 @@
       </div>
 
       <!-- NOGLS 3653 -->
-      <div class="benchmark" ngs-id="none" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 3653" material="">
+      <div class="benchmark" ngs-id="none" mon="1903" agency="1" rr="" setting="" con="" type="2" name="NOGLS 3653" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3653"><img src="benchmarks/images/compressed/NOGLS3653-c.png" alt="NOGLS 3653 disk" width="275" height="275" class="image"></a>
             <br>
@@ -837,7 +912,7 @@
       </div>
 
       <!-- NOGLS 3531 -->
-      <div class="benchmark" ngs-id="none" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 3531" material="">
+      <div class="benchmark" ngs-id="none" mon="1903" agency="1" rr="" setting="" con="" type="3" name="NOGLS 3531" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3531"><img src="benchmarks/images/compressed/NOGLS3531-c.png" alt="NOGLS 3531 disk" width="275" height="275" class="image"></a>
             <br>
@@ -856,7 +931,7 @@
       </div>
 
       <!-- NOGLS 3721 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 3721" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 3721" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3721"><img src="benchmarks/images/compressed/NOGLS3721-c.png" alt="NOGLS 3721 disk" width="275" height="275" class="image"></a>
             <br>
@@ -875,7 +950,7 @@
       </div>
 
       <!-- NOGLS 3969 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 3696" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 3696" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3969"><img src="benchmarks/images/compressed/NOGLS3969-c.png" alt="NOGLS 3969 disk" width="275" height="275" class="image"></a>
             <br>
@@ -894,7 +969,7 @@
       </div>
 
       <!-- NOGLS 3891 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 3891" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="2" name="NOGLS 3891" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3891"><img src="benchmarks/images/compressed/NOGLS3891-c.png" alt="NOGLS 3891 disk" width="275" height="275" class="image"></a>
             <br>
@@ -913,7 +988,7 @@
       </div>
 
       <!-- NOGLS 3140 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 3140" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 3140" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls3140"><img src="benchmarks/images/compressed/NOGLS3140-c.png" alt="NOGLS 3140 disk" width="275" height="275" class="image"></a>
             <br>
@@ -932,7 +1007,7 @@
       </div>
 
       <!-- NOGLS 4632 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 4632" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="3" name="NOGLS 4632" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4632"><img src="benchmarks/images/compressed/NOGLS4632-c.png" alt="NOGLS 4632 disk" width="275" height="275" class="image"></a>
             <br>
@@ -951,7 +1026,7 @@
       </div>
 
       <!-- NOGLS 4040 -->
-      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="" name="NOGLS 4040" material="">
+      <div class="benchmark" ngs-id="none" mon="1904" agency="1" rr="" setting="" con="" type="2" name="NOGLS 4040" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4040"><img src="benchmarks/images/compressed/NOGLS4040-c.png" alt="NOGLS 4040 disk" width="275" height="275" class="image"></a>
             <br>
@@ -970,7 +1045,7 @@
       </div>
 
       <!-- NOGLS 4200 -->
-      <div class="benchmark" ngs-id="CG0163" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 4200" material="">
+      <div class="benchmark" ngs-id="CG0163" mon="1903" agency="1" rr="" setting="" con="" type="2" name="NOGLS 4200" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4200"><img src="benchmarks/images/compressed/NOGLS4200-c.png" alt="NOGLS 4200 disk" width="275" height="275" class="image"></a>
             <br>
@@ -987,7 +1062,7 @@
       </div>
 
       <!-- NOGLS 4526 -->
-      <div class="benchmark" ngs-id="CG0166" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 4526" material="">
+      <div class="benchmark" ngs-id="CG0166" mon="1903" agency="1" rr="" setting="" con="" type="2" name="NOGLS 4526" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls4526"><img src="benchmarks/images/compressed/NOGLS4526-c.png" alt="NOGLS 4526 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1004,7 +1079,7 @@
       </div>
 
       <!-- NOGLS 1899 -->
-      <div class="benchmark" ngs-id="CZ0360" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 1899" material="">
+      <div class="benchmark" ngs-id="CZ0360" mon="1903" agency="1" rr="" setting="" con="" type="3" name="NOGLS 1899" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls1899"><img src="benchmarks/images/compressed/NOGLS1899-c.png" alt="NOGLS 1899 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1020,7 +1095,7 @@
       </div>
 
       <!-- NOGLS 1940 -->
-      <div class="benchmark" ngs-id="CZ0374" mon="1903" agency="1" rr="" setting="" con="" type="" name="NOGLS 1940" material="">
+      <div class="benchmark" ngs-id="CZ0374" mon="1903" agency="1" rr="" setting="" con="" type="3" name="NOGLS 1940" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/nogls1940"><img src="benchmarks/images/compressed/NOGLS1940-c.png" alt="NOGLS 1940 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1036,7 +1111,7 @@
       </div>
 
       <!-- SF 200 -->
-      <div class="benchmark" ngs-id="HS2722" mon="1908" agency="1" rr="" setting="" con="" type="" name="SF 200" material="">
+      <div class="benchmark" ngs-id="HS2722" mon="1908" agency="1" rr="" setting="" con="" type="4" name="SF 200" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/sf200"><img src="benchmarks/images/compressed/SF200-c.png" alt="SF 200 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1052,7 +1127,7 @@
       </div>
 
       <!-- LA 43 -->
-      <div class="benchmark" ngs-id="EW3774" mon="1901" agency="1" rr="" setting="" con="" type="" name="LA 43" material="">
+      <div class="benchmark" ngs-id="EW3774" mon="1901" agency="1" rr="" setting="" con="" type="3" name="LA 43" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/la43"><img src="benchmarks/images/compressed/LA43-c.png" alt="LA 43 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1068,7 +1143,7 @@
       </div>
 
       <!-- 9795 VA -->
-      <div class="benchmark" ngs-id="none" mon="1916-06-15" agency="1" rr="" setting="" con="" type="" name="9795 VA" material="">
+      <div class="benchmark" ngs-id="none" mon="1916-06-15" agency="1" rr="" setting="" con="" type="8" name="9795 VA" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/va9795"><img src="benchmarks/images/compressed/VA9795-c.png" alt="9795 VA disk" width="275" height="275" class="image"></a>
             <br>
@@ -1085,9 +1160,25 @@
         <br>
         <br>
       </div>
+      
+      <!-- 8826 VA -->
+      <div class="benchmark" ngs-id="none" mon="1916" agency="1" rr="" setting="" con="" type="2" name="8826 VA" material="">
+        <p>
+          <a href="https://bubbajuice.github.io/benchmarks/va8826"><img src="benchmarks/images/compressed/VA8826-c.png" alt="8826 VA disk" width="275" height="275" class="image"></a>
+            <br>
+            <strong>8826 VA</strong> - CS7398
+        </p>
+        <p>"8826 VA" is a benchmark monumented by the USGS in or before 1916 located in Cochise County, Arizona.</p>
+        <p><a href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CS7398" target="_blank" rel="noopener noreferrer" class="link">NGS Datasheet</a></p>
+        <p><a href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CS7398" target="_blank" rel="noopener noreferrer" class="link">Benchmark Data</a></p>
+        <p><a href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CS7398" target="_blank" rel="noopener noreferrer" class="link">Benchmark Description</a></p> 
+        <p><a href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&PID=CS7398" target="_blank" rel="noopener noreferrer" class="link">Photographs</a></p>
+        <br>
+        <br>
+      </div>
 
       <!-- 6883 -->
-      <div class="benchmark" ngs-id="none" mon="1907" agency="1" rr="" setting="" con="" type="" name="6883" material="">
+      <div class="benchmark" ngs-id="none" mon="1907" agency="1" rr="" setting="" con="" type="9" name="6883" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/6883"><img src="benchmarks/images/compressed/6883-c.png" alt="6883 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1106,7 +1197,7 @@
       </div>
 
       <!-- 206 1/2-->
-      <div class="benchmark" ngs-id="CZ0335" mon="1905" agency="1" rr="" setting="" con="" type="" name="206 1/2 (G 279)" material="">
+      <div class="benchmark" ngs-id="CZ0335" mon="1905" agency="1" rr="" setting="" con="" type="2" name="206 1/2 (G 279)" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/206.5"><img src="benchmarks/images/compressed/206.5-c.png" alt="SF 200 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1122,7 +1213,7 @@
       </div>
 
       <!-- E 3 -->
-      <div class="benchmark" ngs-id="FQ0230" mon="1909" agency="2" rr="" setting="" con="" type="" name="E 3" material="">
+      <div class="benchmark" ngs-id="FQ0230" mon="1909" agency="2" rr="" setting="" con="" type="45" name="E 3" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/E3"><img src="benchmarks/images/compressed/E3-c.png" alt="E 3 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1139,7 +1230,7 @@
       </div>
 
       <!-- Y 18 -->
-      <div class="benchmark" ngs-id="CZ0300" mon="1933" agency="2" rr="" setting="" con="" type="" name="Y 18" material="">
+      <div class="benchmark" ngs-id="CZ0300" mon="1933" agency="2" rr="" setting="" con="" type="69" name="Y 18" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/Y18"><img src="benchmarks/images/compressed/Y18-c.png" alt="Y 18 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1155,7 +1246,7 @@
       </div>
 
       <!-- A 77 -->
-      <div class="benchmark" ngs-id="CG0315" mon="1934" agency="2" rr="" setting="" con="" type="" name="A 77" material="">
+      <div class="benchmark" ngs-id="CG0315" mon="1934" agency="2" rr="" setting="" con="" type="69" name="A 77" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/A77"><img src="benchmarks/images/compressed/A77-c.png" alt="A 77 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1171,7 +1262,7 @@
       </div>
 
       <!-- F 77 -->
-      <div class="benchmark" ngs-id="CG0322" mon="1934" agency="2" rr="" setting="" con="" type="" name="F 77" material="">
+      <div class="benchmark" ngs-id="CG0322" mon="1934" agency="2" rr="" setting="" con="" type="69" name="F 77" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/F77"><img src="benchmarks/images/compressed/F77-c.png" alt="F 77 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1187,7 +1278,7 @@
       </div>
 
       <!-- H 77 -->
-      <div class="benchmark" ngs-id="CG0325" mon="1934" agency="2" rr="" setting="" con="" type="" name="H 77" material="">
+      <div class="benchmark" ngs-id="CG0325" mon="1934" agency="2" rr="" setting="" con="" type="69" name="H 77" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/H77"><img src="benchmarks/images/compressed/H77-c.png" alt="H 77 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1203,7 +1294,7 @@
       </div>
         
       <!-- HIGHWAY -->
-      <div class="benchmark" ngs-id="CZ1892" mon="1946" agency="1" rr="" setting="" con="" type="" name="HIGHWAY" material="">
+      <div class="benchmark" ngs-id="CZ1892" mon="1946" agency="1" rr="" setting="" con="" type="11" name="HIGHWAY" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/highway"><img src="benchmarks/images/compressed/HIGHWAY-c.png" alt="HIGHWAY disk" width="275" height="275" class="image"></a>
             <br>
@@ -1221,7 +1312,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CC6671" mon="1946" agency="1" rr="" setting="" con="" type="" name="HIGHWAY NO 1" material="">
+      <div class="benchmark" ngs-id="CC6671" mon="1946" agency="1" rr="" setting="" con="" type="14" name="HIGHWAY NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/highway_1"><img src="benchmarks/images/compressed/HIGHWAY1-c.png" alt="HIGHWAY NO 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1239,7 +1330,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CC6672" mon="1946" agency="1" rr="" setting="" con="" type="" name="HIGHWAY NO 2" material="">
+      <div class="benchmark" ngs-id="CC6672" mon="1946" agency="1" rr="" setting="" con="" type="14" name="HIGHWAY NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/highway_2"><img src="benchmarks/images/compressed/HIGHWAY2-c.png" alt="HIGHWAY NO 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1258,7 +1349,7 @@
       </div>
 
       <!-- GRISWOLD -->
-      <div class="benchmark" ngs-id="CZ1956" mon="1971" agency="2" rr="" setting="" con="" type="" name="GRISWOLD" material="">
+      <div class="benchmark" ngs-id="CZ1956" mon="1971" agency="2" rr="" setting="" con="" type="27" name="GRISWOLD" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/griswold"><img src="benchmarks/images/compressed/GRISWOLD-c.png" alt="GRISWOLD disk" width="275" height="275" class="image"></a>
             <br>
@@ -1272,7 +1363,7 @@
         <p><a href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&PID=CZ1956" target="_blank" rel="noopener noreferrer" class="redlink">Photographs</a></p>
       </div>
 
-      <div class="benchmark" ngs-id="CH5263" mon="1972" agency="2" rr="" setting="" con="" type="" name="GRISWOLD NO 2" material="">
+      <div class="benchmark" ngs-id="CH5263" mon="1972" agency="2" rr="" setting="" con="" type="32" name="GRISWOLD NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/griswold_2"><img src="benchmarks/images/compressed/GRISWOLD2-c.png" alt="GRISWOLD RM 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1287,7 +1378,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CZ1957" mon="1972" agency="2" rr="" setting="" con="" type="" name="GRISWOLD RM A" material="">
+      <div class="benchmark" ngs-id="CZ1957" mon="1972" agency="2" rr="" setting="" con="" type="27" name="GRISWOLD RM A" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/griswold_a"><img src="benchmarks/images/compressed/GRISWOLDA-c.png" alt="GRISWOLD RM A disk" width="275" height="275" class="image"></a>
             <br>
@@ -1303,7 +1394,7 @@
       </div>
 
       <!-- SUMMERHAVEN -->
-      <div class="benchmark" ngs-id="CZ1857" mon="1936" agency="2" rr="" setting="" con="" type="" name="SUMMERHAVEN" material="">
+      <div class="benchmark" ngs-id="CZ1857" mon="1936" agency="2" rr="" setting="" con="" type="27" name="SUMMERHAVEN" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/summerhaven"><img src="benchmarks/images/compressed/SUMMERHAVEN-c.png" alt="SUMMERHAVEN disk" width="275" height="275" class="image"></a>
             <br>
@@ -1321,7 +1412,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CC8320" mon="1936" agency="2" rr="" setting="" con="" type="" name="SUMMERHAVEN NO 1" material="">
+      <div class="benchmark" ngs-id="CC8320" mon="1936" agency="2" rr="" setting="" con="" type="31" name="SUMMERHAVEN NO 1" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/summerhaven_1"><img src="benchmarks/images/compressed/SUMMERHAVEN_1-c.png" alt="SUMMERHAVEN NO 1 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1339,7 +1430,7 @@
         <br>
       </div>
 
-      <div class="benchmark" ngs-id="CC8321" mon="1936" agency="2" rr="" setting="" con="" type="" name="SUMMERHAVEN NO 2" material="">
+      <div class="benchmark" ngs-id="CC8321" mon="1936" agency="2" rr="" setting="" con="" type="31" name="SUMMERHAVEN NO 2" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/summerhaven_2"><img src="benchmarks/images/compressed/SUMMERHAVEN_2-c.png" alt="SUMMERHAVEN NO 2 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1358,7 +1449,7 @@
       </div>
 
       <!-- L 295 -->
-      <div class="benchmark" ngs-id="CZ0754" mon="1951" agency="2" rr="" setting="" con="" type="" name="L 295" material="">
+      <div class="benchmark" ngs-id="CZ0754" mon="1951" agency="2" rr="" setting="" con="" type="69" name="L 295" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/L295"><img src="benchmarks/images/compressed/L295-c.png" alt="L 295 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1374,7 +1465,7 @@
       </div>
 
       <!-- L 424 -->
-      <div class="benchmark" ngs-id="CZ1453" mon="1980" agency="3" rr="" setting="" con="" type="" name="L 424" material="">
+      <div class="benchmark" ngs-id="CZ1453" mon="1980" agency="3" rr="" setting="" con="" type="72" name="L 424" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/L424"><img src="benchmarks/images/compressed/L424-c.png" alt="L 424 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1390,7 +1481,7 @@
       </div>
 
       <!-- L 112 -->
-      <div class="benchmark" ngs-id="CZ0729" mon="1935" agency="2" rr="" setting="" con="" type="" name="L 112" material="">
+      <div class="benchmark" ngs-id="CZ0729" mon="1935" agency="2" rr="" setting="" con="" type="31" name="L 112" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/L112"><img src="benchmarks/images/compressed/L112-c.png" alt="L 112 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1406,7 +1497,7 @@
       </div>
 
       <!-- M 19 -->
-      <div class="benchmark" ngs-id="CZ0124" mon="1933" agency="2" rr="" setting="" con="" type="" name="M 19" material="">
+      <div class="benchmark" ngs-id="CZ0124" mon="1933" agency="2" rr="" setting="" con="" type="31" name="M 19" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/M19"><img src="benchmarks/images/compressed/M19-c.png" alt="M 19 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1422,7 +1513,7 @@
       </div>
 
       <!-- Z 18 -->
-      <div class="benchmark" ngs-id="CZ0301" mon="1933" agency="2" rr="" setting="" con="" type="" name="Z 18" material="">
+      <div class="benchmark" ngs-id="CZ0301" mon="1933" agency="2" rr="" setting="" con="" type="31" name="Z 18" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/Z18"><img src="benchmarks/images/compressed/Z18-c.png" alt="Z 18 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1438,7 +1529,7 @@
       </div>
 
       <!-- B 19 -->
-      <div class="benchmark" ngs-id="CZ0304" mon="1933" agency="2" rr="" setting="" con="" type="" name="B 19" material="">
+      <div class="benchmark" ngs-id="CZ0304" mon="1933" agency="2" rr="" setting="" con="" type="31" name="B 19" material="">
         <p>
           <a href="https://bubbajuice.github.io/benchmarks/B19"><img src="benchmarks/images/compressed/B19-c.png" alt="B 19 disk" width="275" height="275" class="image"></a>
             <br>
@@ -1457,11 +1548,17 @@
       document.getElementById("sortCriteria").addEventListener("change", function() {
         var sortCriteria = this.value;
         var agencyCriteriaDropdown = document.getElementById("agencyCriteria");
+        var typeCriteriaDropdown = document.getElementById("typeCriteria");
         
         if (sortCriteria === "agency") {
             agencyCriteriaDropdown.style.display = "inline";
         } else {
             agencyCriteriaDropdown.style.display = "none";
+        }
+        if (sortCriteria === "type") {
+          typeCriteriaDropdown.style.display = "inline";
+        } else {
+          typeCriteriaDropdown.style.display = "none";
         }
       });
       let originalBenchmarks = []; // This will hold the original list
@@ -1476,6 +1573,7 @@
         var benchmarks = document.querySelectorAll(".benchmark");
         var sortCriteria = document.getElementById("sortCriteria").value;
         var agencyCriteria = document.getElementById("agencyCriteria").value;
+        var typeCriteria = document.getElementById("typeCriteria").value;
         var benchmarksArr = Array.from(benchmarks);
         console.log(benchmarksArr)
     
@@ -1490,58 +1588,59 @@
             container.appendChild(benchmark.cloneNode(true));
           });
         } else {
-          benchmarksArr.sort(function(a, b) {
-            var valueA, valueB;
-    
-            switch (sortCriteria) {
-              case "ngs-id":
-                  valueA = a.getAttribute("ngs-id");
-                  valueB = b.getAttribute("ngs-id");
-                  break;
-              case "mon":
-                  valueA = new Date(a.getAttribute("mon"));
-                  valueB = new Date(b.getAttribute("mon"));
-                  return valueA - valueB;
-              case "rr":
-                  valueA = new Date(a.getAttribute("rr"));
-                  valueB = new Date(b.getAttribute("rr"));
-                  return valueA - valueB;
-              case "setting":
-                  valueA = a.getAttribute("setting");
-                  valueB = b.getAttribute("setting");
-                  break;
-              case "con":
-                  valueA = a.getAttribute("con");
-                  valueB = b.getAttribute("con");
-                  break;
-              case "type":
-                  valueA = a.getAttribute("type");
-                  valueB = b.getAttribute("type");
-                  break;
-              case "name":
-                  valueA = a.getAttribute("name").toLowerCase();
-                  valueB = b.getAttribute("name").toLowerCase();
-                  break;
-              case "material":
-                  valueA = a.getAttribute("material");
-                  valueB = b.getAttribute("material");
-                  break;
-              default:
-                  // Default to sorting by NGS ID if something goes wrong
-                  valueA = a.getAttribute("ngs-id");
-                  valueB = b.getAttribute("ngs-id");
-            }
-    
-            if (sortCriteria === "mon" || sortCriteria === "rr") {
-                // These cases are already handled with Date objects
-                return;
-            } else {
-                if (valueA < valueB) return -1;
-                if (valueA > valueB) return 1;
-            }
-    
-            return 0; 
-          });
+          if (sortCriteria === "type") {
+            benchmarksArr = benchmarksArr.filter(benchmark => benchmark.getAttribute("type") === typeCriteria);
+            console.log(benchmarksArr)
+          } else {
+            benchmarksArr.sort(function(a, b) {
+              var valueA, valueB;
+      
+              switch (sortCriteria) {
+                case "ngs-id":
+                    valueA = a.getAttribute("ngs-id");
+                    valueB = b.getAttribute("ngs-id");
+                    break;
+                case "mon":
+                    valueA = new Date(a.getAttribute("mon"));
+                    valueB = new Date(b.getAttribute("mon"));
+                    return valueA - valueB;
+                case "rr":
+                    valueA = new Date(a.getAttribute("rr"));
+                    valueB = new Date(b.getAttribute("rr"));
+                    return valueA - valueB;
+                case "setting":
+                    valueA = a.getAttribute("setting");
+                    valueB = b.getAttribute("setting");
+                    break;
+                case "con":
+                    valueA = a.getAttribute("con");
+                    valueB = b.getAttribute("con");
+                    break;
+                case "name":
+                    valueA = a.getAttribute("name").toLowerCase();
+                    valueB = b.getAttribute("name").toLowerCase();
+                    break;
+                case "material":
+                    valueA = a.getAttribute("material");
+                    valueB = b.getAttribute("material");
+                    break;
+                default:
+                    // Default to sorting by NGS ID if something goes wrong
+                    valueA = a.getAttribute("ngs-id");
+                    valueB = b.getAttribute("ngs-id");
+              }
+      
+              if (sortCriteria === "mon" || sortCriteria === "rr") {
+                  // These cases are already handled with Date objects
+                  return;
+              } else {
+                  if (valueA < valueB) return -1;
+                  if (valueA > valueB) return 1;
+              }
+      
+              return 0; 
+            });
+          }
         } 
         benchmarksArr.forEach(function(benchmark) {
           container.appendChild(benchmark);

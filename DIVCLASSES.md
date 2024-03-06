@@ -141,10 +141,11 @@ WIP - The type/style of the benchmark.
 | 56 | NOS marker |  |
 | 57 | DOI marker (not USGS) |  |
 | 58 | DOI marker Bureau of Land Management |  |
-| 59 | GLO pipe corner |  |
+| 59 | GLO pipe plus |  |
+| 73 | GLO pipe "T" |  |
 | 60 | GLO pipe line |  |
-| 61 | regional survey marker (expect triangulation and reference or azimuth) |  |
-| 62| regional survey triangulation |  |
+| 61 | regional survey marker (except triangulation and reference or azimuth) |  |
+| 62 | regional survey triangulation |  |
 | 63 | regional survey reference |  |
 | 64 | regional survey azimuth |  |
 | 65 | unmarked rod |  |
