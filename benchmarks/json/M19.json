@@ -1,7 +1,7 @@
 {
     "mainName": "M 19",
-    "mainCoordLat": "32.416919",
-    "mainCoordLong": "-110.936514",
+    "mainCoordLat": "32.417215",
+    "mainCoordLong": "-110.936526",
     "mainStatus": "mainGood",
     "reference": "n",
     "referenceName1": "n",
@@ -31,7 +31,7 @@
     "azimuthStatus": "n",
     "gpx": "n",
     "gpxFile": "n",
-    "mapCenterLat": "32.416919",
-    "mapCenterLong": "-110.936514",
+    "mapCenterLat": "32.417215",
+    "mapCenterLong": "-110.936526",
     "mapZoom": "18"
 }

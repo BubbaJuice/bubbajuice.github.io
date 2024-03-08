@@ -21,6 +21,8 @@ The agency who made the benchmark.
 | 3 | NGS |
 | 4 | USAFGS |
 | 5 | BLM |
+| 6 | USACE |
+| 7 | GLO |
 
 ## rr
 
@@ -133,10 +135,10 @@ WIP - The type/style of the benchmark.
 | 48 | CGS meridian |  |
 | 49 | CGS magnetic | http://www.penryfamily.com/surveying/images/bassettmag2.jpg |
 | 50 | CGS state survey |  |
-| 51 | USACE |  |
-| 52 | USACE war department |  |
+| 51 | USACE | <img src="benchmarks/images/compressed/WOLFE-c.png" width="200"/> |
+| 52 | USACE war department | <img src="benchmarks/images/compressed/ROLLAND-c.png" width="200"/> |
 | 53 | USACE other |  |
-| 54 | USCE pipe |  |
+| 54 | USCE pipe (this entry could be deleted and replaced with typical pipe) | https://s3.amazonaws.com/gs-waymarking-images/c9f632ed-5b2f-4995-a115-2db8692054e1_l.JPG |
 | 55 | air forces geodetic survey marker |  |
 | 56 | NOS marker |  |
 | 57 | DOI marker (not USGS) |  |
