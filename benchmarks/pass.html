@@ -1,0 +1,659 @@
+<html>
+  <head>
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+
+      .link {
+        color: #2f8aee;
+      }
+
+      .redLink {
+        color: #ff0000;
+      }
+
+      .image {
+        border-color: mediumpurple;
+        border-style: solid;
+        border-radius: 12px;
+        margin: 10px;
+        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
+        float: left;
+      }
+
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+
+      .whiteBorder {
+        border: 1px solid #ffffff;
+      }
+
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .descr {
+        width: 50%;
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>PASS</strong></h1>
+      <p>
+        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
+        <a href="https://bubbajuice.github.io/" class="link">Home</a>
+        <a href="https://bubbajuice.github.io/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr />
+    <!-- Make markers -->
+    <div style="margin-left: 10%">
+      <div class="right" style="margin-right: 10%">
+        <div id="map"></div>
+        <div class="table">
+          <table style="float: right; margin-top: 10px">
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>A main, reference, or azimuth benchmark not searched for.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Start of description -->
+      <h2>"PASS"</h2>
+      <table>
+        <tr>
+          <td><strong>NGS PointID: </strong></td>
+          <td>CG1046</td>
+        </tr>
+        <tr>
+          <td><strong>Reference Benchmarks: </strong></td>
+          <td>
+            <a
+              href="https://bubbajuice.github.io/benchmarks/pass_1"
+              class="link"
+              >PASS NO 1</a
+            >,
+            <a
+              href="https://bubbajuice.github.io/benchmarks/pass_2"
+              class="link"
+              >PASS NO 2</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Azimuth Benchmark: </strong></td>
+          <td>
+            <a href="https://bubbajuice.github.io/benchmarks/canelo" class="redLink"
+              >CANELO</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Condition: </strong></td>
+          <td>Medium ware and discoloring</td>
+        </tr>
+        <tr>
+          <td><strong>Stamping: </strong></td>
+          <td>PASS 1938</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinates: </strong></td>
+          <td>31.506728, -110.570696</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Elevation: </strong></td>
+          <td>6112 ft (1863 m)</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Setting: </strong></td>
+          <td>A rock outcrop</td>
+        </tr>
+        <tr>
+          <td><strong>Monumentor: </strong></td>
+          <td>USC&GS</td>
+        </tr>
+      </table>
+      <p><strong>Datasheet Description:</strong></p>
+      <div>
+        <p>
+          Station is located on a prominent round top ridge, the highest
+          point in the vicinity, about 11.0 miles S of the town of Elgin
+          and 3.0 miles SW of Canille Store on the third and highest point
+          NW of Canelo Pass about 1-1/4 miles NW of the pass-Elgin Road.
+        </p>
+        <p>  
+          Station and reference marks are standard bronze disks set in
+          rock.
+        </p>
+        <p> 
+          To reach from Elgin go S on the Canelo Road 15.0 miles to Canille
+          Store.  Continue S on the Pass Road 3.8 miles to a cattle guard
+          and line fence at the highest point on the road which is Canelo
+          pass.  End of truck travel.  Pack NW and N along the main ridge
+          to the third and highest point and station.
+        </p>
+        <p>
+          Station Canelo about 3.0 miles SE used as azimuth mark.  It is
+          the first prominent point SE of the pass.
+        </p>
+        <p>
+          Station San Rafael USGS bench mark is about 4.0 miles SSW on the
+          S side of the main road.
+        </p>
+        <p>
+          Station and reference marks are on bare hill top and easily located.
+        </p>
+      </div>
+      <div class="descr">
+        <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>
+          "PASS" is a benchmark monumented by the USC&GS in 1938 in Santa Cruz
+          County, Arizona. It has 2 reference marks and a non-dedicated azimuth.
+        </p>
+        <p>
+          The best way to get to "PA 2" from Canelo Pass is to follow jeep road west for 400 ft (120 m).
+          From here follow trail up ridge. Follow trail, ridge, and fenceline for 3200 ft (1000 m) at which point it becomes necessary to cross the fence.
+          Follow the trail up steep hill to top. Both sides of the fence are on national forest land.
+        </p>
+        <p>
+          The benchmark is on a rock outcrop (as are the references) and next to the fire relay device.
+        </p>
+        <p>
+          "PASS NO 1" is located 19.022 feet or 5.798 meters 186 degrees from
+          the main benchmark.
+        </p>
+        <p>
+          "PA 2 NO 2" is located 23.350 feet or 7.117 meters 218 degrees from
+          the main benchmark. 
+        </p>
+        <p>
+          "CANELO" is located 271 degrees from the main
+          benchmark. It is located on Lookout Knoll about 2.5 miles (4 kilometers) southwest of the mark.
+        </p>
+      </div>
+      <!-- Gallery -->
+      <div class="gallery">
+        <a target="_blank" href="images/PASS.png">
+          <img
+            src="images/PASS.png"
+            alt="PASS benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of the main benchmark.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/PASS1.png">
+          <img
+            src="images/PA21.png"
+            alt="PASS NO 1"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of reference mark 1.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/PASS2.png">
+          <img
+            src="images/PASS2.png"
+            alt="PASS NO 2"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of reference mark 2.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/PASS1main.png">
+          <img
+            src="images/PASS1main.png"
+            alt="RM 1 towards main"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">Reference mark 1 looking towards the main.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/PASS2main.png">
+          <img
+            src="images/PASS2main.png"
+            alt="RM 2 towards main"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">Reference mark 2 looking towards the main.</div>
+      </div>
+    </div>
+    <script>
+      var loadJson = function (obj) {
+        /* Add icons for marker status. */
+        var mainGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var mainBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var none = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        /* Convert status in JSON to variable for interpretation below */
+        var main = L.layerGroup();
+        function statusToIcon(status) {
+          if (status == "mainGood") {
+            return mainGood;
+          }
+          if (status == "mainBad") {
+            return mainBad;
+          }
+          if (status == "refGood") {
+            return refGood;
+          }
+          if (status == "refBad") {
+            return refBad;
+          }
+          if (status == "azimuthGood") {
+            return azimuthGood;
+          }
+          if (status == "azimuthBad") {
+            return azimuthBad;
+          }
+          if (status == "none") {
+            return none;
+          }
+          console.log("Couldn't find a status!")
+        }
+
+        /* Main marker icon */
+        L.marker([obj.mainCoordLat, obj.mainCoordLong], {
+          icon: statusToIcon(obj.mainStatus),
+        })
+          .addTo(main)
+          .bindPopup(obj.mainName)
+          .openPopup();
+
+        /* Base Layers */
+        var caltopo = L.tileLayer(
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            {
+              attribution:
+                '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
+              maxNativeZoom: 16,
+            }
+          ),
+
+          osm = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            {
+              attribution: 
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ),
+
+          naip = L.tileLayer(
+            "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution: 
+                "USDA-NAIP",
+            }
+          );
+
+          usgsImagery = L.tileLayer(
+            "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+            { 
+              attribution: 
+                "USDA-NAIP", 
+              maxNativeZoom: 16 
+            }
+          );
+
+          ersi = L.tileLayer(
+            "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+            }
+          );
+
+          ersiClarity = L.tileLayer(
+            "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+            }
+          );
+
+        var route = L.layerGroup();
+
+        var layers = [caltopo, main, route];
+
+        var overlays = {};
+
+        var overlays = Object.assign({
+          "GPX Route": route
+        }, overlays );
+
+        /* Azimuth Markers */
+        if (obj.azimuth == "y") {
+          var azimuth = L.layerGroup();
+          L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
+            icon: statusToIcon(obj.azimuthStatus),
+          })
+            .addTo(azimuth)
+            .bindPopup(obj.azimuthName)
+            .openPopup();
+          layers.push(azimuth);
+          overlays = Object.assign({"Azimuth": azimuth}, overlays);
+        }
+
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
+
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: statusToIcon(obj.referenceStatus1),
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: statusToIcon(obj.referenceStatus2),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: statusToIcon(obj.referenceStatus3),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: statusToIcon(obj.referenceStatus4),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: statusToIcon(obj.referenceStatus5),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+          layers.push(reference);
+          overlays = Object.assign({"Reference Marks": reference}, overlays);
+        }
+
+        var overlays = Object.assign({
+          "Benchmark": main,
+        }, overlays );
+
+        if (obj.gpx == "n") {
+          } else {
+          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
+
+        var baseMaps = {
+          "Scanned USGS Topo Maps": caltopo,
+          OpenStreetMap: osm,
+          NAIP: naip,
+          "USGS Imagery": usgsImagery,
+          "Ersi World Imagery": ersi,
+          "Ersi Clarity": ersiClarity,
+        };
+
+        var map = L.map("map", {
+          center: [obj.mapCenterLat, obj.mapCenterLong],
+          zoom: obj.mapZoom,
+          layers: layers,
+        });
+        L.control.layers(baseMaps, overlays).addTo(map);
+      };
+      $.getJSON(
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/pass.json",
+        loadJson
+      );
+    </script>
+  </body>
+</html>

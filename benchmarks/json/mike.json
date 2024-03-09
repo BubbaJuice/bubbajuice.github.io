@@ -1,7 +1,7 @@
 {
     "mainName": "MIKE",
-    "mainCoordLat": "44.25179",
-    "mainCoordLong": "-86.34694",
+    "mainCoordLat": "44.25089",
+    "mainCoordLong": "-86.34428",
     "mainStatus": "mainGood",
     "reference": "n",
     "referenceName1": "n",
@@ -31,7 +31,7 @@
     "azimuthStatus": "n",
     "gpx": "n",
     "gpxFile": "n",
-    "mapCenterLat": "44.25179",
-    "mapCenterLong": "-86.34694",
+    "mapCenterLat": "44.25089",
+    "mapCenterLong": "-86.34428",
     "mapZoom": "18"
   }
