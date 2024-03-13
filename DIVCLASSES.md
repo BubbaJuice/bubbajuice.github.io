@@ -106,7 +106,7 @@ WIP - The type/style of the benchmark.
 | 23 | metal monument |  |
 | 24 | CGS triangulation flat top sharp, thin triangle (~2.5 cm) variant ~1910-1912 | https://s3.amazonaws.com/gs-geo-images/2883bd74-e481-4351-9e4f-5c8cb7fda385.jpg |
 | 25 | CGS triangulation flat top 1909-1922 (~2 cm) variant | https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=get_image&PID=QF0712&filename=QF0712-DE_MONTS-1-20080611.jpg |
-| 26 | CGS triangulation flat top ~1910-1911 larger lettering | https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=get_image&PID=BM0627&filename=BM0627-AUSTIN_LONGITUDE_STA-1-20110322.JPG |
+| 26 | CGS triangulation flat top ~1910-1911 larger lettering | <img src="benchmarks/images/compressed/mule-c.png" width="200"/> |
 | 27 | CGS triangulation convex 1919-1972 original ~2 cm triangle | <img src="benchmarks/images/compressed/GRISWOLD-c.png" width="200"/> |
 | 28 | CGS triangulation convex ~1 cm triangle | <img src="benchmarks/images/compressed/SAN-c.png" width="200"/> |\
 | 45 | CGS slash | <img src="benchmarks/images/compressed/E3-c.png" width="200"/> |

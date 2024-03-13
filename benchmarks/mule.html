@@ -1,0 +1,706 @@
+<html>
+  <head>
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+
+      .link {
+        color: #2f8aee;
+      }
+
+      .redLink {
+        color: #ff0000;
+      }
+
+      .image {
+        border-color: mediumpurple;
+        border-style: solid;
+        border-radius: 12px;
+        margin: 10px;
+        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
+        float: left;
+      }
+
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+
+      .whiteBorder {
+        border: 1px solid #ffffff;
+      }
+
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .descr {
+        width: 50%;
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>MULE</strong></h1>
+      <p>
+        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
+        <a href="https://bubbajuice.github.io/" class="link">Home</a>
+        <a href="https://bubbajuice.github.io/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr />
+    <!-- Make markers -->
+    <div style="margin-left: 10%">
+      <div class="right" style="margin-right: 10%">
+        <div id="map"></div>
+        <div class="table">
+          <table style="float: right; margin-top: 10px">
+            <tr><td style="text-align: center"><p>Note that references are not shown due to convoluted information.</p></td></tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>A main, reference, or azimuth benchmark not searched for.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Start of description -->
+      <h2>"MULE"</h2>
+      <table>
+        <tr>
+          <td><strong>NGS PointID: </strong></td>
+          <td>CF0355</td>
+        </tr>
+        <tr>
+          <td><strong>Reference Benchmarks: </strong></td>
+          <td>
+            <a
+              href="https://bubbajuice.github.io/benchmarks/pass_1"
+              class="redlink"
+              >MULE RM 1</a
+            >,
+            <a
+              href="https://bubbajuice.github.io/benchmarks/pass_2"
+              class="redlink"
+              >MULE RM 2</a
+            >,
+            <a
+              href="https://bubbajuice.github.io/benchmarks/pass_ne"
+              class="redlink"
+              >MULE NE CROSS</a
+            >,
+            <a
+              href="https://bubbajuice.github.io/benchmarks/pass_sw"
+              class="redlink"
+              >MULE SW CROSS</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Azimuth Benchmarks: </strong></td>
+          <td>
+            <a href="https://bubbajuice.github.io/benchmarks/mule_1936" class="link"
+              >MULE 1936</a
+            >,
+            <a href="https://bubbajuice.github.io/benchmarks/canelo_1938" class="link"
+              >MULE 1938</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Condition: </strong></td>
+          <td>Minor ware</td>
+        </tr>
+        <tr>
+          <td><strong>Stamping: </strong></td>
+          <td>MULE 1910</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinates: </strong></td>
+          <td>31.443703, -109.959247</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Elevation: </strong></td>
+          <td>7373.7 ft (2247.5 m)</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Setting: </strong></td>
+          <td>A 1 inch pipe secured to the ground with concrete</td>
+        </tr>
+        <tr>
+          <td><strong>Monumentor: </strong></td>
+          <td>USC&GS</td>
+        </tr>
+      </table>
+      <p><strong>Datasheet Description:</strong></p>
+      <div>
+        <p>
+          This station is in approximately the same location as the
+          United States Geological Survey station.  It is on the SE
+          and lower one of the two highest peaks of the mule mountains,
+          7-1/2 miles N, 5 deg W from Naco, 4 miles NW of Don Luis,
+          and 2-1/2 miles W of Bisbee, towns on the El Paso and
+          Southwestern Railroad.  The station is marked by a standard
+          disk station mark, cemented in the top of a 1-inch iron pipe,
+          18 inches long, which was driven down flush with the surface
+          of the ground.  The reference mark, a cross out in a ledge
+          of rock with a one-half inch drill hole one-fourth of an
+          inch deep at its center, is 5.79 meters from the station
+          N 30 deg 36 min E.
+        </p>
+        <p>
+          Station recovered.  Station mark in good condition.  Reference
+          mark, a drill hole in rock, barely discernible.  New reference
+          mark and azimuth mark established.  Revised description as
+          follows--
+
+          Reached from bisbee by U.S. Highway 80 NW up steep grade
+          about 2 miles to summit.  Thence follow old trail up ridge
+          SW, following general course of soil conservation service
+          fence, about 1-1/2 miles to summit and station.  Station is
+          near NW corner of flat summit, which has a large open grassy
+          area on N slope.  Can also be reached from summit of highway
+          by left fork, old road, down s side of canyon about 1/2 mile.
+          Thence left, up a side canyon about 1/2 mile to clevelands
+          house.  A trail leads to a mine a short distance NW of
+          station.
+        </p>
+        <p>
+          Mark is a standard tablet in top of 1-inch iron pipe, driven
+          flush with surface of ground, stamped MULE 1910.  It was
+          surrounded by a ring of flat rocks.
+        </p>
+        <p>
+          Reference mark 1910 is a shallow cross out on point of exposed
+          ledge rock, with small drill hole at center.  The rock has
+          eroded until mark is hard to find.
+        </p>
+        <p>
+          Refernce mark 1936 is a standard tablet set in narrow exposed
+          outcrop of rock SSW of station, on flat summit of mountain.
+          It is slightly below level of grass, and may become covered.
+          Stamped mule 1910 1936.
+        </p>
+        <p>
+          Azimuth mark is standard tablet set in solid rock on SW rim
+          of ridge lying NE of U.S. Highway 80.  Reached from summit
+          of highway by steep road to right.  Follow this road 1.0 mile
+          to end of grade.  Continue NW on trail 0.15 mile to government
+          fence.  Continue W 0.25 mile, and azimuth mark is 28 paces
+          S of road, on a large rock outcrop, about 40 yards N of
+          point where mountain slopes steeply to S, and 5 feet W of a
+          small rock cairn.  Stamped MULE 1910 1936.
+        </p>
+        <p>
+          Reference mark no. 1, was established and is stamped
+          1938.
+        </p>
+        <p>
+          Azimuth mark, is about 0.2 mile SSW of the station
+          on the first hill which is about 150 feet lower than the
+          station.
+        </p>
+      </div>
+      <div class="descr">
+        <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>
+          "MULE" is a benchmark monumented by the USC&GS in 1910 in Cochise
+          County, Arizona. It has 4 reference marks (2 disks, 2 markings in rock) and two deticated azimuths.
+        </p>
+        <p>
+          The best way to get to "MULE" from Mule Pass is to follow the social trail to Mount Ballard. From the main bare summit of the peak,
+          go to coordinates of benchmark, located to the north.
+        </p>
+        <p>
+          The benchmark is under a single rock at ground level. See <a href="https://s3.amazonaws.com/gs-geo-images/d869a0fa-888e-4dd0-af1b-b6cdbb350dc8.jpg" class="link">this picture</a>
+          for a general idea of the surroundings. I didn't take one, sorry.
+        </p>
+        <p>
+          "MULE 1936" is the original azimuth mark placed in 1936 located 29 degrees from the main
+          benchmark. It is located on a very open large rock outcrop, 1.93 miles (3.11 kilometers) from the station.
+        </p>
+        <p>
+          "MULE 1938" is the second azimuth mark placed in 1938 located 203 degrees from the main
+          benchmark. It is located on the summit of the nearest hill southwest of the benchmark, .16 miles (.25 kilometers) from the station.
+        </p>
+      </div>
+      <!-- Gallery -->
+      <div class="gallery">
+        <a target="_blank" href="images/MULE.png">
+          <img
+            src="images/MULE.png"
+            alt="MULE benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of the main benchmark in shade.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/MULEsun.png">
+          <img
+            src="images/MULEsun.png"
+            alt="MULE benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of the main benchmark in the sun.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/MULE1936.png">
+          <img
+            src="images/MULE1936.png"
+            alt="MULE 1936 azmk benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of the 1936 azimuth mark.</div>
+      </div>
+      
+      <div class="gallery">
+        <a target="_blank" href="images/MULE1938shadowwet.png">
+          <img
+            src="images/MULE1938shadowwet.png"
+            alt="MULE 1938 azmk benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of the 1938 azimuth mark after being cleaned and covered in a shadow.</div>
+      </div>
+    </div>
+    <script>
+      var loadJson = function (obj) {
+        /* Add icons for marker status. */
+        var mainGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var mainBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var none = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        /* Convert status in JSON to variable for interpretation below */
+        var main = L.layerGroup();
+        function statusToIcon(status) {
+          if (status == "mainGood") {
+            return mainGood;
+          }
+          if (status == "mainBad") {
+            return mainBad;
+          }
+          if (status == "refGood") {
+            return refGood;
+          }
+          if (status == "refBad") {
+            return refBad;
+          }
+          if (status == "azimuthGood") {
+            return azimuthGood;
+          }
+          if (status == "azimuthBad") {
+            return azimuthBad;
+          }
+          if (status == "none") {
+            return none;
+          }
+          console.log("Couldn't find a status!")
+        }
+
+        /* Main marker icon */
+        L.marker([obj.mainCoordLat, obj.mainCoordLong], {
+          icon: statusToIcon(obj.mainStatus),
+        })
+          .addTo(main)
+          .bindPopup(obj.mainName)
+          .openPopup();
+
+        /* Base Layers */
+        var caltopo = L.tileLayer(
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            {
+              attribution:
+                '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
+              maxNativeZoom: 16,
+            }
+          ),
+
+          osm = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            {
+              attribution: 
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ),
+
+          naip = L.tileLayer(
+            "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution: 
+                "USDA-NAIP",
+            }
+          );
+
+          usgsImagery = L.tileLayer(
+            "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+            { 
+              attribution: 
+                "USDA-NAIP", 
+              maxNativeZoom: 16 
+            }
+          );
+
+          ersi = L.tileLayer(
+            "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+            }
+          );
+
+          ersiClarity = L.tileLayer(
+            "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+            }
+          );
+
+        var route = L.layerGroup();
+
+        var layers = [caltopo, main, route];
+
+        var overlays = {};
+
+        var overlays = Object.assign({
+          "GPX Route": route
+        }, overlays );
+
+        /* Azimuth Markers */
+        if (obj.azimuth == "y") {
+          var azimuth = L.layerGroup();
+
+          L.marker([obj.azimuthCoordLat1, obj.azimuthCoordLong1], {
+            icon: statusToIcon(obj.azimuthStatus1),
+          })
+            .addTo(azimuth)
+            .bindPopup(obj.azimuthName1)
+            .openPopup();
+          if (obj.azimuthCoordLat2 == "n") {
+          } else {
+            L.marker([obj.azimuthCoordLat2, obj.azimuthCoordLong2], {
+              icon: statusToIcon(obj.azimuthStatus2),
+            })
+              .addTo(azimuth)
+              .bindPopup(obj.azimuthName2)
+              .openPopup();
+          }
+          layers.push(azimuth);
+          overlays = Object.assign({"Azimuth": azimuth}, overlays);
+          
+        }
+
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
+
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: statusToIcon(obj.referenceStatus1),
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: statusToIcon(obj.referenceStatus2),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: statusToIcon(obj.referenceStatus3),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: statusToIcon(obj.referenceStatus4),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: statusToIcon(obj.referenceStatus5),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+          layers.push(reference);
+          overlays = Object.assign({"Reference Marks": reference}, overlays);
+        }
+
+        var overlays = Object.assign({
+          "Benchmark": main,
+        }, overlays );
+
+        if (obj.gpx == "n") {
+          } else {
+          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
+
+        var baseMaps = {
+          "Scanned USGS Topo Maps": caltopo,
+          OpenStreetMap: osm,
+          NAIP: naip,
+          "USGS Imagery": usgsImagery,
+          "Ersi World Imagery": ersi,
+          "Ersi Clarity": ersiClarity,
+        };
+
+        var map = L.map("map", {
+          center: [obj.mapCenterLat, obj.mapCenterLong],
+          zoom: obj.mapZoom,
+          layers: layers,
+        });
+        L.control.layers(baseMaps, overlays).addTo(map);
+      };
+      $.getJSON(
+        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/mule.json",
+        loadJson
+      );
+    </script>
+  </body>
+</html>
