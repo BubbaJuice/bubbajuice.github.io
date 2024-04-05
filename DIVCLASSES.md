@@ -85,7 +85,7 @@ WIP - The type/style of the benchmark.
 | 2 | USGS "plus" vertical control disk | <img src="benchmarks/images/compressed/NOGLS3653.png" width="200"/> |
 | 3 | USGS "plus" vertical control pipe | <img src="benchmarks/images/compressed/NOGLS3140back.png" width="200"/> |
 | 4 | USGS "plus" vertical control disk with state | <img src="benchmarks/images/compressed/SF200-c.png" width="200"/> |
-| 5 | USGS triangulation no BM | https://commons.wikimedia.org/wiki/File:2015-07-13_11_47_03_United_States_Geological_Survey_marker_on_the_summit_of_Charleston_Peak,_Nevada.jpg |
+| 5 | USGS triangulation no BM | <img src="benchmarks/images/compressed/GRANITEUSGS-c.png" width="200"/> |
 | 6 | USGS triangulation with BM | <img src="benchmarks/images/compressed/PUSCH-c.png" width="200"/> |
 | 7 | USGS triangulation with state no BM | https://s3.amazonaws.com/gs-waymarking-images/c91d676b-37ae-4b4c-942a-c80282a7cbfb.jpg |
 | 8 | USGS 1907-1932 disk | <img src="benchmarks/images/compressed/VA9795-c.png" width="200"/> |
@@ -106,7 +106,7 @@ WIP - The type/style of the benchmark.
 | 23 | metal monument |  |
 | 24 | CGS triangulation flat top sharp, thin triangle (~2.5 cm) variant ~1910-1912 | https://s3.amazonaws.com/gs-geo-images/2883bd74-e481-4351-9e4f-5c8cb7fda385.jpg |
 | 25 | CGS triangulation flat top 1909-1922 (~2 cm) variant | https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=get_image&PID=QF0712&filename=QF0712-DE_MONTS-1-20080611.jpg |
-| 26 | CGS triangulation flat top ~1910-1911 larger lettering | <img src="benchmarks/images/compressed/mule-c.png" width="200"/> |
+| 26 | CGS triangulation flat top ~1910-1911 larger lettering | <img src="benchmarks/images/compressed/MULE-c.png" width="200"/> |
 | 27 | CGS triangulation convex 1919-1972 original ~2 cm triangle | <img src="benchmarks/images/compressed/GRISWOLD-c.png" width="200"/> |
 | 28 | CGS triangulation convex ~1 cm triangle | <img src="benchmarks/images/compressed/SAN-c.png" width="200"/> |\
 | 45 | CGS slash | <img src="benchmarks/images/compressed/E3-c.png" width="200"/> |

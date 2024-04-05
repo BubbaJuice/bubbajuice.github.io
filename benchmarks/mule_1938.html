@@ -507,12 +507,22 @@
         /* Azimuth Markers */
         if (obj.azimuth == "y") {
           var azimuth = L.layerGroup();
-          L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
-            icon: statusToIcon(obj.azimuthStatus),
+
+          L.marker([obj.azimuthCoordLat1, obj.azimuthCoordLong1], {
+            icon: statusToIcon(obj.azimuthStatus1),
           })
             .addTo(azimuth)
-            .bindPopup(obj.azimuthName)
+            .bindPopup(obj.azimuthName1)
             .openPopup();
+          if (obj.azimuthCoordLat2 == "n") {
+          } else {
+            L.marker([obj.azimuthCoordLat2, obj.azimuthCoordLong2], {
+              icon: statusToIcon(obj.azimuthStatus2),
+            })
+              .addTo(azimuth)
+              .bindPopup(obj.azimuthName2)
+              .openPopup();
+          }
           layers.push(azimuth);
           overlays = Object.assign({"Azimuth": azimuth}, overlays);
         }
