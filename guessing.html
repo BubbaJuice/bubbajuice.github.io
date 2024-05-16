@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>e</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color:#36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+      .bodya {
+        text-align: center;
+      }
+      .link {
+        color: #2f8aee;
+      }
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+        width: 65%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bodya">
+      <h1><strong>Benchmark Finding</strong></h1>
+      <p><a href="https://bubbajuice.github.io/benchmarks" class="link">Benchmarks</a> <a href="https://bubbajuice.github.io/apps" class="link">Apps</a> <a href="https://bubbajuice.github.io/" class="link">Home</a> <a href="https://bubbajuice.github.io/gcstats" class="link">Geocaching Stats</a></p>
+      <hr>
+      <p>One of the most import parts of benchmark hunting is finding the benchmark online and gathering information on it to find it the most easily in person.</p>
+      <p>So I was thinking, what if I made a game like Geoguessur but I give you the benchmark and you have to find where it is.</p>
+      <p>The answers are located <a href="https://bubbajuice.github.io/answers" class="link">here</a>.</p>
+      <hr>
+      <h3>Round 1</h3>
+      <p>So I will give you a picture and the stamping and what state it is in for this one.</p>
+      <img src="benchmarks\images\guess1.png" width="65%">
+      <p>This one is stamped "5481 10-18-1905 V-A" and is located in California.</p>
+    </div>
+    <div class="center" style="margin-bottom: 20px;">
+      <div id="map" style="width: 100%; height: 600px;"></div>
+    </div>
+    <div class="bodya">
+      <button onclick="guess1()">Guess!</button>
+    </div>
+    <p id="distance"></p>
+    <br>
+    <br>
+    <br>
+
+    <script>
+      /* Base Layers */
+      var caltopo=L.tileLayer("https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',maxNativeZoom:16}),osm=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),naip=L.tileLayer("https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",{attribution:"USDA-NAIP"});usgsImagery=L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",{attribution:"USDA-NAIP",maxNativeZoom:16});ersi=L.tileLayer("https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{attribution:"Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community"});ersiClarity=L.tileLayer("https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{attribution:"Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community"});
+
+      var layers = [osm];
+
+      var baseMaps = {
+        OpenStreetMap: osm,
+        "Scanned USGS Topo Maps": caltopo,
+        NAIP: naip,
+        "USGS Imagery": usgsImagery,
+        "Ersi World Imagery": ersi,
+        "Ersi Clarity": ersiClarity,
+      };
+
+      var map = L.map("map", {
+        center: [39.5, -98.7],
+        zoom: 4,
+        layers: layers,
+      });
+      L.control.layers(baseMaps).addTo(map);
+
+      var count = 0;
+      function onMapClick(e) {
+        console.log("clicked");
+        count = count + 1;
+        console.log(count);
+        var name = ["marker" + count];
+        eval(name + " = new L.marker(e.latlng, {draggable:'true'})")
+        if (count != 1) {
+          map.removeLayer(eval("marker" + (count - 1)))
+        };
+        fuckshit = eval("marker" + count)
+        fuckshit.on('dragend', function(event){
+          console.log("yes")
+          var marker = event.target;
+          var position = marker.getLatLng();
+          marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+          map.panTo(new L.LatLng(position.lat, position.lng))
+          lat = position.lat
+          lng = position.lng
+        });
+        var position = fuckshit.getLatLng();
+        lat = position.lat
+        lng = position.lng
+        map.addLayer(eval("marker" + count));
+        console.log (name)
+      };
+
+      function guess1(){
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+          const earthRadius = 6371; // Radius of the Earth in kilometers
+      
+          // Convert latitude and longitude from degrees to radians
+          const latRad1 = toRadians(lat1);
+          const lonRad1 = toRadians(lon1);
+          const latRad2 = toRadians(lat2);
+          const lonRad2 = toRadians(lon2);
+      
+          // Calculate the differences between the latitudes and longitudes
+          const latDiff = latRad2 - latRad1;
+          const lonDiff = lonRad2 - lonRad1;
+      
+          // Calculate the distance using the Haversine formula
+          const a = Math.sin(latDiff / 2) ** 2 + Math.cos(latRad1) * Math.cos(latRad2) * Math.sin(lonDiff / 2) ** 2;
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+          const distance = earthRadius * c;
+      
+          return distance;
+        }
+      
+        // Function to convert degrees to radians
+        function toRadians(degrees) {
+            return degrees * (Math.PI / 180);
+        }
+
+        const distance = calculateDistance(lat, lng, "37.72499", "-119.54487");
+        const distanceElement = document.getElementById("distance");
+        function calculatePoints(distance) {
+          if (distance <= .05) {
+              return 5000;
+          // Fix this part, should increase exponentially
+          } else if (distance <= 700) {
+              return Math.round(5000 - (distance * 7.1));
+          } else {
+              return 0;
+          }
+        }
+        distanceElement.textContent = "You are " + distance.toFixed(2) + " km away from the location." + " You got " + calculatePoints(distance) + " points.";
+      };
+
+      map.on('click', onMapClick);
+    </script>
+  </body>
+</html>

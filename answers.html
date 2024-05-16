@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>e</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color:#36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+      .bodyaa {
+        text-align: center;
+      }
+      .link {
+        color: #2f8aee;
+      }
+      .panel {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0);
+        color: white;
+        font-size: 18px;
+      }
+      .content {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bodya">
+      <div class="bodyaa">
+        <h1><strong>Benchmark Finding Answers</strong></h1>
+        <p><a href="https://bubbajuice.github.io/benchmarks" class="link">Benchmarks</a> <a href="https://bubbajuice.github.io/apps" class="link">Apps</a> <a href="https://bubbajuice.github.io/" class="link">Home</a> <a href="https://bubbajuice.github.io/gcstats" class="link">Geocaching Stats</a></p>
+        <hr>
+        <p>These are the answers.</p>
+        <div id="panel" class="panel">
+          <p>WARNING: Clicking the button will show you the answers!</p>
+          <button id="openPanel">Open Panel</button>
+        </div>
+        <div id="content" class="content">
+          <h3>Round 1</h3>
+          <p>So I will give you a picture and the stamping and what state it is in for this one.</p>
+          <img src="benchmarks\images\guess1.png" width="65%">
+          <p>This one is stamped "5481 10-18-1905 V-A" and is located in California.</p>
+          <p>So this one is easy if you have experiences with the area. It's located in Yosemite Valley at Clark Point.</p>
+          <p style="margin-left: 17.5%; margin-right: 17.5%">From the stamped elevation, you can tell it is somewhere in the mountains. 
+            From there, if you are keen you will know that the 1905 dates are common in Yosemite.
+            There were a lot of vertical angle surveys done in Yosemite in 1905, gathering data on the heights of the waterfalls and general elevation data for topography.
+            You won't find these benchmarks on the typical Yosemite quadrangle but they will be on <a href="https://pubs.usgs.gov/publication/pp160" class="link">https://pubs.usgs.gov/publication/pp160</a> on Plate 7.
+            If you also thought it was Yosemite but couldn't find the mark on a typical quadrangle map, then  you could search '"5481" yosemite' on Google and it would come up with this link, <a href="https://thesurveystation.com/USGS/CA/YosVal_rim.pdf" class="link">https://thesurveystation.com/USGS/CA/YosVal_rim.pdf</a>, which leads you to datasheet descriptions of each mark where you could quickly find its location.
+          </p>
+        </div>
+      </div>
+      <div class="center" style="margin-bottom: 20px;">
+        <div id="map" style="width: 100%; height: 600px; width: 65%; margin-left: 17.5%"></div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <script>
+      /* Base Layers */
+      var caltopo=L.tileLayer("https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',maxNativeZoom:16}),osm=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),naip=L.tileLayer("https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",{attribution:"USDA-NAIP"});usgsImagery=L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",{attribution:"USDA-NAIP",maxNativeZoom:16});ersi=L.tileLayer("https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{attribution:"Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community"});ersiClarity=L.tileLayer("https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{attribution:"Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community"});
+
+      var layers = [osm];
+
+      var baseMaps = {
+        OpenStreetMap: osm,
+        "Scanned USGS Topo Maps": caltopo,
+        NAIP: naip,
+        "USGS Imagery": usgsImagery,
+        "Ersi World Imagery": ersi,
+        "Ersi Clarity": ersiClarity,
+      };
+
+      document.addEventListener("DOMContentLoaded", function() {
+        var panel = document.getElementById("panel");
+        var openPanelButton = document.getElementById("openPanel");
+        var content = document.getElementById("content");
+      
+        function showPanel() {
+          panel.style.display = "none";
+          content.style.display = "block";
+          var map = L.map("map", {
+            center: [39.5, -98.7],
+            zoom: 4,
+            layers: layers,
+          });
+          L.control.layers(baseMaps).addTo(map);
+          var marker = L.marker([37.72499, -119.54487]).addTo(map);
+          var popup = marker.bindPopup('Location 1');
+        }
+
+        openPanelButton.addEventListener("click", showPanel);
+      });
+    </script>
+  </body>
+</html>
