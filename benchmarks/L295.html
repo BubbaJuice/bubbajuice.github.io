@@ -107,11 +107,11 @@
     <center>
       <h1><strong>L 295</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -230,7 +230,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           add later
         </p>
@@ -538,7 +538,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -569,7 +569,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/L295.json",
+        "./json/L295.json",
         loadJson
       );
     </script>

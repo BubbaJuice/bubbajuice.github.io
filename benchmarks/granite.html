@@ -1,0 +1,659 @@
+<html>
+  <head>
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+
+      .link {
+        color: #2f8aee;
+      }
+
+      .image {
+        border-color: mediumpurple;
+        border-style: solid;
+        border-radius: 12px;
+        margin: 10px;
+        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
+        float: left;
+      }
+
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+
+      .whiteBorder {
+        border: 1px solid #ffffff;
+      }
+
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .descr {
+        width: 50%;
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>GRANITE</strong></h1>
+      <p>
+        <a href="/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr />
+    <!-- Make markers -->
+    <div style="margin-left: 10%">
+      <div class="right" style="margin-right: 10%">
+        <div id="map"></div>
+        <div class="table">
+          <table style="float: right; margin-top: 10px">
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>A main, reference, or azimuth benchmark not searched for.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Start of description -->
+      <h2>"GRANITE"</h2>
+      <table>
+        <tr>
+          <td><strong>NGS PointID: </strong></td>
+          <td>ET0987</td>
+        </tr>
+        <tr>
+          <td><strong>Reference Benchmarks: </strong></td>
+          <td>
+            <a
+              href="/benchmarks/granite_1"
+              class="link"
+              >GRANITE NO 1</a
+            >,
+            <a
+              href="/benchmarks/granite_usgs"
+              class="link"
+              >GRANITE (USGS)</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Azimuth Benchmark: </strong></td>
+          <td>
+            <a href="/benchmarks/granite_1944" class="link"
+              >GRANITE 1944</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Condition: </strong></td>
+          <td>Beaten up and scratched a bit</td>
+        </tr>
+        <tr>
+          <td><strong>Stamping: </strong></td>
+          <td>GRANITE 1919</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinates: </strong></td>
+          <td>34.6379054, -112.5534812</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Elevation: </strong></td>
+          <td>7628.0 ft (2325.0 m)</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Setting: </strong></td>
+          <td>A rock outcrop</td>
+        </tr>
+        <tr>
+          <td><strong>Monumentor: </strong></td>
+          <td>USC&GS</td>
+        </tr>
+      </table>
+      <p><strong>Datasheet Description (Truncated):</strong></p>
+      <div class="descr">
+        <p>
+          Station is about 8 miles air line and 16 miles by road and trail
+          NNW of Prescott. It is on the highest peak of Granite Mountain,
+          on a shelving flat rock at the S side of the summit, and 3 or 
+          4 feet lower than some of the surrounding crags.
+        </p><p>
+          Station mark is a bronze disk set in a drill hole in outcropping
+          bedrock.
+        </p><p>
+          Height of signal above station mark - 1.25 meters.
+        </p><p>
+          Reference mark 1 is a bronze reference disk set flush in a 
+          large boulder and is stamped GRANITE NO 1 1944. It is at about the
+          same elevation as station mark.
+        </p><p>
+          Reference mark 2 is GRANITE (U.S.G.S.).
+        </p><p>
+          GRANITE USGS is a standard U.S Geological Survey bench mark
+          disk set in a large boulder that forms the highest point
+          of the peak. Mark is not stamped. It is  16.252 meters
+          (53.318 feet) ENE of U.S.C. and G.S. station GRANITE and about
+          7 feet higher.
+        </p><p>
+          Azimuth mark is a bronze azimuth disk set in outcropping
+          bedrock and is stamped GRANITE 1944. It is 24 feet E of the
+          center line of road and about 5 feet higher than the roadbed.
+        </p>
+      </div>
+      <div class="descr">
+        <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>
+          "GRANITE" is a benchmark monumented by the USC&GS in 1919 located in Yavapai
+          County, Arizona. It has 2 reference marks, 1 of which is non-deticated, and a dedicated azimuth.
+        </p>
+        <p>
+          There is an established trail up the mountain followed by an established bushwhacking route. 
+          When following the route well, the bushwhack can take significantly more time.
+        </p>
+        <p>
+          When heading off trail, DO NOT TRUST all of the cairns. Some will lead you in a desirable path, 
+          while others lead you completely off track. When in doubt, look for general landmarks you should be 
+          heading towards using knowledge of the route and use common sense to get to them.
+        </p>
+        <p>
+          "GRANITE NO 1" can be seen from the benchmark to the north. 
+        </p>
+        <p>
+          "GRANITE" (USGS) is on the highest summit of the peak. 
+        </p><p> 
+          "GRANITE 1944" is the station's azimuth mark.
+          To reach the azimuth from Prescott, take the left 
+          fork at Miller Valley and Iron Springs Road onto Iron Springs Road for 2.9 mi (4.7 km) to a right fork at 
+          Granite Basin Road AKA FR 374. Here take the right fork and continue for 1.8 mi (2.9 km) to a fork, keep right 
+          and continue for 0.3 mile. At this point a large flat rock outcrop projecting a few feet will be seen to the 
+          right of the road and it is in this outcrop that the azimuth mark has been placed. This outcrop is just 
+          south of across the road from the driveway to the Yavapai Campground. 
+        </p><p>  
+          The station is just barely visible from the azimuth, almost obscured by another large rocky peak. 
+        </p>
+      </div>
+      <!-- Gallery -->
+      <div class="gallery">
+        <a target="_blank" href="images/GRANITE.png">
+          <img
+            src="images/GRANITE.png"
+            alt="GRANITE benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of GRANITE.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/GRANITEback.png">
+          <img
+            src="images/GRANITEback.png"
+            alt="GRANITE benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">GRANITE is on this flat rock  by the top.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/GRANITE_1.png">
+          <img
+            src="images/GRANITE_1.png"
+            alt="GRANITE NO 1 benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of GRANITE NO 1.</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/GRANITEUSGS.png">
+          <img
+            src="images/GRANITEUSGS.png"
+            alt="GRANITE (USGS) benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of GRANITE (USGS).</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="images/GRANITE_1944.png">
+          <img
+            src="images/GRANITE_1944.png"
+            alt="GRANITE azimuth benchmark"
+            width="600"
+            height="400"
+          />
+        </a>
+        <div class="desc">A closeup of GRANITE 1944.</div>
+      </div>
+    </div>
+    <script>
+      var loadJson = function (obj) {
+        /* Add icons for marker status. */
+        var mainGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var mainBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var none = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        /* Convert status in JSON to variable for interpretation below */
+        var main = L.layerGroup();
+        function statusToIcon(status) {
+          if (status == "mainGood") {
+            return mainGood;
+          }
+          if (status == "mainBad") {
+            return mainBad;
+          }
+          if (status == "refGood") {
+            return refGood;
+          }
+          if (status == "refBad") {
+            return refBad;
+          }
+          if (status == "azimuthGood") {
+            return azimuthGood;
+          }
+          if (status == "azimuthBad") {
+            return azimuthBad;
+          }
+          if (status == "none") {
+            return none;
+          }
+          console.log("Couldn't find a status!")
+        }
+
+        /* Main marker icon */
+        L.marker([obj.mainCoordLat, obj.mainCoordLong], {
+          icon: statusToIcon(obj.mainStatus),
+        })
+          .addTo(main)
+          .bindPopup(obj.mainName)
+          .openPopup();
+
+        /* Base Layers */
+        var caltopo = L.tileLayer(
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            {
+              attribution:
+                '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
+              maxNativeZoom: 16,
+            }
+          ),
+
+          osm = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            {
+              attribution: 
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ),
+
+          naip = L.tileLayer(
+            "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution: 
+                "USDA-NAIP",
+            }
+          );
+
+          usgsImagery = L.tileLayer(
+            "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+            { 
+              attribution: 
+                "USDA-NAIP", 
+              maxNativeZoom: 16 
+            }
+          );
+
+          ersi = L.tileLayer(
+            "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+            }
+          );
+
+          ersiClarity = L.tileLayer(
+            "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+            }
+          );
+
+        var route = L.layerGroup();
+
+        var layers = [caltopo, main, route];
+
+        var overlays = {};
+
+        var overlays = Object.assign({
+          "GPX Route": route
+        }, overlays );
+
+        /* Azimuth Markers */
+        if (obj.azimuth == "y") {
+          var azimuth = L.layerGroup();
+          L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
+            icon: statusToIcon(obj.azimuthStatus),
+          })
+            .addTo(azimuth)
+            .bindPopup(obj.azimuthName)
+            .openPopup();
+          layers.push(azimuth);
+          overlays = Object.assign({"Azimuth": azimuth}, overlays);
+        }
+
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
+
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: statusToIcon(obj.referenceStatus1),
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: statusToIcon(obj.referenceStatus2),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: statusToIcon(obj.referenceStatus3),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: statusToIcon(obj.referenceStatus4),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: statusToIcon(obj.referenceStatus5),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+          layers.push(reference);
+          overlays = Object.assign({"Reference Marks": reference}, overlays);
+        }
+
+        var overlays = Object.assign({
+          "Benchmark": main,
+        }, overlays );
+
+        if (obj.gpx == "n") {
+          } else {
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
+
+        var baseMaps = {
+          "Scanned USGS Topo Maps": caltopo,
+          OpenStreetMap: osm,
+          NAIP: naip,
+          "USGS Imagery": usgsImagery,
+          "Ersi World Imagery": ersi,
+          "Ersi Clarity": ersiClarity,
+        };
+
+        var map = L.map("map", {
+          center: [obj.mapCenterLat, obj.mapCenterLong],
+          zoom: obj.mapZoom,
+          layers: layers,
+        });
+        L.control.layers(baseMaps, overlays).addTo(map);
+      };
+      $.getJSON(
+        "./json/granite.json",
+        loadJson
+      );
+    </script>
+  </body>
+</html>

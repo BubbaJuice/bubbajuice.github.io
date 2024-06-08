@@ -107,11 +107,11 @@
     <center>
       <h1><strong>NOGLS 4534</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -246,7 +246,7 @@
         </p>
         <p>
           This disc is apart of the NOGLS vertical datum conducted during 1903, 1904, and 1905 across the Tucson area. 
-          To learn more about the NOGLS datum see <a href="https://bubbajuice.github.io/benchmarks/datum/nogls" class="link">this page</a>.
+          To learn more about the NOGLS datum see <a href="/benchmarks/datum/nogls" class="link">this page</a>.
         </p>
         <p>
           The road to the mark with need a decently high clearnace vehicle. The mark can also be walked to. 
@@ -559,7 +559,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -590,7 +590,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/nogls4534.json",
+        "./json/nogls4534.json",
         loadJson
       );
     </script>

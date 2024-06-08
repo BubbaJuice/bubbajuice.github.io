@@ -107,11 +107,11 @@
     <center>
       <h1><strong>T 87</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -230,7 +230,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           2.1 mi N from Suttons Bay.
         </p>
@@ -240,7 +240,7 @@
           a cut, 23 yards northeast of the center of the crossing of State
           Highway 22, 22 yards east of the centerline of the highway,
           12 yards east of the east rail, 15 yards northeast of telephone
-          pole 762, and 3 yards west of a fence.  A standard disk, stamped
+          pole 762, and 3 yards west of a fence. A standard disk, stamped
           T 87 1934 and set in the top of a concrete post projecting 11
           inches above ground.
         </p>
@@ -561,7 +561,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -592,7 +592,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/T87.json",
+        "./json/T87.json",
         loadJson
       );
     </script>

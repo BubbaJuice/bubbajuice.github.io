@@ -111,11 +111,11 @@
     <center>
       <h1><strong>COMSTOCK RESET Azimuth</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -210,17 +210,17 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/comstock"
+              href="/benchmarks/comstock"
               class="link"
               >COMSTOCK</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/comstock_1"
+              href="/benchmarks/comstock_1"
               class="link"
               >COMSTOCK NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/comstock_2"
+              href="/benchmarks/comstock_2"
               class="redLink"
               >COMSTOCK NO 2</a
             >
@@ -254,14 +254,14 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The new azimuth mark could not be set on line since a power
           line has been constructed with a pole exactly on line between
-          the station and the azimuth mark.  The reset azimuth mark can
+          the station and the azimuth mark. The reset azimuth mark can
           be located by the original description, however, it is now
           set on the same side of the highway in a new concrete curb
-          and not in a headwall as previously.  The old mark was not
+          and not in a headwall as previously. The old mark was not
           removed and has since been buried in the new highway fill.
 
           Airline distance and direction from nearest town--Ltr of
@@ -272,7 +272,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "COMSTOCK RESET" is a benchmark monumented by the ADOT in 1963 located in Cochise County, 
-          Arizona. It is a deticated azimuth mark for <a href="https://bubbajuice.github.io/benchmarks/comstock" class="link">COMSTOCK</a>.
+          Arizona. It is a deticated azimuth mark for <a href="/benchmarks/comstock" class="link">COMSTOCK</a>.
         </p>
         <p>
           <p>
@@ -551,7 +551,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -582,7 +582,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/comstock.json",
+        "./json/comstock.json",
         loadJson
       );
     </script>

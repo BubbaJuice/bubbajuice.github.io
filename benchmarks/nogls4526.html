@@ -107,11 +107,11 @@
     <center>
       <h1><strong>NOGLS 4526</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -240,7 +240,7 @@
         In Tombstone.
         At Tombstone, Cochise County, at the old courthouse building, in the
         north wall, 8 feet east of the center of the main entrance, and 3 feet
-        above the ground.  A United States Geological Survey standard disk,
+        above the ground. A United States Geological Survey standard disk,
         stamped 4526 NOGLS and set vertically.
       </p>
       <p><strong>Old Datasheet Description:</p></strong></p>
@@ -515,7 +515,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -546,7 +546,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/nogls4526.json",
+        "./json/nogls4526.json",
         loadJson
       );
     </script>

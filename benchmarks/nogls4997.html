@@ -111,11 +111,11 @@
     <center>
       <h1><strong>NOGLS 4997</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -211,12 +211,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/san_rafael_1"
+              href="/benchmarks/san_rafael_1"
               class="redLink"
               >SAN RAFAEL NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/san_rafael_2"
+              href="/benchmarks/san_rafael_2"
               class="redLink"
               >SAN RAFAEL NO 2</a
             >
@@ -226,7 +226,7 @@
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/san_rafael_3"
+              href="/benchmarks/san_rafael_3"
               class="redLink"
               >SAN RAFAEL AZIMUTH</a
             >
@@ -268,9 +268,9 @@
         Station is a standard U.S.G.S. bench mark pipe and cap, stamped
         datum NOGLS, elevation 4997 feet, at the W side of the graded
         county road over canelo pass and is about 12 miles ESE of
-        Patagonia and 2 miles ENE of the San Rafael schoolhouse.  It
+        Patagonia and 2 miles ENE of the San Rafael schoolhouse. It
         is on a grassy flat in the triangle formed by track road westerly
-        and the main Canelo-Patagonia road.  It is 29.1 meters S of the
+        and the main Canelo-Patagonia road. It is 29.1 meters S of the
         intersection of the track road and the main road, 6.53 meters
         W of main road center line and 3.80 meters E of track road
         center line.
@@ -282,21 +282,21 @@
         To reach from Fort Huachuca, at the intersection of the Canelo
         Pass Road and the main paved road N from Fort [Huachuca], at the Q M C Filling
         Station, take the graded dirt road (Canelo Pass Road), generally
-        W and southwesterly for 5.3 miles to a y-fork.  Take left
+        W and southwesterly for 5.3 miles to a y-fork. Take left
         fork, westerly, and at 2.2 miles pass over cattle guard and
-        entrance to Coronado National Forest.  Continue 4.85 miles to
-        t-road.  Continue on main road right 0.25 mile and at sign
+        entrance to Coronado National Forest. Continue 4.85 miles to
+        t-road. Continue on main road right 0.25 mile and at sign
         Sunnyside 17, Canelo 2, Elgin 13 after passing schoolhouse,
         take right fork, westerly, passing entrance to Canelo Ranger
-        Station at 0.2 mile.  Continue 0.95 mile to road
-        intersection at Canille Mercantile Store.  Turn left, S, and
-        continue 3.8 miles to the summit of Canelo Pass.  Continue 3.25
+        Station at 0.2 mile. Continue 0.95 mile to road
+        intersection at Canille Mercantile Store. Turn left, S, and
+        continue 3.8 miles to the summit of Canelo Pass. Continue 3.25
         miles to fork of track road right and station to S of this
         intersection, and W of main road.
       </p> 
       <p>   
         Azimuth mark is passed on this road 0.3 mile before reaching
-        station.  It is set in a concrete abutment at W end of a cattle
+        station. It is set in a concrete abutment at W end of a cattle
         guard 0.3 mile N of station, stamped SAN RAFAEL U.S.G.S. 1938,
         a standard U.S.C. and G.S. azimuth mark.
       </p> 
@@ -307,7 +307,7 @@
       <p>   
         Reference mark NO. 1 is 4.35 meters W of main road, center line.
         Reference mark NO. 2 is 8.08 meters WNW of track road, center
-        line.  
+        line. 
       </p> 
       <p> 
         Note--reconnaissance description describes this station from
@@ -322,7 +322,7 @@
         </p>
         <p>
           This disc is apart of the NOGLS vertical datum conducted during 1903, 1904, and 1905 across the Tucson area. 
-          To learn more about the NOGLS datum see <a href="https://bubbajuice.github.io/benchmarks/datum/nogls" class="link">this page</a>.
+          To learn more about the NOGLS datum see <a href="/benchmarks/datum/nogls" class="link">this page</a>.
         </p>
         <p>
           The disk is just on the side of the road. It is bent over at a 45 degree angle. RM 2 is in good condition. I couldn't find RM 1.
@@ -620,7 +620,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -651,7 +651,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/nogls4997.json",
+        "./json/nogls4997.json",
         loadJson
       );
     </script>

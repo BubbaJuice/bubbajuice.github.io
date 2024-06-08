@@ -107,11 +107,11 @@
     <center>
       <h1><strong>NOGLS 4200</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -240,7 +240,7 @@
         3.2 miles west along the Southern Pacific Co. Railroad from the
         station at Tombstone, Cochise County, about 300 feet west of trestle
         1054.31 over Tombstone Gulch, 23 feet south of the centerline of the
-        track, and in the top of a granite boulder.  A United States
+        track, and in the top of a granite boulder. A United States
         Geological Survey standard disk, stamped 4200 NOGLS.
       </p>
       <p><strong>Old Datasheet Description:</p></strong></p>
@@ -533,7 +533,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -564,7 +564,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/nogls4200.json",
+        "./json/nogls4200.json",
         loadJson
       );
     </script>

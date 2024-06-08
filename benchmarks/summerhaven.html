@@ -107,11 +107,11 @@
     <center>
       <h1><strong>SUMMERHAVEN</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/summerhaven_1"
+              href="/benchmarks/summerhaven_1"
               class="link"
               >SUMMERHAVEN NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/summerhaven_2"
+              href="/benchmarks/summerhaven_2"
               class="link"
               >SUMMERHAVEN NO 2</a
             >,
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/summerhaven_az_mk" class="link"
+            <a href="/benchmarks/summerhaven_az_mk" class="link"
               >SUMMERHAVEN AZ MK</a
             >
           </td>
@@ -253,7 +253,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The station is on the S and highest end of the Oracle Ridge, 11
           miles S and 1/2 mile E of the town of Oracle.
@@ -265,7 +265,7 @@
 
           The azimuth mark is about 0.3 mile SSW of the station, on
           the w slope of a ridge about 30 yards E of a spruce tree
-          with a square blaze on it.  This tree is about 0.1 mile S
+          with a square blaze on it. This tree is about 0.1 mile S
           of a cattle guard and 0.3 mile S of a pine tree with a triangle
           blazed on it and 60 feet E of the Summerhaven Road in a
           boulder projecting about 2 feet above the ground.
@@ -274,11 +274,11 @@
 
           Station can be reached from Oracle by going on the Summerhaven
           Road for about 20 miles to the danger arch on the controlled
-          mountain road.  Continue on this road for 6.1 miles to a
+          mountain road. Continue on this road for 6.1 miles to a
           10-inch triangular blaze on a 30-inch pine tree which is very
-          near the top of a saddle on the ridge.  This is the end of
-          truck travel.  The station is on the first rocky hill to the n
-          of the saddle, about a 20-minute pack.  The station is on the s
+          near the top of a saddle on the ridge. This is the end of
+          truck travel. The station is on the first rocky hill to the n
+          of the saddle, about a 20-minute pack. The station is on the s
           end of the hill on the W side of the ridge falling rapidly
           to the W.
         </p>
@@ -600,7 +600,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -631,7 +631,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/summerhaven.json",
+        "./json/summerhaven.json",
         loadJson
       );
     </script>

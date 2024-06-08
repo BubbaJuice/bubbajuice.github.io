@@ -107,11 +107,11 @@
     <center>
       <h1><strong>ORO NO 1</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/oro"
+              href="/benchmarks/oro"
               class="link"
               >ORO</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/oro_2"
+              href="/benchmarks/oro_2"
               class="link"
               >ORO NO 2</a
             >,
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/E399" class="link"
+            <a href="/benchmarks/E399" class="link"
               >E 399</a
             >
           </td>
@@ -253,19 +253,19 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Reference mark 1, a standard disk stamped ORO NO 1 1962,
           is set in the top of a cylindrical concrete monument, 12
           inches in diameter, projecting 2 inches above the surface of the
-          ground.  It is about the same elevation as the station.
+          ground. It is about the same elevation as the station.
         </p>
       </div>
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "ORO NO 1" is a benchmark monumented by the USC&GS in 1962 located in Pima County, 
-          Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/oro" class="link">ORO</a>.
+          Arizona. It is a deticated reference mark for <a href="/benchmarks/oro" class="link">ORO</a>.
         </p>
         <p>
           The best way to get to "ORO" is to start at the west side of the right 
@@ -547,7 +547,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -578,7 +578,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/oro.json",
+        "./json/oro.json",
         loadJson
       );
     </script>

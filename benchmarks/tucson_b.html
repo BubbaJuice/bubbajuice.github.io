@@ -107,11 +107,11 @@
     <center>
       <h1><strong>TUCSON B</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -230,7 +230,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Other aliases include IGB 12020, NN 223 and U 772. Station is at abandoned USGS Tucson Magnetic Obervatory in Morris K Udall Park, Tucson, Arizona. It is 8.1 mi (13.0 km) ENE of the Pima County Courthouse. To access from I-10 exit 270, go N on Kolb Road for 10.1 mi (16.3 km). Turn E (right) onto Tanque Verde Road and go 0.72 mi (1.16 km). Turn S (right) into park and go 0.03 mi (0.05 km). Turn SE, left, onto side road after first pavillion and go 0.19 mi (0.31 km) through fence gate to old house/office area. Station is on N of two piers in center of observation area, 98 m (321.5 ft) E of S residence, 25 m (82.0 ft) N of E seismic vault, 27.0 m (88.6 ft) N of W seismic vault, 24.0 m (78.7 ft) S of wood slat building, 90.6 m (297.2 ft) NW of RM MAGNETIC AZIMUTH NO 3, 1.37 m (4.49 ft) N of TUCSON A and 1.43 m (4.69 ft) NE of witness post. Pier is 0.46 m (1.51 ft) across. Disk is 9 mm below pier top. TUCSON A and TUCSON B were formerly the same pendulum station U 772. SE, SW, SW, NE, SW, SEC 5, T14S, R15E. 
         </p>
@@ -535,7 +535,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -566,7 +566,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/tucson_gravity.json",
+        "./json/tucson_gravity.json",
         loadJson
       );
     </script>

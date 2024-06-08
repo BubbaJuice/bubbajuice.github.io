@@ -11,7 +11,7 @@ All files in repository are under the license unless said otherwise in a comment
 
 ## Website Summary
 
-My website has a few [android apps](https://bubbajuice.github.io/apps) and a in-depth list of [benchmarks](https://bubbajuice.github.io/benchmarks), each with helpful information and photos to aid finding said benchmark.
+My website has a few [android apps](/apps) and a in-depth list of [benchmarks](/benchmarks), each with helpful information and photos to aid finding said benchmark.
 
 ## Website Future
 

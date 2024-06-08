@@ -107,11 +107,11 @@
     <center>
       <h1><strong>SAN</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/san_1"
+              href="/benchmarks/san_1"
               class="link"
               >SAN NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/san_2"
+              href="/benchmarks/san_2"
               class="link"
               >SAN NO 2</a
             >
@@ -245,7 +245,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The station is located about 26 miles north of Tucson, 7
           miles west of Oracle, 4 miles northeast of Oracle Junction,
@@ -257,9 +257,9 @@
           To reach the station from the intersection of U.S. Highways
           80, 89 and State Highways 77, 79 at oracle junction, go
           northeast on State Highway 77 for 3.8 miles to a paved side
-          road on the left.  Continue northeast 1.0 mile to a graded gravel
-          road on the left.  (Willow Springs Ranch Road) turn left, cross
-          cattle guard, and go north 0.3 mile to a fork.  Take the
+          road on the left. Continue northeast 1.0 mile to a graded gravel
+          road on the left. (Willow Springs Ranch Road) turn left, cross
+          cattle guard, and go north 0.3 mile to a fork. Take the
           left fork and go west on the track road 0.45 mile to a fork.
           Take the left fork and continue southwest 0.55 mile to an
           earthen dam. Turn north 100 yards across the head of a small
@@ -282,7 +282,7 @@
           Reference mark number two, a standard disk stamped SAN NO
           2 1962 cemented in the top of a 12-inch-diameter cylindrical
           concrete monument projecting 8 inches above ground, is at
-          the same elevation as the station.  It is at the north edge of
+          the same elevation as the station. It is at the north edge of
           a 10-foot-diameter sandy area in the grass.
         </p>
       </div>
@@ -649,7 +649,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -680,7 +680,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/san.json",
+        "./json/san.json",
         loadJson
       );
     </script>

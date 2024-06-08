@@ -107,11 +107,11 @@
     <center>
       <h1><strong>SANTA</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/santa_1"
+              href="/benchmarks/santa_1"
               class="link"
               >SANTA NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/santa_2"
+              href="/benchmarks/santa_2"
               class="link"
               >SANTA NO 2</a
             >
@@ -245,7 +245,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The station is 26 miles north-northeast of Tucson, 4 miles
           northeast of Oracle Junction, 1/4 mile northwest of State
@@ -255,15 +255,15 @@
           To reach the station from the junction of U.S. highways 80
           and 89 and State Highway 77 at Oracle Junction, about 23 miles
           north of Tucson, drive northeast on State Highway 77 for
-          3.85 miles to a macadam surfaced side road on the left.  Continue
+          3.85 miles to a macadam surfaced side road on the left. Continue
           northeast on the highway for 0.95 mile to a bladed side road
-          on the left.  Turn left, cross over a cattle guard, thence
+          on the left. Turn left, cross over a cattle guard, thence
           turn left onto a track road and drive southwest and west
           on the track road for 1.0 mile to the station.
         </p>
         <p>
           Surface and underground-station marks are standard disks,
-          each stamped SANTA 1962.  The surface-station mark is set
+          each stamped SANTA 1962. The surface-station mark is set
           in the top of a cylindrical concrete monument, 12 inches in
           diameter, projecting 1-inch above the surface of the ground.
           It is 100 yards south of a wash, 142.5 feet northeast of a
@@ -274,14 +274,14 @@
           Reference mark 1, a standard disk stamped SANTA NO 1 1962,
           is set in the top of a cylindrical concrete monument, 12
           inches in diameter, projecting 8 inches above the surface
-          of the ground.  It is about the same elevation as the station
+          of the ground. It is about the same elevation as the station
           mark.
         </p>
         <p>
           Reference mark 2, a standard disk stamped SANTA NO 2 1962,
           is set in the top of a cylindrical concrete monument, 12
           inches in diameter, projection 1-inch above the surface of
-          the ground.  It is about the same elevation as the station mark.
+          the ground. It is about the same elevation as the station mark.
         </p>
       </div>
       <div class="descr">
@@ -647,7 +647,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -678,7 +678,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/santa.json",
+        "./json/santa.json",
         loadJson
       );
     </script>

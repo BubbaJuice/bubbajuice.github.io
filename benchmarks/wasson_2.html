@@ -107,11 +107,11 @@
     <center>
       <h1><strong>WASSON NO 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/wasson"
+              href="/benchmarks/wasson"
               class="link"
               >WASSON</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/wasson_1"
+              href="/benchmarks/wasson_1"
               class="link"
               >WASSON NO 1</a
             >
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/wasson_3" class="link"
+            <a href="/benchmarks/wasson_3" class="link"
               >WASSON AZI NO. 3</a
             >
           </td>
@@ -253,7 +253,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
         The station is about 8 miles northwest of Tucson on the summit
         of Wasson Peak.
@@ -296,9 +296,9 @@
 
         <p>
         The azimuth mark, stamped WASSON AZI. 1935 NO 3, is a standard 
-        reference mark cemented in a drill hole in bedrock.  It is 
+        reference mark cemented in a drill hole in bedrock. It is 
         located along the southeast side of the foot trail and it is 
-        marked by a small cairn.  It is flush with the found surface.
+        marked by a small cairn. It is flush with the found surface.
         </p>
       </div>
       <div class="descr">
@@ -339,7 +339,7 @@
         <a target="_blank" href="images/WASSON2back.png">
           <img
             src="images/WASSON2back.png"
-            alt="PUSCH benchmark"
+            alt="WASSON RM 2 benchmark"
             width="600"
             height="400"
           />
@@ -592,7 +592,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -623,7 +623,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/wasson.json",
+        "./json/wasson.json",
         loadJson
       );
     </script>

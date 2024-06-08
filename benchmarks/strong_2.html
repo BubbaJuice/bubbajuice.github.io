@@ -107,11 +107,11 @@
     <center>
       <h1><strong>STRONG NO 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/strong"
+              href="/benchmarks/strong"
               class="link"
               >STRONG</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/strong_1"
+              href="/benchmarks/strong_1"
               class="link"
               >STRONG NO 1</a
             >
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/strong_3" class="link"
+            <a href="/benchmarks/strong_3" class="link"
               >STRONG AZ MK</a
             >
           </td>
@@ -262,7 +262,7 @@
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
-          "STRONG NO 2" is a benchmark monumented by the USC&GS in 1962 located in Maricopa County, Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/strong" class="link">STRONG</a>.
+          "STRONG NO 2" is a benchmark monumented by the USC&GS in 1962 located in Maricopa County, Arizona. It is a deticated reference mark for <a href="/benchmarks/strong" class="link">STRONG</a>.
         </p>
         <p>
           The best way to get to "STRONG" is, starting at the intersection of Jefferson Street and Central Avenue in the Pheonix city center,
@@ -544,7 +544,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -575,7 +575,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/strong.json",
+        "./json/strong.json",
         loadJson
       );
     </script>

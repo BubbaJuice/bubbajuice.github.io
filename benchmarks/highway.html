@@ -107,11 +107,11 @@
     <center>
       <h1><strong>HIGHWAY</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/highway_1"
+              href="/benchmarks/highway_1"
               class="link"
               >HIGHWAY NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/highway_2"
+              href="/benchmarks/highway_2"
               class="link"
               >HIGHWAY NO 2</a
             >
@@ -245,14 +245,14 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
-          Located about 8.9 mi SW. of Mammoth, 2.1 mi NE. of Oracle.  On
+          Located about 8.9 mi SW. of Mammoth, 2.1 mi NE. of Oracle. On
           prominent hill, about 300 yds S. of State Hwy. 77.
 
           To reach from Oracle, drive 2.1 mi NE. on State Hwy. 77 to
-          cattleguard.  Pack up hill to right.  To reach from Mammoth, drive
-          8.9 mi S. on State Hwy. 77 to cattleguard.  Pack about 0.2 mi S.
+          cattleguard. Pack up hill to right. To reach from Mammoth, drive
+          8.9 mi S. on State Hwy. 77 to cattleguard. Pack about 0.2 mi S.
           up hill on left to top and station.
 
           Station mark--standard tablet stamped---HIGHWAY 1946---, set in
@@ -627,7 +627,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -658,7 +658,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/highway.json",
+        "./json/highway.json",
         loadJson
       );
     </script>

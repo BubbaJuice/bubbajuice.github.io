@@ -111,11 +111,11 @@
     <center>
       <h1><strong>PASS</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -210,12 +210,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/pass_1"
+              href="/benchmarks/pass_1"
               class="link"
               >PASS NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/pass_2"
+              href="/benchmarks/pass_2"
               class="link"
               >PASS NO 2</a
             >
@@ -224,7 +224,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/canelo" class="redLink"
+            <a href="/benchmarks/canelo" class="redLink"
               >CANELO</a
             >
           </td>
@@ -257,7 +257,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Station is located on a prominent round top ridge, the highest
           point in the vicinity, about 11.0 miles S of the town of Elgin
@@ -270,13 +270,13 @@
         </p>
         <p> 
           To reach from Elgin go S on the Canelo Road 15.0 miles to Canille
-          Store.  Continue S on the Pass Road 3.8 miles to a cattle guard
+          Store. Continue S on the Pass Road 3.8 miles to a cattle guard
           and line fence at the highest point on the road which is Canelo
-          pass.  End of truck travel.  Pack NW and N along the main ridge
+          pass. End of truck travel. Pack NW and N along the main ridge
           to the third and highest point and station.
         </p>
         <p>
-          Station Canelo about 3.0 miles SE used as azimuth mark.  It is
+          Station Canelo about 3.0 miles SE used as azimuth mark. It is
           the first prominent point SE of the pass.
         </p>
         <p>
@@ -620,7 +620,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -651,7 +651,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/pass.json",
+        "./json/pass.json",
         loadJson
       );
     </script>

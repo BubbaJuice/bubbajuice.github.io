@@ -111,11 +111,11 @@
     <center>
       <h1><strong>PASS NO 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -210,12 +210,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/pass"
+              href="/benchmarks/pass"
               class="link"
               >PASS</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/pass_1"
+              href="/benchmarks/pass_1"
               class="link"
               >PASS NO 1</a
             >
@@ -224,7 +224,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/canelo" class="redLink"
+            <a href="/benchmarks/canelo" class="redLink"
               >CANELO</a
             >
           </td>
@@ -265,7 +265,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "PASS NO 2" is a benchmark monumented by the USC&GS in 1938 located in Santa Cruz
-          County, Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/pass" class="link">PASS</a>.
+          County, Arizona. It is a deticated reference mark for <a href="/benchmarks/pass" class="link">PASS</a>.
         </p>
         <p>
           The best way to get to "PA 2" from Canelo Pass is to follow jeep road west for 400 ft (120 m).
@@ -547,7 +547,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -578,7 +578,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/pass.json",
+        "./json/pass.json",
         loadJson
       );
     </script>

@@ -107,11 +107,11 @@
     <center>
       <h1><strong>Z 18</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -240,7 +240,7 @@
         1.7 mi NE from Oracle.
         1.7 miles northeast along State Highway 77 from Oracle, Pinal County,
         105 feet west of the centerline of the highway, and in the east face
-        of a cone-shaped 4-foot-high granite rock outcrop.  A standard disk,
+        of a cone-shaped 4-foot-high granite rock outcrop. A standard disk,
         stamped 4332.409 Z 18 1933 and set vertically.
       </p>
       <div class="descr">
@@ -512,7 +512,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -543,7 +543,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/Z18.json",
+        "./json/Z18.json",
         loadJson
       );
     </script>

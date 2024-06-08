@@ -107,11 +107,11 @@
     <center>
       <h1><strong>B 19</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -242,7 +242,7 @@
         feet northeast of a boulder balanced on rock, 45 feet north of the
         centerline of the highway, in the south face of a large granite
         boulder, 2 feet east of the west end and about 2-1/2 feet above the
-        ground.  A standard disk, stamped 4322.970 B 19 1933 and set
+        ground. A standard disk, stamped 4322.970 B 19 1933 and set
         vertically.
       </p>
       <div class="descr">
@@ -548,7 +548,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -579,7 +579,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/B19.json",
+        "./json/B19.json",
         loadJson
       );
     </script>

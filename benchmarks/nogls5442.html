@@ -107,11 +107,11 @@
     <center>
       <h1><strong>NOGLS 5442</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -244,7 +244,7 @@
         </p>
         <p>
           This disc is apart of the NOGLS vertical datum conducted during 1903, 1904, and 1905 across the Tucson area. 
-          To learn more about the NOGLS datum see <a href="https://bubbajuice.github.io/benchmarks/datum/nogls" class="link">this page</a>.
+          To learn more about the NOGLS datum see <a href="/benchmarks/datum/nogls" class="link">this page</a>.
         </p>
         <p>
           The benchmark is at Canelo Pass. It is set on a rock and is just east of a fence. It is about 50 feet (15 m) west of FR 799.
@@ -520,7 +520,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -551,7 +551,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/nogls5442.json",
+        "./json/nogls5442.json",
         loadJson
       );
     </script>

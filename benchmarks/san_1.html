@@ -107,11 +107,11 @@
     <center>
       <h1><strong>SAN NO 1</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/san"
+              href="/benchmarks/san"
               class="link"
               >SAN</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/san_2"
+              href="/benchmarks/san_2"
               class="link"
               >SAN NO 2</a
             >
@@ -254,7 +254,7 @@
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
-          "SAN NO 1" is a benchmark monumented by the USC&GS in 1962 located in Pinal County, Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/san" class="link">SAN</a>.
+          "SAN NO 1" is a benchmark monumented by the USC&GS in 1962 located in Pinal County, Arizona. It is a deticated reference mark for <a href="/benchmarks/san" class="link">SAN</a>.
         </p>
         <p>
           The best way to get to "SAN" is to enter the Saddlebrooke Ranch community and turn 
@@ -549,7 +549,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -580,7 +580,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/san.json",
+        "./json/san.json",
         loadJson
       );
     </script>

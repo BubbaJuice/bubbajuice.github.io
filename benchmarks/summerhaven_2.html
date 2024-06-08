@@ -107,11 +107,11 @@
     <center>
       <h1><strong>SUMMERHAVEN NO 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/summerhaven"
+              href="/benchmarks/summerhaven"
               class="link"
               >SUMMERHAVEN</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/summerhaven_1"
+              href="/benchmarks/summerhaven_1"
               class="link"
               >SUMMERHAVEN NO 1</a
             >,
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/summerhaven_az_mk" class="link"
+            <a href="/benchmarks/summerhaven_az_mk" class="link"
               >SUMMERHAVEN AZ MK</a
             >
           </td>
@@ -253,7 +253,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           R.M. No. 2 Is NNW of the station and is flush with the ground.
         </p>
@@ -262,7 +262,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "SUMMERHAVEN NO 2" is a benchmark monumented by the USC&GS in 1936 located in Pima County, 
-          Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/summerhaven" class="link">SUMMERHAVEN</a>.
+          Arizona. It is a deticated reference mark for <a href="/benchmarks/summerhaven" class="link">SUMMERHAVEN</a>.
         </p>
         <p>
           The best way to get to "SUMMERHAVEN" is to start at the Arizona Trail and Mount Lemmon Road. From there, pack north along the Arizona trail until a saddle. 
@@ -531,7 +531,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -562,7 +562,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/summerhaven.json",
+        "./json/summerhaven.json",
         loadJson
       );
     </script>

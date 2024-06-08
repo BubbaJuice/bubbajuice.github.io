@@ -107,11 +107,11 @@
     <center>
       <h1><strong>GRISWOLD RM A</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,17 +206,17 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/griswold"
+              href="/benchmarks/griswold"
               class="link"
               >GRISWOLD</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/griswold_1"
+              href="/benchmarks/griswold_1"
               class="link"
               >GRISWOLD NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/griswold_2"
+              href="/benchmarks/griswold_2"
               class="link"
               >GRISWOLD NO 2</a
             >
@@ -225,7 +225,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/cortaro_rad_sta_kuat_mast" class="link"
+            <a href="/benchmarks/cortaro_rad_sta_kuat_mast" class="link"
               >CORTARO RAD STA KUAT MAST</a>
           </td>
         </tr>
@@ -257,7 +257,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The station is located about 13 miles northwest of Tucson, 4-1/2
           miles southeast of Rillito, 1-1/2 miles northeast of interstate
@@ -266,7 +266,7 @@
 
           The station marks are standard disks stamped GRISWOLD RM A 1971, the
           surface mark is a round concrete monument that is 12 inches in
-          diameter and projects 3 inches above the ground surface.  It is 120
+          diameter and projects 3 inches above the ground surface. It is 120
           feet west of the center of the bladed road, 84.5 feet north of a
           metal witness post with sign attached and 64 feet east of a fence
           corner. The underground mark was set about 42 inches below the
@@ -281,7 +281,7 @@
           right and sign Camino de Manana. Turn right and go northeast on
           Camino de Manana Road for 1.2 miles to Oasis Toad. Turn right and
           go east on Oasis Road for 0.65 mile to a fork. Keep right fork on
-          main graveled road and go east for 0.25 mile to Jimmy Road.  Turn
+          main graveled road and go east for 0.25 mile to Jimmy Road. Turn
           right and go south on Jimmy Road for 0.4 mile to the station on
           the right.
         </p>
@@ -290,7 +290,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "GRISWOLD RM A" is a benchmark monumented by the USC&GS in 1972 located in Pima County, 
-          Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/griswold" class="link">GRISWOLD</a>.
+          Arizona. It is a deticated reference mark for <a href="/benchmarks/griswold" class="link">GRISWOLD</a>.
         </p>
         <p>
           "GRISWOLD RM A" is located 83.054 feet or 25.315 meters 17 degrees from
@@ -567,7 +567,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -598,7 +598,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/griswold.json",
+        "./json/griswold.json",
         loadJson
       );
     </script>

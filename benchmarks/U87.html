@@ -107,11 +107,11 @@
     <center>
       <h1><strong>U 87</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -230,7 +230,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           5.2 mi N from Suttons Bay.
         </p>
@@ -240,7 +240,7 @@
           south of Omena, 13 yards southeast of the center of the crossing
           of State Highway 22, 9-1/2 yards east of the east rail, 15 yards
           south of the centerline of the highway, 1 yard south of telephone
-          pole 859, and about 1 foot higher than the rail.  A standard
+          pole 859, and about 1 foot higher than the rail. A standard
           disk, stamped U 87 1934 and set in the top of a concrete post
           projecting about 1 foot above ground.
         </p>
@@ -558,7 +558,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -589,7 +589,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/U87.json",
+        "./json/U87.json",
         loadJson
       );
     </script>

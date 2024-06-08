@@ -107,11 +107,11 @@
     <center>
       <h1><strong>BIG WASH RESET</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,22 +206,22 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/big_wash_1"
+              href="/benchmarks/big_wash_1"
               class="link"
               >BIG WASH NO. 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/big_wash_2"
+              href="/benchmarks/big_wash_2"
               class="link"
               >BIG WASH NO. 2</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/big_wash_3"
+              href="/benchmarks/big_wash_3"
               class="link"
               >BIG WASH NO. 3</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/big_wash_reset_4"
+              href="/benchmarks/big_wash_reset_4"
               class="link"
               >BIG WASH NO 4</a
             >
@@ -230,7 +230,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/big_wash_az_mk" class="link"
+            <a href="/benchmarks/big_wash_az_mk" class="link"
               >BIG WASH AZ MK</a
             >
           </td>
@@ -263,7 +263,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The station mark is a standard disk stamped, BIG WASH 1936 1977. It
           is set in top of a 10 inch concrete monument which is flush with the
@@ -629,7 +629,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -660,7 +660,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/big_wash.json",
+        "./json/big_wash.json",
         loadJson
       );
     </script>

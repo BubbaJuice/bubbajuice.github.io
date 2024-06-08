@@ -107,11 +107,11 @@
     <center>
       <h1><strong>A 77</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -230,13 +230,13 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           0.4 mi SW from Patagonia.
           0.4 mile southwest along State Highway 82 from the Southern Pacific
           Co. Railroad station at Patagonia, Santa Cruz County, 115 feet
           southwest of an adobe house, 60 feet south of a cattleguard, and 42
-          feet southeast of the centerline of the highway.  A standard disk,
+          feet southeast of the centerline of the highway. A standard disk,
           stamped A 77 1934 and set in the top of a concrete post.
         </p>
       </div>
@@ -532,7 +532,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -563,7 +563,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/A77.json",
+        "./json/A77.json",
         loadJson
       );
     </script>

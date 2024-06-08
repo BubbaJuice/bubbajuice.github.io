@@ -107,11 +107,11 @@
     <center>
       <h1><strong>DEL NO 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/del"
+              href="/benchmarks/del"
               class="link"
               >DEL</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/del_1"
+              href="/benchmarks/del_1"
               class="link"
               >DEL NO 1</a
             >
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/E399" class="link"
+            <a href="/benchmarks/E399" class="link"
               >E 399</a
             >
           </td>
@@ -253,11 +253,11 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Reference mark number two is a standard disk stamped DEL
           NO 2 1962 set in the top of a 12-inch-diameter cylindrical
-          concrete monument projecting 5 inches above ground.  It is at
+          concrete monument projecting 5 inches above ground. It is at
           about the same elevation as the station at the top of a stubby
           east ridge off the station ridge.
         </p>
@@ -266,7 +266,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "DEL NO 2" is a benchmark monumented by the USC&GS in 1962 located in Pima County, 
-          Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/del" class="link">DEL</a>.
+          Arizona. It is a deticated reference mark for <a href="/benchmarks/del" class="link">DEL</a>.
         </p>
         <p>
           <p>
@@ -572,7 +572,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -603,7 +603,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/del.json",
+        "./json/del.json",
         loadJson
       );
     </script>

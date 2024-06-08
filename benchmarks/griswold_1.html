@@ -107,11 +107,11 @@
     <center>
       <h1><strong>GRISWOLD NO 1</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,17 +206,17 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/griswold"
+              href="/benchmarks/griswold"
               class="link"
               >GRISWOLD</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/griswold_2"
+              href="/benchmarks/griswold_2"
               class="link"
               >GRISWOLD NO 2</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/griswold_a"
+              href="/benchmarks/griswold_a"
               class="link"
               >GRISWOLD RM A</a
             >
@@ -225,7 +225,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/cortaro_rad_sta_kuat_mast" class="link"
+            <a href="/benchmarks/cortaro_rad_sta_kuat_mast" class="link"
               >CORTARO RAD STA KUAT MAST</a>
           </td>
         </tr>
@@ -257,7 +257,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Reference mark 1 is a standard disk stamped GRISWOLD NO 1 1971,
           set in the top of a 12-inch round concrete monument that projects 3
@@ -270,7 +270,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "GRISWOLD NO 1" was a benchmark monumented by the USC&GS in 1972 located in Pima County, 
-          Arizona. It was a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/griswold" class="link">GRISWOLD</a>.
+          Arizona. It was a deticated reference mark for <a href="/benchmarks/griswold" class="link">GRISWOLD</a>.
         </p>
         <p>
           "GRISWOLD NO 2" was located 68.537 feet or 20.890 meters 346 degrees from
@@ -547,7 +547,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -578,7 +578,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/griswold.json",
+        "./json/griswold.json",
         loadJson
       );
     </script>

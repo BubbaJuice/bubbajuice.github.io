@@ -111,11 +111,11 @@
     <center>
       <h1><strong>JUNIPER</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -210,12 +210,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/juniper_1"
+              href="/benchmarks/juniper_1"
               class="link"
               >JUNIPER NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/juniper_2"
+              href="/benchmarks/juniper_2"
               class="link"
               >JUNIPER NO 2</a
             >
@@ -225,7 +225,7 @@
           <td><strong>Azimuth mark: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/juniper_1938"
+              href="/benchmarks/juniper_1938"
               class="link"
               >JUNIPER</a
             >
@@ -259,7 +259,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Station is located about 4.0 miles NW of Bisbee and about 2.0
           miles NW of the pass on U.S. Highway 80 and 1/4 mile NE of
@@ -271,18 +271,18 @@
           set in outcropping bedrock.
         </p><p>
           To reach from Bisbee go W from the post office on U.S. Highway
-          80, 2.7 miles to the top of the pass.  At the highest point
+          80, 2.7 miles to the top of the pass. At the highest point
           of U.S. Highway 80 in the pass there is an old road turning
-          right, N, through a cattle guard.  Go N on this road up steep
-          grade 1.0 mile to the end of the graded road.  Here there is
-          a track road turning sharp left.  Follow this rough track
+          right, N, through a cattle guard. Go N on this road up steep
+          grade 1.0 mile to the end of the graded road. Here there is
+          a track road turning sharp left. Follow this rough track
           road (keeping main right hand track at forks) along the top of
           the ridge 1.5 miles to a saddle and old rock house on the
-          hillside ahead - end of truck travel.  Pick up trail 50 yards
+          hillside ahead - end of truck travel. Pick up trail 50 yards
           W of old rock house which skirts the E side of the peak
-          ahead and comes into a saddle.  At the saddle turn right ne
-          along the ridge to the first high point and station.  Station
-          is about 1.0 mile from end of truck travel.  Station and
+          ahead and comes into a saddle. At the saddle turn right ne
+          along the ridge to the first high point and station. Station
+          is about 1.0 mile from end of truck travel. Station and
           reference marks are in bare ledge rock and easily located.
         </p><p>
           Azimuth mark is at end of truck travel 70 paces S of an old
@@ -638,7 +638,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -669,7 +669,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/juniper.json",
+        "./json/juniper.json",
         loadJson
       );
     </script>

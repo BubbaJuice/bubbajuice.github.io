@@ -107,11 +107,11 @@
     <center>
       <h1><strong>MULE 1936</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -202,7 +202,7 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/mule"
+              href="/benchmarks/mule"
               class="link"
               >MULE</a
             >
@@ -236,23 +236,23 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Azimuth mark is standard tablet set in solid rock on SW rim
-          of ridge lying NE of U.S. Highway 80.  Reached from summit
-          of highway by steep road to right.  Follow this road 1.0 mile
-          to end of grade.  Continue NW on trail 0.15 mile to government
-          fence.  Continue W 0.25 mile, and azimuth mark is 28 paces
+          of ridge lying NE of U.S. Highway 80. Reached from summit
+          of highway by steep road to right. Follow this road 1.0 mile
+          to end of grade. Continue NW on trail 0.15 mile to government
+          fence. Continue W 0.25 mile, and azimuth mark is 28 paces
           S of road, on a large rock outcrop, about 40 yards N of
           point where mountain slopes steeply to S, and 5 feet W of a
-          small rock cairn.  Stamped MULE 1910 1936.
+          small rock cairn. Stamped MULE 1910 1936.
         </p>
       </div>
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "MULE 1936" is a benchmark monumented by the USC&GS in 1936 located in Cochise
-          County, Arizona. It is the first of the two deticated azimuth marks for <a href="https://bubbajuice.github.io/benchmarks/mule" class="link">MULE</a>. 
+          County, Arizona. It is the first of the two deticated azimuth marks for <a href="/benchmarks/mule" class="link">MULE</a>. 
         </p>
         <p>
           To reach the benchmark, follow the datasheet description for general routing. For actually finding the benchmark, just use the coordinates.
@@ -551,7 +551,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -582,7 +582,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/mule.json",
+        "./json/mule.json",
         loadJson
       );
     </script>

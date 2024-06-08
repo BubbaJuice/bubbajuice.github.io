@@ -107,11 +107,11 @@
     <center>
       <h1><strong>HIGHWAY NO 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/highway"
+              href="/benchmarks/highway"
               class="link"
               >HIGHWAY</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/highway_1"
+              href="/benchmarks/highway_1"
               class="link"
               >HIGHWAY NO 1</a
             >
@@ -245,7 +245,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           RM 2--standard RM tablet stamped---HIGHWAY NO 2 1946---, set in
           rock.
@@ -255,7 +255,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "HIGHWAY NO 2" is a benchmark monumented by the USGS in 1946 located in Pinal County, 
-          Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/highway" class="link">HIGHWAY</a>.
+          Arizona. It is a deticated reference mark for <a href="/benchmarks/highway" class="link">HIGHWAY</a>.
         </p>
         <p>
           The best way to get to "HIGHWAY NO 2" is to drive north on old State Route 77 from State Route 77 for half a mile. This road is passable with most-all passenger vehicles.
@@ -548,7 +548,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -579,7 +579,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/highway.json",
+        "./json/highway.json",
         loadJson
       );
     </script>

@@ -107,11 +107,11 @@
     <center>
       <h1><strong>DEL</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/del_1"
+              href="/benchmarks/del_1"
               class="link"
               >DEL NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/del_2"
+              href="/benchmarks/del_2"
               class="link"
               >DEL NO 2</a
             >
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/E399" class="link"
+            <a href="/benchmarks/E399" class="link"
               >E 399</a
             >
           </td>
@@ -253,7 +253,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           Station is located about 17 miles north of Tucson, 16 miles
           east of Marana, and 6 miles south of Oracle Junction, on a low
@@ -265,7 +265,7 @@
           the left and bench mark W 399 which serves as the azimuth
           mark. Turn left and go west across cattleguard on oiled road
           0.2 mile to a bladed road on left just after crossing a culvert
-          over a wash.  Follow bladed road south and west 0.6 mile to
+          over a wash. Follow bladed road south and west 0.6 mile to
           a wire gate on the west side of a sandy wash (Big Wash).
           Pass through gate and proceed west 0.2 mile. At this mileage
           leave bladed road and pick way north through brush and
@@ -275,24 +275,24 @@
 
           The station mark is a standard disk stamped DEL 1962 set in
           the top of a 12-inch-diameter cylindrical concrete monument
-          projecting 2 inches above ground.  It is 3 feet west of a metal
+          projecting 2 inches above ground. It is 3 feet west of a metal
           witness post and sign.
 
           Reference mark number one is a standard disk stamped DEL NO
           1 1962 set in the top of a 12-inch-diameter cylindrical concrete
-          monument projecting 3 inches above ground.  It is at about
+          monument projecting 3 inches above ground. It is at about
           the same elevation as the station at the top of the north
           slope of the hill.
 
           Reference mark number two is a standard disk stamped DEL
           NO 2 1962 set in the top of a 12-inch-diameter cylindrical
-          concrete monument projecting 5 inches above ground.  It is at
+          concrete monument projecting 5 inches above ground. It is at
           about the same elevation as the station at the top of a stubby
           east ridge off the station ridge.
 
           Bench mark E 399 which serves as the azimuth mark is a standard
           disk stamped E 399 1962 set in the top of a 12-inch-diameter
-          concrete cylinder projecting 3 inches above ground.  It is 97.5
+          concrete cylinder projecting 3 inches above ground. It is 97.5
           feet west of the center line of U.S. Highway 80, 42 feet
           north of the center of a cattleguard, 2 feet south of a metal
           witness post and sign, and 1.5 feet east of the west
@@ -699,7 +699,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -730,7 +730,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/del.json",
+        "./json/del.json",
         loadJson
       );
     </script>

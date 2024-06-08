@@ -107,11 +107,11 @@
     <center>
       <h1><strong>SOTOL</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/nogls_reset"
+              href="/benchmarks/nogls_reset"
               class="link"
               >NOGLS RESET</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/sotol2"
+              href="/benchmarks/sotol2"
               class="link"
               >SOTAL NO: 2</a
             >
@@ -245,7 +245,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
         The station is about 3 miles southeast of Oracle on a sharp
         rocky hill about 200 feet north of Mt. Lemmon Rd.
@@ -604,7 +604,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -635,7 +635,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/sotol.json",
+        "./json/sotol.json",
         loadJson
       );
     </script>

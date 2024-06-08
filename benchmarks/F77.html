@@ -107,11 +107,11 @@
     <center>
       <h1><strong>F 77</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -230,13 +230,13 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           1.9 mi SW from Sonoita.
           1.9 miles southwest along the Southern Pacific Co. Railroad from
           Sonoita, Santa Cruz County, 3 feet southwest of milepost 1084, 40 feet
           north of the centerline of the track, and 20 feet south of a fence
-          line.  A standard disk, stamped F 77 1934 and set in the top of a
+          line. A standard disk, stamped F 77 1934 and set in the top of a
           concrete post.
         </p>
       </div>
@@ -531,7 +531,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -562,7 +562,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/F77.json",
+        "./json/F77.json",
         loadJson
       );
     </script>

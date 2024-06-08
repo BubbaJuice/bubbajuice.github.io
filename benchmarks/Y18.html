@@ -107,11 +107,11 @@
     <center>
       <h1><strong>Y 18</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -248,7 +248,7 @@
         curve, 62 yards southwest of a low pole at the head of the ravine, 45
         feet west of the centerline of the highway, in the top of a 3-foot
         granite outcrop, about 1 foot above the ground, and about 2 feet lower
-        than the highway.  A standard disk, stamped 4081.301 Y 18 1933.
+        than the highway. A standard disk, stamped 4081.301 Y 18 1933.
       </p>
       <div class="descr">
         <hr style="margin-top: 30px; margin-bottom: 30px" />
@@ -516,7 +516,7 @@
 
         if (obj.gpx == "n") {
         } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/pusch.gpx";
+          var gpx = "/benchmarks/gpx/pusch.gpx";
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -547,7 +547,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/Y18.json",
+        "./json/Y18.json",
         loadJson
       );
     </script>

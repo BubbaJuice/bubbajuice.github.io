@@ -111,11 +111,11 @@
     <center>
       <h1><strong>MAGNETIC AZIMUTH NO: 3</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -210,22 +210,22 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/magnetic"
+              href="/benchmarks/magnetic"
               class="redlink"
               >MAGNETIC</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/magnetic_1"
+              href="/benchmarks/magnetic_1"
               class="redlink"
               >MAGNETIC RM 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/magnetic_2"
+              href="/benchmarks/magnetic_2"
               class="redlink"
               >MAGNETIC RM 2</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/magnetic_a"
+              href="/benchmarks/magnetic_a"
               class="redlink"
               >MAGNETIC RM A</a
             >
@@ -259,7 +259,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           About 7 miles east of Tucson on the property of the Magnetic Observatory 
           Station of the U. S. Coast and Geodetic Survey, west of the buildings, 
@@ -596,7 +596,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -627,7 +627,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/magnetic.json",
+        "./json/magnetic.json",
         loadJson
       );
     </script>

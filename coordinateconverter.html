@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinate Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Coordinate Converter</h1>
+
+<label for="input-coordinates">Enter Coordinates (DMS format):</label>
+<input type="text" id="input-coordinates" placeholder="DD MM SS.sssss(N) DDD MM SS.sssss">
+
+<button onclick="convertCoordinates()">Convert</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    function convertDMSToDD(degrees, minutes, seconds) {
+        return degrees + (minutes / 60) + (seconds / 3600);
+    }
+
+    function calculateDecimalPlaces(seconds) {
+        const decimalIndex = seconds.toString().indexOf('.');
+        if (decimalIndex === -1) return 0;
+        return seconds.toString().length - decimalIndex - 1;
+    }
+
+    function parseDMS(input) {
+        const regex1 = /(\d+)[\s\t]+(\d+)[\s\t]+([\d.]+)[^\d]+(\d+)[\s\t]+(\d+)[\s\t]+([\d.]+)/;
+        const regex2 = /N(\d{2})(\d{2})(\d{2}\.\d+)[\s\t]+W(\d{3})(\d{2})(\d{2}\.\d+)/;
+        let match = input.match(regex1);
+
+        if (match) {
+            return {
+                latDeg: parseInt(match[1]),
+                latMin: parseInt(match[2]),
+                latSec: parseFloat(match[3]),
+                lonDeg: parseInt(match[4]),
+                lonMin: parseInt(match[5]),
+                lonSec: parseFloat(match[6])
+            };
+        }
+
+        match = input.match(regex2);
+        if (match) {
+            return {
+                latDeg: parseInt(match[1]),
+                latMin: parseInt(match[2]),
+                latSec: parseFloat(match[3]),
+                lonDeg: parseInt(match[4]),
+                lonMin: parseInt(match[5]),
+                lonSec: parseFloat(match[6])
+            };
+        }
+
+        return null;
+    }
+
+    function convertCoordinates() {
+        const input = document.getElementById('input-coordinates').value.trim();
+        const parsed = parseDMS(input);
+
+        if (parsed) {
+            const { latDeg, latMin, latSec, lonDeg, lonMin, lonSec } = parsed;
+
+            const latitude = convertDMSToDD(latDeg, latMin, latSec);
+            const longitude = convertDMSToDD(lonDeg, lonMin, lonSec);
+
+            const latDecimalPlaces = calculateDecimalPlaces(latSec);
+            const lonDecimalPlaces = calculateDecimalPlaces(lonSec);
+            const maxDecimalPlaces = Math.max(latDecimalPlaces, lonDecimalPlaces);
+
+            const precisionToDecimalDegrees = {
+                0: 0,
+                1: 4,
+                2: 5,
+                3: 6,
+                4: 7,
+                5: 8
+            };
+
+            const precision = precisionToDecimalDegrees[maxDecimalPlaces] || 6;
+            const latDD = latitude.toFixed(precision);
+            const lonDD = (-longitude).toFixed(precision);
+
+            document.getElementById('result').textContent = `${latDD}, ${lonDD}`;
+        } else {
+            document.getElementById('result').textContent = 'Invalid input format. Please use "DD MM SS.sssss(N) DDD MM SS.sssss" or "NDDMMSS.sssss WDDDMMSS.sssss" format.';
+        }
+    }
+</script>
+
+</body>
+</html>

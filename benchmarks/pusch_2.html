@@ -107,11 +107,11 @@
     <center>
       <h1><strong>PUSCH NO: 2</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/pusch"
+              href="/benchmarks/pusch"
               class="link"
               >PUSCH</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/pusch_1"
+              href="/benchmarks/pusch_1"
               class="link"
               >PUSCH NO: 1</a
             >
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/Q19" class="link"
+            <a href="/benchmarks/Q19" class="link"
               >Q 19</a
             >
           </td>
@@ -261,7 +261,7 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>
           "PUSCH NO: 2" is a benchmark monumented by the USC&GS in 1935 located in Pima
-          County, Arizona. It is a deticated reference mark for <a href="https://bubbajuice.github.io/benchmarks/pusch" class="link">PUSCH</a>.
+          County, Arizona. It is a deticated reference mark for <a href="/benchmarks/pusch" class="link">PUSCH</a>.
         </p>
          <p>
           The best way to get to "PUSCH" is to start at the Linda Vista Trail
@@ -546,7 +546,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -577,7 +577,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/pusch.json",
+        "./json/pusch.json",
         loadJson
       );
     </script>

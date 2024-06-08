@@ -107,11 +107,11 @@
     <center>
       <h1><strong>ORO</strong></h1>
       <p>
-        <a href="https://bubbajuice.github.io/benchmarks" class="link"
+        <a href="/benchmarks" class="link"
           >Benchmarks</a>
-        <a href="https://bubbajuice.github.io/apps" class="link">Apps</a>
-        <a href="https://bubbajuice.github.io/" class="link">Home</a>
-        <a href="https://bubbajuice.github.io/gcstats" class="link"
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
           >Geocaching Stats</a>
       </p>
     </center>
@@ -206,12 +206,12 @@
           <td><strong>Reference Benchmarks: </strong></td>
           <td>
             <a
-              href="https://bubbajuice.github.io/benchmarks/oro_1"
+              href="/benchmarks/oro_1"
               class="link"
               >ORO NO 1</a
             >,
             <a
-              href="https://bubbajuice.github.io/benchmarks/oro_2"
+              href="/benchmarks/oro_2"
               class="link"
               >ORO NO 2</a
             >,
@@ -220,7 +220,7 @@
         <tr>
           <td><strong>Azimuth Benchmark: </strong></td>
           <td>
-            <a href="https://bubbajuice.github.io/benchmarks/E399" class="link"
+            <a href="/benchmarks/E399" class="link"
               >E 399</a
             >
           </td>
@@ -253,7 +253,7 @@
         </tr>
       </table>
       <p><strong>Datasheet Description:</strong></p>
-      <div>
+      <div class="descr">
         <p>
           The station is about 16 miles north of Tucson, 5-1/2 miles
           south of Oracle Junction, about 1/2 mile east of BIG WASH
@@ -263,34 +263,34 @@
           To reach the station from the southeast entrance to the
           Evergreen Cemetery on the north side of Tucson, drive north
           on U.S. Highway 80 for 15.1 miles to a macadam surfaced
-          side road on the left and the azimuth mark.  Turn left, cross
+          side road on the left and the azimuth mark. Turn left, cross
           a cattle guard, thence turn left again and drive south on
           dim tracks for 0.3 mile to the summit of a low hill and the
           station.
           
           Surface and underground station marks are standard disks
-          stamped ORO 1962.  The underground-station mark is set in
+          stamped ORO 1962. The underground-station mark is set in
           the top of a mass of concrete 40 inches below the surface
-          of the ground.  The surface-station mark is set in the top
+          of the ground. The surface-station mark is set in the top
           of a cylindrical concrete monument, 12 inches in diameter,
-          projecting 3 inches above the surface of the ground.  It is 6.5
+          projecting 3 inches above the surface of the ground. It is 6.5
           feet south of a metal witness post with sign attached.
           
           Reference mark 1, a standard disk stamped ORO NO 1 1962,
           is set in the top of a cylindrical concrete monument, 12
           inches in diameter, projecting 2 inches above the surface of the
-          ground.  It is about the same elevation as the station.
+          ground. It is about the same elevation as the station.
           
           Reference mark 2, a standard disk stamped ORO NO 2 1962,
           is set in the top of a cylindrical concrete monument, 12
           inches in diameter, projecting 2 inches above the surface
-          of the ground.  It is 3 feet north of a barrel cactus and
+          of the ground. It is 3 feet north of a barrel cactus and
           about the same elevation as the station.
           
-          A standard bench mark was used for the azimuth mark.  The
+          A standard bench mark was used for the azimuth mark. The
           disk, stamped E 399 1962, is set in the top of a cylindrical
           concrete monument, 12 inches in diameter, projecting 3 inches
-          above the surface of the ground.  It is 97.5 feet west of the
+          above the surface of the ground. It is 97.5 feet west of the
           center of U.S. Highway 80, 42.0 feet north of the center
           of the macadam surfaced side road and cattle guard, 2.0 feet
           south of a metal witness post with sign attached and 1.5
@@ -676,7 +676,7 @@
 
         if (obj.gpx == "n") {
           } else {
-          var gpx = "https://bubbajuice.github.io/benchmarks/gpx/" + obj.gpxFile;
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
           new L.GPX(gpx, {
             async: true,
             marker_options: {
@@ -707,7 +707,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/main/benchmarks/json/oro.json",
+        "./json/oro.json",
         loadJson
       );
     </script>
