@@ -1,0 +1,357 @@
+<html>
+  <head>
+    <title>e</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color:#36393f;
+        color: #ffffff;
+        max-width: 69420ex;
+      }
+      .center {
+        text-align: center;
+      }
+      .link {
+      color: #2f8aee;
+      }
+      .citation {
+        position: relative;
+        cursor: pointer;
+        color: #2f8aee;
+      }
+      .container {
+        width: 60%;
+        margin: auto;
+      }
+      .citation:hover::after {
+        content: attr(data-source);
+        position: absolute; /* Fixed position for the citation box */
+        left: calc(90% + 10px); /* Position to the right of the pointer */
+        top: calc(90% + 10px); /* Position below the pointer */
+        white-space: nowrap;
+        content: attr(data-source);
+        background-color: gray;
+        border: 1px solid black;
+        color: black;
+        padding: 2px 5px;
+        z-index: 10;
+      }    
+      .highlight {
+        background-color: lightblue;
+      }
+      #map {
+        height: 600px;
+        width: 97%;
+        margin-left: 1%;
+        margin-right: 2%;
+      }
+      #slider {
+        margin: 20px;
+        width: 60%
+      }
+      .start {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1><strong>The Arizona Narrow Gauge Railroad</strong></h1>
+      <p><a href="/benchmarks" class="link">Benchmarks</a> <a href="/apps" class="link">Apps</a> <a href="/" class="link">Home</a> <a href="/gcstats" class="link">Geocaching Stats</a></p>
+    <hr></div>
+    <!-- <sup><span class="citation" data-source=""></span></sup> -->
+    <div class="container">
+      <h1>
+        Tucson's Forgotten Railroad
+      </h1>
+      <p>Written by Julian Sanchez</p><p>Published June 18, 2024</p>
+      <div class="start"></div>
+      <p>
+        Tucson was the first major stop in Arizona that the railroad was brought to. Since then, several railroads have been built in the area, 
+        notably lines to Nogales, Silverbell, and parallel alignments of railroad extending into Tucson. (Now, the only alignment is the Union Pacific track, which uses both old ones.)
+        However one has avoided my attention, the Arizona Narrow Gauge Railroad.
+      </p>
+      <h3>Beginnings</h3>
+      <p>
+        The Arizona Narrow Gauge Railroad Company was incorporated in June of 1882 
+        and promised economic prosperity for Tucson as the link from the mines to the rest of the country.<sup><span class="citation" data-source="Arizona Daily Star: September 6, 1882 Pg. 4"></span></sup>
+        Globe was an untapped source of endless profit. Once silver was discovered in 1875, further mining found copper.<sup><span class="citation" data-source="https://www.britannica.com/place/Globe-Arizona"></span></sup>
+        However, with the increasing operation of the mines, a problem arises&mdash;transportation. Globe had a road to Silver City with a railroad where its exports could be shipped across the country. 
+        However, Silver City is about 175 miles away from Globe. Transporting thousands of tons of ore 175 miles was a challenge, however a railroad would solve this. Hence, the incorporation of the Arizona Narrow Gauge Railroad Company.
+      </p>
+      <p>
+        Nowadays, there is a railroad to Globe, but it doesn't go through Tucson, it branches off in Bowie, Arizona. Technically, this route is more sensible, following river valleys all the way to Globe. 
+        Back then, Tucson could economically boom due to the new railroad so thats why it was to be built there. For this route, a narrow gauge railroad made sense. Past modern-day Winkelman, the railroad would have to navigate at least a portion of the Gila River Canyon, ascending 3000 feet over the Pinal Mountains, and finally reaching Globe. I think the route was originally planned to go all the way up the Gila River Canyon to the San Carlos River until the survey crew realized this would be a bad idea<sup><span class="citation" data-source="Arizona Weekly Citizen: May 5, 1883 Pg. 4"></span></sup> due to the Gila River Canyon's width being only the river at several sections.
+        Narrow gauge railroads take up less space and can make tighter turns, fitting the properties of this route.
+      </p>
+      <p>
+        Originally, the plan was for the railroad to go far past Globe to Durango, Colorado. However, such ideas certainly would take a long time to manifest on the ground. 
+        The railroad was to follow rivers, notably the Gila River and Rio Grande, making its way all the way up to Durango. After the link to Durango, the line would be extended southward to the Gulf of California.<sup><span class="citation" data-source="Arizona Weekly Citizen: October 1, 1882 Pg. 4"></span></sup>
+        Such a bold plan though needed funding, which there was little of. Luckily the county was on the railroad's side and legislation was passed in favor of the railroad and bonds were sold to the railroad. For every mile of railroad built, $10,000 worth of bonds could be exchanged, up to $200,000.<sup><span class="citation" data-source="Arizona Weekly Citizen: February 25, 1883"></span></sup>
+        However, apparently Pima County bonds weren't very appealing to investors, and the majority of the bonds weren't sold. This hindered progress but with what bonds had been sold, the railroad started to manifest.<sup><span class="citation" data-source="http://www.swanet.org/zarchives/aahs/aahs2007/glfmay07.pdf"></span></sup>
+      </p>
+      <p>
+        On May 5, 1883, the survey of the railroad started. [It was mentioned that the survey commenced in April at a later date, suggesting the survey crew had left and come back to town then left again.<sup><span class="citation" data-source="Arizona Weekly Citizen: July 7, 1883 Pg. 3"></span></sup>] The plan for now was to stop at Globe.<sup><span class="citation" data-source="Arizona Weekly Citizen: May 5, 1883 Pg. 4"></span></sup>
+        By May, Florence and Phoenix wanted a piece of the action. They proposed that the railroad could run to Phoenix via Florence. They said the route would require little grading and there would be lots of economic oppurity along the railroad.<sup><span class="citation" data-source="Arizona Weekly Citizen: May 12, 1883 Pg. 4"></span></sup> In June, land was being leased for the railroad<sup><span class="citation" data-source="Arizona Weekly Citizen: June 30, 1883 Pg. 4"></span></sup>, and on July 6, ground was broken on the railroad.<sup><span class="citation" data-source="Arizona Weekly Citizen: July 7, 1883 Pg. 3"></span></sup>
+        One of the reasons cited as why the railroad hadn't started earlier was that leasing and purchasing land for the railroad was difficult due to unreasonably high prices.<sup><span class="citation" data-source="Arizona Weekly Citizen: July 14, 1883 Pg. 1"></span></sup>
+        Many men were working on the grade and by August 4, three miles of grading had been completed and it was predicted that the Rillito would be reached by the 11th.<sup><span class="citation" data-source="Arizona Weekly Citizen: August 4, 1883 Pg. 4"></span></sup>
+        By the 18th, 5 miles worth (approximately to the Rillito) and the men had to wait for supplies to arrive to build the bridge (presumably).<sup><span class="citation" data-source="Arizona Weekly Citizen: August 18, 1883 Pg. 4"></span></sup> By September 22, grading work had shifted towards extending the grade down from about 1 mile north of town to the Southern Pacific Railroad Depot in order for the easy transport of the ordered supplies up the grade, once they arrived.<sup><span class="citation" data-source="Arizona Weekly Citizen: September 22, 1883 Pg. 4"></span></sup>
+        Progress stalled while waiting for supplies until the first installment finally came on October 20<sup><span class="citation" data-source="Arizona Weekly Citizen: October 20, 1883 Pg. 3"></span></sup> and once it did arrive a large stack of ties formed, seemingly never to be used.<sup><span class="citation" data-source="Arizona Weekly Citizen: October 27, 1883 Pg. 4"></span></sup>
+      </p>
+      <h3>Stall</h3>
+      <p>
+        But progress didn't resume. In December, a taxpayer's suit was filed against the county in favor of the railroad saying that they should not have to pay interest.<sup><span class="citation" data-source="Arizona Weekly Citizen: December 15, 1883 Pg. 3"></span></sup> This issue continued throughout the next year and bonds were a huge subject of debate.<sup><span class="citation" data-source="https://arizonahistoricalsociety.org/wp-content/uploads/2019/05/library_Ayres-Index_Narrow-Gauge-Railroad.pdf"></span></sup>
+        Grading work had once again been contracted out in November of 1884, however, the presidential election made it impossible to do business on the East Coast to secure materials for the railroad.<sup><span class="citation" data-source="Arizona Weekly Citizen: November 8, 1884 Pg. 2"></span></sup>
+        In February of 1885, a new opportunity for the railroad arose. Pinal and Maricopa Counties proposed the railroad could run from Tucson to Phoenix via Florence. And behind that proposal, they had a $400,000 subsidy available for the railroad.  After this direct link had been established, then a branch to Globe could be built.<sup><span class="citation" data-source="Arizona Weekly Citizen: February 21, 1885 Pg. 1"></span></sup>
+        Seemingly, Globe was of greater interest at the time as it was where the railroad could make the most money. Also, a competitor challenged the Arizona Narrow Gauge Railroad: The Calabasas, Tucson and Northwestern Railroad. In April 1885, the Calabasas, Tucson and Northwestern asked for $200,000 in bonds from Pima County.<sup><span class="citation" data-source="Arizona Weekly Citizen: April 18, 1885 Pg. 3"></span></sup> Once their request was approved<sup><span class="citation" data-source="https://www.miningfoundationsw.org/resources/Documents/Publications/History%20of%20AZ%20-%20V%201/11_IRVIN_1987_HIST_MINING_AZ_1.PDF"></span></sup>, 
+        it showed the Arizona Narrow Gauge Railroad that it had to spring into action so they would not be beaten to profit.
+      </p>
+      <h3>The Railroad</h3>
+      <p>
+        It seems plans were arranged for the railroad and soon enough by January 1886, construction was suspected to start in a matter of days once material arrived.<sup><span class="citation" data-source="Arizona Daily Star: January 8, 1886 Pg. 4"></span></sup>
+        By the third of March, it was thought that work would start on the 10th as the transportation of the steel rails would be cheaper.<sup><span class="citation" data-source="Arizona Daily Star: March 3, 1886 Pg. 4"></span></sup>
+        On April 5th, the work finally commenced on the railroad. Wood was being cut for bridges and culverts and a large force of graders was to be assembled to grade 30 miles of track.<sup><span class="citation" data-source="Arizona Daily Star: April 6, 1886 Pg. 4"></span></sup>
+        By May 13th, the bridge was being built across Rillito Creek.<sup><span class="citation" data-source="Arizona Daily Star: May 13, 1886 Pg. 4"></span></sup> From a photo, the track appeared to be about 8 feet off of the ground. 
+        Any Tucson local should have been able to see the bridge and know it would not be able to withstand the summer floods of the river, especially back then.
+      </p>
+      <p>
+        Progress continued along steadily and on June 30th, the Pima County surveyor measured the railroad extended 5 miles. This secured some subsidy bonds for the company.<sup><span class="citation" data-source="Arizona Weekly Citizen: August 3, 1886 Pg. 3"></span></sup>
+        By July 13th and 14th, the railroad's locomotive arrived<sup><span class="citation" data-source="Arizona Daily Star: July 13, 1886 Pg. 4"></span></sup> and about 7 miles of track had been completed, respectively.<sup><span class="citation" data-source="Arizona Daily Star: July 14, 1886 Pg. 4"></span></sup> ANG No. 1 was a Grant Locomotive Works locomotive bought from the Texas & Saint Louis Railroad.<sup><span class="citation" data-source="http://www.pacificng.com/template.php?page=roads/az/angrr/roster.htm"></span></sup>
+        Also likely by this time, the Rillito River Bridge had been completed, with a length of 368 feet.<sup><span class="citation" data-source="Arizona Weekly Citizen: July 24, 1886 Pg. 4"></span></sup>
+        Now that the engine had arrived, excursions would start to take place along the track.<sup><span class="citation" data-source="Arizona Weekly Citizen: July 24, 1886 Pg. 4"></span></sup>
+        By August 13, 1886 10 miles of railroad had been completed (some sources say only 9 miles were completed<sup><span class="citation" data-source="Arizona Daily Star: July 2, 1887 Pg. 4"></span></sup>), and $50,000 more had been requested from the county, for a total of $150,000 (about $5 million in modern-day).<sup><span class="citation" data-source="Arizona Daily Star: August 13, 1886 Pg. 4"></span></sup>
+        The construction train got stuck beyond a washed-out culvert around August 21 and that may have been why tracklaying stalled.<sup><span class="citation" data-source="Arizona Weekly Citizen: August 21, 1886 Pg. 3"></span></sup>
+      </p>
+      <p>
+        Notably, that there was distrust around the railroad, despite its seemingly non-stop construction. In August 12's Arizona Daily Star, almost an entire column is taken up
+        with the concerned letter from a special committee on the narrow gauge railroad. One of the most glaring concerns in the letter is that there have been no promises made that the railroad will reach Globe
+        and nothing stopping the railroad from going to Florence and terminating there, assuming the funding had been secured.<sup><span class="citation" data-source="Arizona Daily Star: August 12, 1886 Pg. 4"></span></sup> The concerns of these citizens were too true.
+      </p>
+      <p>
+        By September 22, 1886 grading had been completed up to 20 miles from the San Pedro River or about 4 miles from the Camp Grant Wash. 
+        It was reported that tracklaying would resume at a rate of 1.25 miles per day after a shipment of iron arrived, delayed by washouts on the Southern Pacific. The railroad survey crew had almost reached Globe.<sup><span class="citation" data-source="Arizona Daily Star: September 22, 1886 Pg. 4"></span></sup>
+        From what I could find though, tracklaying never resumed. So what was the problem? A month earlier the company had received 50k. The problem was that they couldn't get any more bonds from the county.
+        On July 30, the Harrison Act was passed in Congress. It's described as so, "An act to prohibit the passage of local or special laws in the Territories of the United States, to limit Territorial indebtedness, and for other purposes." 
+        Included in the act the following case (among others) could not be passed anymore, "Granting to any corporation, association, or individual the right to lay down railroad tracks, or amending existing charters for such purpose."
+        So the counties could no longer go hundreds of thousands in debt by issuing these bonds that the railroads would need to be built.<sup><span class="citation" data-source="https://azmemory.azlibrary.gov/nodes/view/208436"></span></sup>
+      </p>
+      <h3>The End</h3>
+      <p>
+        On September 9, 1887, rains were measured at 1 and 1/4 inches in one day (about a once-a-year rain) and the Rillito was quickly flowing with 9 feet deep waters. The bridge stood no match for this and was swept away.<sup><span class="citation" data-source="Arizona Daily Star: September 10, 1887 Pg. 4"></span></sup> In October a shareholder's meeting was arranged to discuss the future of the railroad. There were some changes, mainly a name change of the company and railroad to the Tucson, Globe and Northern Railroad Company, and the conversion of the railroad to standard gauge.<sup><span class="citation" data-source="Arizona Weekly Citizen: October 22, 1887 Pg. 3"></span></sup>
+        Once the changes had been taken into place and a prospectus was published that exemplified the ambitious plans of the railroad reaching past Globe<sup><span class="citation" data-source="https://books.google.com/books?id=wj81AQAAMAAJ"></span></sup>, nothing new happened. The company was out of funds to spend on construction and the railroad when nowhere. By 1888, the company was defunct<sup><span class="citation" data-source="http://www.swanet.org/zarchives/aahs/aahs2007/glfmay07.pdf"></span></sup> and in December of 1893 the railroad was being salvaged<sup><span class="citation" data-source="Arizona Weekly Citizen: December 16, 1893 Pg. 3"></span></sup> and soon all track was removed and all assets of the comapny were sold.<sup><span class="citation" data-source="http://www.swanet.org/zarchives/aahs/aahs2007/glfmay07.pdf"></span></sup>
+        In February 1894 the depot was to be demolished and the old railroad grade was to be used for a horse racing track.<sup><span class="citation" data-source="Arizona Weekly Citizen: February 3, 1894 Pg. 1"></span></sup>
+        That same year, the Gila Valley, Globe and Northern Railway was incorporated and within months tracklaying to Globe from Bowie had begun,<sup><span class="citation" data-source="https://en.wikipedia.org/wiki/Gila_Valley,_Globe_and_Northern_Railway"></span></sup> however plans of the railroad were brewing as early as 1892.<sup><span class="citation" data-source="Arizona Weekly Citizen: April 22, 1892 via https://azmemory.azlibrary.gov/nodes/view/248316 PDF page 126, document page 119"></span></sup> The railroad finally reached Globe in November of 1898.<sup><span class="citation" data-source="https://is.gd/1QZf25 (link shortened due to absurd length)"></span></sup> 
+      </p>
+      <p>
+        Even though the railroad was gone, the story is not over. You know all of those railroad company bonds that were bought? ($150k worth) Well, they weren't redeemed until 1953 and were a large topic of debate as people wanted their money back! The topic reached the Supreme Court several times until it was finally settled in 1952.<sup><span class="citation" data-source="http://www.swanet.org/zarchives/aahs/aahs2007/glfapr07.pdf"></span></sup>
+      </p>
+
+      <h3>Map</h3>
+      <div id="map"></div>
+      <input type="range" id="slider" min="1002" max="1129" step="1" value="996">
+      <button id="increase">+</button>
+      <button id="decrease">-</button>
+      <span id="year">January 1883</span>
+      
+      <p>
+        Afternote: So I just found that there was a railroad that was supposed to run through Tucson to Globe and writing an article is the best way I can learn about it. 
+        It's fun going through old newspapers searching for progress updates on an almost forgotten railroad. The thing is the more I search for it, the railroad was out there on a web just a little more tucked away than the rest.
+        There are 2 photos of the railroad that I could find on the internet, one of the Rillito River Bridge and a sightseeing group of about 25 on two of the flatbed cars behind the coal car and locomotive(locomotive is out of frame). 
+        The second is a picture of a group of about 10 standing with the locomotive with saguaros in the back. Because it is hard to check the copyright status on these photos, they will not be uploaded until I recieve a response from the Arizona Historical Society, who was the original source of these photos.
+      </p>
+
+      <br>
+      <h2>References</h2>
+      <ol id="references">
+      </ol>
+      <p>Arizona Daily Star was accessed using newspapers.com with a free subscription trial. The Arizona Weekly Citizen was accessed using the Arizona Memory Project. A great amount of thanks to the Arizona Historical Society for their Ayres Newspaper Index which allowed me to find articles on the railroad so much easier instead of resorting to crappy search engines in the aforementioned newspaper hosts.</p>
+    </div>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        updateCitations();
+    });
+
+    const additionalReferences = [
+      "https://arizonahistoricalsociety.org/wp-content/uploads/2019/05/library_Ayres-Index_Narrow-Gauge-Railroad.pdf",
+      "https://azmemory.azlibrary.gov",
+      "https://tucson.newspapers.com",
+      "http://www.swanet.org/zarchives/aahs/aahs2007/glfapr07.pdf",
+      "Railroad of Arizona Vol. 1 The Southern Railroads via archive.org"
+    ];
+    
+    function updateCitations() {
+      const citations = document.querySelectorAll('.citation');
+      const references = document.getElementById('references');
+      references.innerHTML = '';
+  
+      // Dictionary to track sources and their numbers
+      const sourceToNumberMap = {};
+  
+      // Add in-article citations to the references list
+      citations.forEach((citation, index) => {
+          const source = citation.getAttribute('data-source');
+  
+          if (source in sourceToNumberMap) {
+              // Reuse existing number if source is a duplicate
+              citation.textContent = `[${sourceToNumberMap[source]}]`;
+          } else {
+              // Assign new number and add to references list
+              const citationNumber = references.childElementCount + 1;
+              sourceToNumberMap[source] = citationNumber;
+              citation.textContent = `[${citationNumber}]`;
+  
+              const listItem = document.createElement('li');
+              listItem.textContent = source;
+              references.appendChild(listItem);
+          }
+      });
+  
+      // Add additional references to the references list
+      additionalReferences.forEach((reference) => {
+          if (!(reference in sourceToNumberMap)) {
+              const citationNumber = references.childElementCount + 1;
+              sourceToNumberMap[reference] = citationNumber;
+  
+              const listItem = document.createElement('li');
+              listItem.textContent = reference;
+              references.appendChild(listItem);
+          }
+      });
+    }
+
+    // Map
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize the map
+      const map = L.map('map').setView([32.35296, -110.99662], 10);
+    
+      // Add a tile layer
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+    
+      let railroadData;
+      let availableDates = [];
+    
+      // Function to fetch and parse the GeoJSON data
+      const loadGeoJSON = () => {
+        return fetch('data.geojson')
+          .then(response => response.json())
+          .then(data => {
+            railroadData = data;
+            availableDates = data.features.map(feature => feature.properties.date);
+          });
+      };
+    
+      // Function to find the closest previous date with data
+      const findClosestDate = (targetDate) => {
+        let closestDate = null;
+        for (let date of availableDates) {
+          if (date <= targetDate) {
+            closestDate = date;
+          } else {
+            break;
+          }
+        }
+        return closestDate;
+      };
+    
+      // Function to update the map with new data
+      const updateMap = (date) => {
+        // Find the closest previous date with data
+        const closestDate = findClosestDate(date);
+    
+        // Clear existing layers
+        map.eachLayer((layer) => {
+          if (layer instanceof L.GeoJSON) {
+            map.removeLayer(layer);
+          }
+        });
+    
+        // Filter and add new GeoJSON layers
+        const filteredFeatures = railroadData.features.filter(feature => feature.properties.date === closestDate);
+        const geojsonLayer = L.geoJSON(filteredFeatures, {
+          style: (feature) => {
+            switch (feature.properties.type) {
+              case 'track_grade': return { color: 'blue', weight: 2, dashArray: '5, 5' };
+              case 'rail': return { color: 'red', weight: 4 };
+            }
+          }
+        });
+        geojsonLayer.addTo(map);
+      };
+    
+      // Function to convert slider value to date string
+      const getDateFromSliderValue = (value) => {
+        const startYear = 1800;
+        if (value <= 1128) {
+          const totalMonths = parseInt(value, 10);
+          const year = startYear + Math.floor(totalMonths / 12);
+          const month = (totalMonths % 12) + 1;
+          return `${year}-${month.toString().padStart(2, '0')}`;
+        } else {
+          const extraMonths = value - 1128;
+          const year = 2023 + Math.floor(extraMonths / 12);
+          const month = (extraMonths % 12) + 1;
+          return `${year}-${month.toString().padStart(2, '0')}`;
+        }
+      };
+    
+      // Function to format the date for display
+      const formatDate = (date) => {
+        const [year, month] = date.split("-");
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December"];
+        return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
+      };
+    
+      // Load GeoJSON and initialize the map
+      loadGeoJSON().then(() => {
+        const initialDate = getDateFromSliderValue(document.getElementById('slider').value);
+        updateMap(initialDate);
+        document.getElementById('year').textContent = formatDate(initialDate);
+      });
+    
+      // Event listener for the slider
+      document.getElementById('slider').addEventListener('input', (event) => {
+        const date = getDateFromSliderValue(event.target.value);
+        document.getElementById('year').textContent = formatDate(date);
+        updateMap(date);
+      });
+
+      const incrementSlider = (step) => {
+        const slider = document.getElementById('slider');
+        let newValue = parseInt(slider.value, 10) + step;
+        newValue = Math.max(slider.min, Math.min(newValue, slider.max));
+        slider.value = newValue;
+        const date = getDateFromSliderValue(newValue);
+        document.getElementById('year').textContent = formatDate(date);
+        updateMap(date);
+      };
+
+      // Event listeners for the buttons
+      document.getElementById('decrease').addEventListener('click', () => {
+        incrementSlider(-1);
+      });
+
+      document.getElementById('increase').addEventListener('click', () => {
+        incrementSlider(1);
+      });
+    });
+    </script>
+  </body>
+</html>

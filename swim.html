@@ -1,0 +1,222 @@
+<html lang="en">
+<head>
+  <title>Swim Meet Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+  <style>
+    canvas {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Swim Meet Analysis</h1>
+  <canvas id="25_fly_chart"></canvas>
+  <canvas id="25_back_chart"></canvas>
+  <canvas id="25_breast_chart"></canvas>
+  <canvas id="25_free_chart"></canvas>
+  <canvas id="50_fly_chart"></canvas>
+  <canvas id="50_fly_relay_chart"></canvas>
+  <canvas id="50_back_chart"></canvas>
+  <canvas id="50_breast_chart"></canvas>
+  <canvas id="50_free_chart"></canvas>
+  <canvas id="50_free_relay_chart"></canvas>
+  <canvas id="100_im_chart"></canvas>
+  <canvas id="100_fly_chart"></canvas>
+  <canvas id="100_back_chart"></canvas>
+  <canvas id="100_breast_chart"></canvas>
+  <canvas id="100_free_chart"></canvas>
+  <canvas id="100_free_relay_chart"></canvas>
+  <canvas id="200_im_chart"></canvas>
+  <canvas id="200_fly_chart"></canvas>
+  <canvas id="200_back_chart"></canvas>
+  <canvas id="200_breast_chart"></canvas>
+  <canvas id="200_free_chart"></canvas>
+  <canvas id="500_free_chart"></canvas>
+  <canvas id="4x50_free_relay_chart"></canvas>
+  <canvas id="200_medley_relay_fly_chart"></canvas>
+  <canvas id="200_medley_relay_free_chart"></canvas>
+  <canvas id="4x100_free_relay_chart"></canvas>
+  <canvas id="50_fly_LC_chart"></canvas>
+  <canvas id="50_back_LC_chart"></canvas>
+  <canvas id="50_breast_LC_chart"></canvas>
+  <canvas id="50_free_LC_chart"></canvas>
+  <canvas id="100_fly_LC_chart"></canvas>
+  <canvas id="100_back_LC_chart"></canvas>
+  <canvas id="100_breast_LC_chart"></canvas>
+  <canvas id="100_free_LC_chart"></canvas>
+  <canvas id="200_im_LC_chart"></canvas>
+  <canvas id="200_fly_LC_chart"></canvas>
+  <canvas id="200_back_LC_chart"></canvas>
+  <canvas id="200_breast_LC_chart"></canvas>
+  <canvas id="200_free_LC_chart"></canvas>
+  <!-- Add more canvas elements for other events as needed -->
+  <script>
+    document.addEventListener('DOMContentLoaded', drawCharts);
+
+    async function drawCharts() {
+      try {
+        const response = await fetch('data.csv');
+        const data = await response.text();
+        const parsedData = parseCSV(data);
+
+        console.log('Parsed Data:', parsedData);
+
+        createChart(parsedData, '25 Fly', '25_fly_chart');
+        createChart(parsedData, '25 Back', '25_back_chart');
+        createChart(parsedData, '25 Breast', '25_breast_chart');
+        createChart(parsedData, '25 Free', '25_free_chart');
+        createChart(parsedData, '50 Fly', '50_fly_chart');
+        createChart(parsedData, '50 Fly (Relay Split)', '50_fly_relay_chart');
+        createChart(parsedData, '50 Back', '50_back_chart');
+        createChart(parsedData, '50 Breast', '50_breast_chart');
+        createChart(parsedData, '50 Free', '50_free_chart');
+        createChart(parsedData, '50 Free (Relay Split)', '50_free_relay_chart');
+        createChart(parsedData, '100 IM', '100_im_chart');
+        createChart(parsedData, '100 Fly', '100_fly_chart');
+        createChart(parsedData, '100 Back', '100_back_chart');
+        createChart(parsedData, '100 Breast', '100_breast_chart');
+        createChart(parsedData, '100 Free', '100_free_chart');
+        createChart(parsedData, '100 Free (Relay Split)', '100_free_relay_chart');
+        createChart(parsedData, '200 IM', '200_im_chart');
+        createChart(parsedData, '200 Fly', '200_fly_chart');
+        createChart(parsedData, '200 Back', '200_back_chart');
+        createChart(parsedData, '200 Breast', '200_breast_chart');
+        createChart(parsedData, '200 Free', '200_free_chart');
+        createChart(parsedData, '500 Free', '500_free_chart');
+        createChart(parsedData, '4x50 Free Relay', '4x50_free_relay_chart');
+        createChart(parsedData, '200 Medley Relay (Butterfly)', '200_medley_relay_fly_chart');
+        createChart(parsedData, '200 Medley Relay (Free)', '200_medley_relay_free_chart');
+        createChart(parsedData, '4x100 Free Relay', '4x100_free_relay_chart');
+        createChart(parsedData, '50 Fly LC', '50_fly_LC_chart');
+        createChart(parsedData, '50 Back LC', '50_back_LC_chart');
+        createChart(parsedData, '50 Breast LC', '50_breast_LC_chart');
+        createChart(parsedData, '50 Free LC', '50_free_LC_chart');
+        createChart(parsedData, '100 Fly LC', '100_fly_LC_chart');
+        createChart(parsedData, '100 Back LC', '100_back_LC_chart');
+        createChart(parsedData, '100 Breast LC', '100_breast_LC_chart');
+        createChart(parsedData, '100 Free LC', '100_free_LC_chart');
+        createChart(parsedData, '200 IM LC', '200_im_LC_chart');
+        createChart(parsedData, '200 Fly LC', '200_fly_LC_chart');
+        createChart(parsedData, '200 Back LC', '200_back_LC_chart');
+        createChart(parsedData, '200 Breast LC', '200_breast_LC_chart');
+        createChart(parsedData, '200 Free LC', '200_free_LC_chart');
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    function parseCSV(data) {
+      const rows = data.split('\n').map(row => row.split(','));
+      const headers = rows[0].slice(1);  // Extract dates
+      const parsedData = {};
+    
+      rows.slice(1).forEach(row => {
+        const eventName = row[0].trim();
+        if (eventName) {
+          const values = row.slice(1).map(value => {
+            const cleanedValue = value.trim().replace('?', '');
+            return (cleanedValue !== '...' && cleanedValue.toUpperCase() !== 'DQ') ? parseTimeToSeconds(cleanedValue) : NaN;
+          });
+          parsedData[eventName] = values;
+        }
+      });
+    
+      return { headers, parsedData };
+    }
+    
+    function parseTimeToSeconds(timeString) {
+      const timeParts = timeString.split(':').map(parseFloat);
+      if (timeParts.length === 2) {
+        // If there are minutes and seconds
+        return timeParts[0] * 60 + timeParts[1];
+      } else if (timeParts.length === 1) {
+        // If there are only seconds
+        return timeParts[0];
+      } else {
+        return NaN;
+      }
+    }
+
+    function createChart(data, event, elementId) {
+      try {
+        const ctx = document.getElementById(elementId).getContext('2d');
+        const labels = data.headers.map(header => new Date(header.split(' ')[0]));
+        const values = data.parsedData[event];
+        const filteredValues = values.map((value, index) => ({
+          x: labels[index],
+          y: !isNaN(value) ? value : null
+        })).filter(point => point.y !== null);
+    
+        const firstDate = filteredValues.length > 0 ? filteredValues[0].x : null;
+    
+        // Calculate margin (10 days for example)
+        const margin = 1000 * 60 * 60 * 24 * 10; // 10 days in milliseconds
+    
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            datasets: [{
+              label: `${event} Times Over Meets`,
+              data: filteredValues,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderWidth: 1,
+              spanGaps: true
+            }]
+          },
+          options: {
+            scales: {
+              x: {
+                type: 'time',
+                time: {
+                  unit: 'month'
+                },
+                title: {
+                  display: true,
+                  text: 'Date'
+                },
+                min: firstDate ? new Date(firstDate.getTime() - margin) : null, // Set min to the first valid date minus the margin
+                max: new Date() // Set max to the current date
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Time (s)'
+                }
+              }
+            },
+            plugins: {
+              zoom: { // Enable zoom plugin
+                pan: {
+                  enabled: true,
+                  mode: 'x' // Enable only horizontal pan
+                },
+                zoom: {
+                  wheel: {
+                    enabled: true,
+                  },
+                  pinch: {
+                    enabled: true
+                  },
+                  mode: 'x' // Enable only horizontal zoom
+                }
+              },
+              title: {
+                display: true,
+                text: `${event} Times Over Meets`
+              }
+            }
+          }
+        });
+      } catch (error) {
+        console.error('Chart Creation Error:', error);
+      }
+    }
+  </script>
+</body>
+</html>
