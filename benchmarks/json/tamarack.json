@@ -34,7 +34,7 @@
   "azimuthName": "TAMARACK 1932",
   "azimuthCoordLat": "44.23884",
   "azimuthCoordLong": "-86.33751",
-  "azimuthStatus": "none",
+  "azimuthStatus": "azimuthBad",
   "azimuthURL": "n",
   "gpx": "n",
   "gpxFile": "n",

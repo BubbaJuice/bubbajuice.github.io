@@ -11,11 +11,19 @@
         font-family: "Open Sans";
         background-color:#36393f;
         color: #ffffff;
-        max-width: 69420ex;
         text-align: center;
       }
       .link {
       color: #2f8aee;
+      }
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(54, 57, 63, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
       }
     </style>
   </head>
@@ -29,4 +37,9 @@
     <p><a href="https://github.com/BubbaJuice/SightWords" class="link">Sight Words</a> - An app for learning sight words.</p>
     <hr>
   </body>
+  <div class="toggle-container">
+    <label for="toggle-background">Enable Glitter Background</label>
+    <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+  </div>
+  <script src="/files/glitter.js"></script>
 </html>

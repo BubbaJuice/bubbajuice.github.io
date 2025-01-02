@@ -11,7 +11,8 @@
         font-family: "Open Sans";
         background-color:#36393f;
         color: #ffffff;
-        max-width: 69420ex;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
       #myBtn {
         display: none;
@@ -29,7 +30,6 @@
         border-radius: 4px;
         box-shadow: -4px 4px rgba(172, 177, 185, 0.24);
       }
-      
       #myBtn:hover {
         background-color: #7a4cd9;
       }
@@ -40,17 +40,30 @@
         color: #ff0000;
       }
       .image {
-        border-color: mediumpurple;
+        border-color: #9370d8;
         border-style: solid;
         border-radius: 12px;
         margin: 10px;
         box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
         float: left;
       }
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(54, 57, 63, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
+      }
     </style>
   </head>
   <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
     <center>
       <h1><strong>Benchmarks</strong></h1>
       <p><a href="/benchmarks" class="link">Benchmarks</a> <a href="/apps" class="link">Apps</a> <a href="/" class="link">Home</a> <a href="/gcstats" class="link">Geocaching Stats</a></p>
@@ -2064,6 +2077,8 @@
         <p><a href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&PID=PL0314" target="_blank" rel="noopener noreferrer" class="link">Photographs</a></p>
         <br>
       </div>
+
+      <h2>To check progress on benchmarks being added to the website, visit <a href="https://github.com/users/BubbaJuice/projects/1/views/1" class="link">this</a> GitHub project.</h2>
     </div>
     <script>
       let mybutton = document.getElementById("myBtn");
@@ -2198,6 +2213,52 @@
         container.innerHTML = ""; // Clear again for sorted/filtered content
         benchmarksArr.forEach(benchmark => container.appendChild(benchmark));
       }
+    </script>
+    <script>
+      // Function to apply the saved background state
+      function applyBackgroundState() {
+        const body = document.body;
+        const glitterEnabled = localStorage.getItem('glitterBackground') === 'true';
+
+        // Apply the background if enabled
+        if (glitterEnabled) {
+          body.style.backgroundImage = "url('images/glitter.gif')";
+          body.style.backgroundSize = "auto";
+          body.style.backgroundRepeat = "repeat";
+        } else {
+          body.style.backgroundImage = "none";
+        }
+      }
+
+      // Function to toggle the background and save the state
+      function toggleBackground() {
+        const body = document.body;
+        const checkbox = document.getElementById('toggle-background');
+        const glitterEnabled = checkbox.checked;
+
+        // Save state
+        localStorage.setItem('glitterBackground', glitterEnabled);
+
+        // Apply or remove background
+        if (glitterEnabled) {
+          body.style.backgroundImage = "url('images/glitter.gif')";
+          body.style.backgroundSize = "auto";
+          body.style.backgroundRepeat = "repeat";
+        } else {
+          body.style.backgroundImage = "none";
+        }
+      }
+
+      // Apply the saved background on page load
+      document.addEventListener('DOMContentLoaded', () => {
+        applyBackgroundState();
+
+        // Optional: Automatically check the toggle if it exists
+        const checkbox = document.getElementById('toggle-background');
+        if (checkbox) {
+          checkbox.checked = localStorage.getItem('glitterBackground') === 'true';
+        }
+      });
     </script>
   </body>
 </html>

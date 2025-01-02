@@ -34,7 +34,6 @@
         font-family: "Open Sans";
         background-color: #36393f;
         color: #ffffff;
-        max-width: 69420ex;
         margin: 0;
         padding: 0;
         width: 100%;
@@ -81,6 +80,16 @@
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+      }
+
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(54, 57, 63, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
       }
     </style>
   </head>
@@ -404,5 +413,10 @@
         initializeMap(data);
       });
     </script>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
+    <script src="/files/glitter.js"></script>
   </body>
 </html>

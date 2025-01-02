@@ -1,4 +1,5 @@
 <html>
+  <meta charset="utf-8">
   <head>
     <title>e</title>
     <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png" />
@@ -11,7 +12,6 @@
         font-family: "Open Sans";
         background-color:#36393f;
         color: #ffffff;
-        max-width: 69420ex;
       }
 
       .margin {
@@ -32,6 +32,15 @@
         margin: 10px;
         box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
         float: left;
+      }
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(54, 57, 63, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
       }
     </style>
   </head>
@@ -498,4 +507,10 @@
       <p><a href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&PID=CG0166" target="_blank" rel="noopener noreferrer" class="link">Photographs</a></p>
       <br>
     </div>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
+    <script src="/files/glitter.js"></script>
+  </body>  
 </html>

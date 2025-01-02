@@ -29,71 +29,7 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
-    <style>
-      body {
-        font-family: "Open Sans";
-        background-color: #36393f;
-        color: #ffffff;
-        max-width: 69420ex;
-      }
-
-      .link {
-        color: #2f8aee;
-      }
-
-      .image {
-        border-color: mediumpurple;
-        border-style: solid;
-        border-radius: 12px;
-        margin: 10px;
-        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
-        float: left;
-      }
-
-      #map {
-        height: 400px;
-        width: 600px;
-      }
-
-      .whiteBorder {
-        border: 1px solid #ffffff;
-      }
-
-      .table {
-        height: 400px;
-        width: 600px;
-        top: 415px;
-      }
-
-      .right {
-        float: right;
-      }
-
-      .descr {
-        width: 50%;
-      }
-
-      div.gallery {
-        margin: 5px;
-        border: 1px solid #ccc;
-        float: left;
-        width: 180px;
-      }
-
-      div.gallery:hover {
-        border: 1px solid #777;
-      }
-
-      div.gallery img {
-        width: 100%;
-        height: auto;
-      }
-
-      div.desc {
-        padding: 15px;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="/files/benchmarks.css">
   </head>
   <body>
     <script
@@ -558,5 +494,10 @@
         loadJson
       );
     </script>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
+    <script src="/files/glitter.js"></script>
   </body>
 </html>
