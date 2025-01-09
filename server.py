@@ -59,7 +59,24 @@ class RequestHandler(SimpleHTTPRequestHandler):
             return
 
         # Serve files as usual
-        return SimpleHTTPRequestHandler.do_GET(self)
+        try:
+            return SimpleHTTPRequestHandler.do_GET(self)
+        except Exception as e:
+            self.send_error(404, "File not found")
+            self.path = '/404.html'
+            return SimpleHTTPRequestHandler.do_GET(self)
+
+    def send_error(self, code, message=None):
+        """Override send_error to serve custom 404 page."""
+        if code == 404:
+            self.path = '/404.html'
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            with open(self.translate_path(self.path), 'rb') as file:
+                self.wfile.write(file.read())
+        else:
+            super().send_error(code, message)
 
 if __name__ == '__main__':
     myServer = HTTPServer(('0.0.0.0', 8000), RequestHandler)
