@@ -53,9 +53,9 @@ The setting of the benchmark.
 | 16 | Large structures connected to bedrock | <img src="https://www.ngs.noaa.gov/marks/images/setting/41.jpg" width="200"/> |
 | 17 | Rod driven into ground | <img src="benchmarks/images/compressed/PCDOTGPSrebar.png" width="200"/> |
 | 18 | Rod driven into ground surrounded by concrete or pipe | <img src="benchmarks/images/compressed/NN_02.png" width="200"/> |
-| 19 | Utop a metal pipe driven into ground | <img src="benchmarks/images/compressed/NOGLS4835north.png" width="200"/> |
+| 19 | Atop a metal pipe driven into ground | <img src="benchmarks/images/compressed/NOGLS4835north.png" width="200"/> |
 | 20 | Driven into ground | <img src="benchmarks/images/compressed/USLH.png" width="200"/> |
-| 21 | Utop concrete filled pipe | <img src="benchmarks/images/compressed/K5back.png" width="200"/> |
+| 21 | Atop concrete filled pipe | <img src="benchmarks/images/compressed/K5back.png" width="200"/> |
 | 22 | Other (make a new row) | <img src="https://www.ngs.noaa.gov/marks/images/setting/0.jpg" width="200"/> |
 
 ## con
@@ -110,8 +110,8 @@ WIP - The type/style of the benchmark.
 | 27 | CGS triangulation convex 1919-1972 original ~2 cm triangle | <img src="benchmarks/images/compressed/GRISWOLD-c.png" width="200"/> |
 | 28 | CGS triangulation convex ~1 cm triangle | <img src="benchmarks/images/compressed/SAN-c.png" width="200"/> |\
 | 45 | CGS slash | <img src="benchmarks/images/compressed/E3-c.png" width="200"/> |
-| 69 | CGS vertial triple cross | <img src="benchmarks/images/compressed/M19-c.png" width="200"/> |
-| 70 | CGS vertial single cross | <img src="benchmarks/images/compressed/R399-c.png" width="200"/> |
+| 69 | CGS vertical triple cross | <img src="benchmarks/images/compressed/M19-c.png" width="200"/> |
+| 70 | CGS vertical single cross | <img src="benchmarks/images/compressed/R399-c.png" width="200"/> |
 | 72 | NGS vertical | <img src="benchmarks/images/compressed/L424-c.png" width="200"/> |
 | 29 | NGS horizontal control | <img src="benchmarks/images/compressed/BIG_WASH_RESET-c.png" width="200"/> |
 | 30 | CGS flat 1913-1922 reference | https://s3.amazonaws.com/gs-geo-images/2146e765-bf11-4eca-8e4b-6edff0fce67f.jpg |
@@ -137,15 +137,15 @@ WIP - The type/style of the benchmark.
 | 50 | CGS state survey |  |
 | 51 | USACE | <img src="benchmarks/images/compressed/WOLFE-c.png" width="200"/> |
 | 52 | USACE war department | <img src="benchmarks/images/compressed/ROLLAND-c.png" width="200"/> |
-| 53 | USACE other |  |
+| 53 | USACE new | <img src="benchmarks/images/compressed/newusace-c.png" width="200"/> |
 | 54 | USCE pipe (this entry could be deleted and replaced with typical pipe) | https://s3.amazonaws.com/gs-waymarking-images/c9f632ed-5b2f-4995-a115-2db8692054e1_l.JPG |
 | 55 | air forces geodetic survey marker |  |
 | 56 | NOS marker |  |
 | 57 | DOI marker (not USGS) |  |
 | 58 | DOI marker Bureau of Land Management |  |
-| 59 | GLO pipe plus |  |
-| 73 | GLO pipe "T" |  |
-| 60 | GLO pipe line |  |
+| 59 | GLO pipe plus | <img src="benchmarks/images/compressed/gloplusnaranja-c.png" width="200"/> |
+| 73 | GLO pipe "T" | <img src="benchmarks/images/compressed/T10SR10ES36R11ES31SC-c.png" width="200"/> |
+| 60 | GLO pipe line | <img src="benchmarks/images/compressed/gloonefourth-c.png" width="200"/> |
 | 61 | regional survey marker (except triangulation and reference or azimuth) |  |
 | 62 | regional survey triangulation |  |
 | 63 | regional survey reference |  |
