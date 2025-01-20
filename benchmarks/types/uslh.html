@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
+      }
+
+      .text {
+        margin-left: 15%;
+        margin-right: 15%;
+      }
+
+      .link {
+        color: #2f8aee;
+      }
+
+      .image {
+        border-color: mediumpurple;
+        border-style: solid;
+        border-radius: 12px;
+        margin: 10px;
+        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
+      }
+
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+
+      .whiteBorder {
+        border: 1px solid #ffffff;
+      }
+
+      .table {
+        height: 400px;
+        width: 600px;
+        top: 415px;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .descr {
+        width: 50%;
+      }
+
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(54, 57, 63, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>United State Lighthouse Boundary Stones</strong></h1>
+      <p>
+        <a href="/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr/>
+    <center>
+      <h1 class="text">
+        1880 Point Pinos Marker
+      </h1>
+    </center>
+    <center>
+      <a target="_blank" href="../images/USLH.png">
+        <img 
+          class="image"
+          src="../images/USLH.png"
+          alt=""
+          width="20%"
+          height=""
+        />
+      </a>
+    </center>
+    <p class="text">
+      This boundary stone was planted in 1880 by the US Lighthouse Service. It is located at Point Pinos, California. Nearby is a sign, reading this:
+    </p>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="vertical-align: middle; text-align: center;">
+          <p class="text">
+            1880 USLH BOUNDARY SURVEY MARKER
+          </p>
+          <p class="text">
+            This granite monument was placed by Lt. Col. Rovert S. Williamson, of the U.S.
+            Lighthouse Service, to represent the location of the Northwest corner of the original 25 acre
+            Point Pinos Lighthouse Reservation.
+          </p>
+          <p class="text">
+            The original location of this granite monument was eroded by the sea and the monument was retrieved
+            from the beach and brought to this location for safe keeping.
+          </p>
+          <p class="text">
+            This granite block is approximately 5 feet long and weighs about 500 pounds.
+          </p>
+          <p class="text">
+            By 1902, an additional 52 acres were purchased to insure adequate Arc of Visibility and give access to the ocean
+            shipment of supplies. (There is no evidence that supplies were ever delivered
+            directly to the site by sea, it being safer and easier to land them in Monterey and ship them overland.)
+          </p>
+        </td>
+        <td style="vertical-align: top; width: 50%;">
+          <a target="_blank" href="../images/USLHsign.png">
+            <img
+              class="image"
+              src="../images/USLHsign.png"
+              alt=""
+              width="40%"
+              height=""
+            />
+          </a>
+        </td>
+      </tr>
+    </table>
+    <center>
+      <h1 class="text">
+        ~1850 Grand Traverse Lighthouse Marker
+      </h1>
+    </center>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="vertical-align: middle; text-align: center;">
+          <p class="text">
+            U.S. Lighthouse Survey Marker, circa 1850
+          </p>
+          <p class="text">
+            This portion of an 1850 survey marker was found in the north-east corner of the Lighthouse Reservation
+            in 2003 during a survey of the property corners for the transfer of the Reservation from the U.S. Government to
+            the State of Michigan, Department of Natural Resources. The initials carved into the stone, "USLHE," stand for the "United States Lighthouse Establishment."
+            This artifact is more than 160 years old.
+          </p>
+        </td>
+        <td style="vertical-align: top; width: 50%;">
+          <a target="_blank" href="../images/USLHE.png">
+            <img
+              class="image"
+              src="../images/USLHE.png"
+              alt=""
+              width="40%"
+              height=""
+            />
+          </a>
+        </td>
+      </tr>
+    </table>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
+    <script src="/files/glitter.js"></script>
+  </body>
+</html>

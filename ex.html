@@ -1,141 +1,207 @@
 <!DOCTYPE html>
 <html>
-<title>Feet to Meters Length Converter</title>
-<body>
-
-<h2>Length Converter</h2>
-<p>This tool converts feet to meters while keeping in mind sig figs. I made it this for aid in converting measurements on my benchmarks section of the site.</p>
-<p>Type a value in the Feet field to convert the value to Meters:</p>
-
-<p>
-  <label>Feet</label>
-  <input id="inputFeet" type="number" placeholder="Feet" oninput="LengthConverter(this.value)" onchange="LengthConverter(this.value)">
-</p>
-<p>Meters: <span id="outputMeters"></span></p>
-
-<p>
-  <label>Meters</label>
-  <input id="inputMeters" type="number" placeholder="Meters" oninput="LengthConverterM(this.value)" onchange="LengthConverterM(this.value)">
-</p>
-<p>Feet: <span id="outputFeet"></span></p>
-
-<script>
-function LengthConverter(valNum) {
-  let value = valNum / 3.28084
-  // Credit .lines 20-72 https://onecompiler.com/javascript/3wxpgxjhq tysm
-  const sigFigs = (n) => {
-    let a = 0;
-    let b = n.length;
-    let c = 0;
-    let d = 0;
-    let e = 0;
-    let f = 0;
-    let g = 0;
-    let h = 0;
-    let i = 0;
-    for (let i = 0; i < b; i++) {
-      if (n[i] == ".") {
-        d = 1;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: "Open Sans";
+        background-color: #36393f;
+        color: #ffffff;
       }
-    }
-    if (d === 0) {
-      for (let i = 0; i < b; i++) {
-        if (n[i] != parseInt(n[i])) {
-          continue;
-        }
-        if (n[i] != 0) {
-          a += 1; 
-        }
-        if (a > 0) {
-          c += 1
-        }
+      .link {
+        color: #2f8aee;
       }
-      for (let i = b - 1; i > 0; i--) {
-        if (n[i] == 0) {
-          e += 1;
-        } else
-        if (n[i] != 0) {
-            break;
+      .toggle-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: rgba(54, 57, 63, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1><strong>Length Converter</strong></h1>
+      <p>
+        <a href="/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr/>
+    <p>This tool converts feet to meters while keeping in mind sig figs. I made it this for aid in converting measurements on my benchmarks section of the site.</p>
+    <p>Type a value in the Feet field to convert the value to Meters:</p>
+
+    <p>
+      <label>Feet</label>
+      <input id="inputFeet" type="number" placeholder="Feet" oninput="LengthConverter(this.value)" onchange="LengthConverter(this.value)">
+    </p>
+    <p>Meters: <span id="outputMeters"></span></p>
+
+    <p>
+      <label>Meters</label>
+      <input id="inputMeters" type="number" placeholder="Meters" oninput="LengthConverterM(this.value)" onchange="LengthConverterM(this.value)">
+    </p>
+    <p>Feet: <span id="outputFeet"></span></p>
+
+    <script>
+    function LengthConverter(valNum) {
+      let value = valNum / 3.28084
+      // Credit lines 26-78 https://onecompiler.com/javascript/3wxpgxjhq tysm
+      const sigFigs = (n) => {
+        let a = 0;
+        let b = n.length;
+        let c = 0;
+        let d = 0;
+        let e = 0;
+        let f = 0;
+        let g = 0;
+        let h = 0;
+        let i = 0;
+        for (let i = 0; i < b; i++) {
+          if (n[i] == ".") {
+            d = 1;
           }
-      }
-      f = c - e;
-      return f;
-    } else 
-    if (d !== 0 ) {
-      for (let i = 0; i < b; i++) {
-        if (n[i] != parseInt(n[i])) {
-          continue;
         }
-        if (n[i] != 0) {
-        g += 1; 
-        }
-        if (g > 0 && n[i] == 0) {
-          g += 1
-        }
-      }
-      return g;
-    }
-  };
-  document.getElementById("outputMeters").innerHTML=value.toPrecision(sigFigs(valNum));
-}
-function LengthConverterM(valNum) {
-  let value = valNum * 3.28084
-  // Credit .lines 20-72 https://onecompiler.com/javascript/3wxpgxjhq tysm
-  const sigFigs = (n) => {
-    let a = 0;
-    let b = n.length;
-    let c = 0;
-    let d = 0;
-    let e = 0;
-    let f = 0;
-    let g = 0;
-    let h = 0;
-    let i = 0;
-    for (let i = 0; i < b; i++) {
-      if (n[i] == ".") {
-        d = 1;
-      }
-    }
-    if (d === 0) {
-      for (let i = 0; i < b; i++) {
-        if (n[i] != parseInt(n[i])) {
-          continue;
-        }
-        if (n[i] != 0) {
-          a += 1; 
-        }
-        if (a > 0) {
-          c += 1
-        }
-      }
-      for (let i = b - 1; i > 0; i--) {
-        if (n[i] == 0) {
-          e += 1;
-        } else
-        if (n[i] != 0) {
-            break;
+        if (d === 0) {
+          for (let i = 0; i < b; i++) {
+            if (n[i] != parseInt(n[i])) {
+              continue;
+            }
+            if (n[i] != 0) {
+              a += 1; 
+            }
+            if (a > 0) {
+              c += 1
+            }
           }
-      }
-      f = c - e;
-      return f;
-    } else 
-    if (d !== 0 ) {
-      for (let i = 0; i < b; i++) {
-        if (n[i] != parseInt(n[i])) {
-          continue;
+          for (let i = b - 1; i > 0; i--) {
+            if (n[i] == 0) {
+              e += 1;
+            } else
+            if (n[i] != 0) {
+                break;
+              }
+          }
+          f = c - e;
+          return f;
+        } else 
+        if (d !== 0 ) {
+          for (let i = 0; i < b; i++) {
+            if (n[i] != parseInt(n[i])) {
+              continue;
+            }
+            if (n[i] != 0) {
+            g += 1; 
+            }
+            if (g > 0 && n[i] == 0) {
+              g += 1
+            }
+          }
+          return g;
         }
-        if (n[i] != 0) {
-        g += 1; 
-        }
-        if (g > 0 && n[i] == 0) {
-          g += 1
-        }
-      }
-      return g;
+      };
+      document.getElementById("outputMeters").innerHTML=value.toPrecision(sigFigs(valNum));
     }
-  };
-  document.getElementById("outputFeet").innerHTML=value.toPrecision(sigFigs(valNum));
-}
-</script>
-</body>
+    function LengthConverterM(valNum) {
+      let value = valNum * 3.28084
+      // Credit .lines 20-72 https://onecompiler.com/javascript/3wxpgxjhq tysm
+      const sigFigs = (n) => {
+        let a = 0;
+        let b = n.length;
+        let c = 0;
+        let d = 0;
+        let e = 0;
+        let f = 0;
+        let g = 0;
+        let h = 0;
+        let i = 0;
+        for (let i = 0; i < b; i++) {
+          if (n[i] == ".") {
+            d = 1;
+          }
+        }
+        if (d === 0) {
+          for (let i = 0; i < b; i++) {
+            if (n[i] != parseInt(n[i])) {
+              continue;
+            }
+            if (n[i] != 0) {
+              a += 1; 
+            }
+            if (a > 0) {
+              c += 1
+            }
+          }
+          for (let i = b - 1; i > 0; i--) {
+            if (n[i] == 0) {
+              e += 1;
+            } else
+            if (n[i] != 0) {
+                break;
+              }
+          }
+          f = c - e;
+          return f;
+        } else 
+        if (d !== 0 ) {
+          for (let i = 0; i < b; i++) {
+            if (n[i] != parseInt(n[i])) {
+              continue;
+            }
+            if (n[i] != 0) {
+            g += 1; 
+            }
+            if (g > 0 && n[i] == 0) {
+              g += 1
+            }
+          }
+          return g;
+        }
+      };
+      document.getElementById("outputFeet").innerHTML=value.toPrecision(sigFigs(valNum));
+    }
+    </script>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
+    <script src="/files/glitter.js"></script>
+  </body>
 </html>

@@ -67,7 +67,7 @@ The condition of the benchmark.
 | 1 | Pristine condition with no visible scratches or ware | <img src="benchmarks/images/compressed/ORO2-c.png" width="200"/> |
 | 2 | Small amounts of scratches or ware | <img src="benchmarks/images/compressed/WASSON3-c.png" width="200"/> |
 | 3 | Medium amounts of scratches, gashes, or ware | <img src="benchmarks/images/compressed/SUMMERHAVEN_1-c.png" width="200"/> |
-| 4 | Large amounts of scratches, gashes, or ware, starting to compromize readability| <img src="benchmarks/images/compressed/SOTOL1-c.png" width="200"/> |
+| 4 | Large amounts of scratches, gashes, or ware, starting to compromise readability| <img src="benchmarks/images/compressed/SOTOL1-c.png" width="200"/> |
 | 5 | Mostly unreadable | <img src="benchmarks/images/compressed/PA2ref1-c.png" width="200"/> |
 | 6 | Majorly deformed or unreadable or 1/4 gone disk |  |
 | 7 | 1/2 gone disk or more |  |
@@ -95,7 +95,7 @@ WIP - The type/style of the benchmark.
 | 12 | USGS DOI 1962- | <img src="benchmarks/images/compressed/NOGLS2596reset-c.png" width="200"/> |
 | 13 | USGS reference old | https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/u-s-geological-survey-reference-mark-7890-patti-deters.jpg |
 | 14 | USGS reference new | <img src="benchmarks/images/compressed/HIGHWAY1-c.png" width="200"/> |
-| 15 | USGS DOI reference | https://planetzhanna.com/images/2003/10/25/ly2774rm2.jpg |
+| 15 | USGS DOI reference | https://images.planetzhanna.com/2003/10/25/ly2774rm2.jpg |
 | 16 | USGS DOI gaging station | <img src="benchmarks/images/compressed/gagingStation.png" width="200"/> |
 | 17 | USGS other (fill out a new row) |  |
 | 18 | marking in rock | <img src="benchmarks/images/compressed/BALDYmarking.png" width="200"/> |

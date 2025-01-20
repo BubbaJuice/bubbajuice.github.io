@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>e</title>
@@ -190,7 +191,8 @@
         <hr style="margin-top: 30px; margin-bottom: 30px" />
         <p>"Q 19" has been destroyed.</p>
       </div>
-      <!-- Gallery -->
+      <div class="gallery-container">
+<!-- Gallery -->
       <div class="gallery">
         <a target="_blank" href="images/Q19.png">
           <img
@@ -201,6 +203,8 @@
           />
         </a>
         <div class="desc">The witness post where the benchmark was.</div>
+</div>
+
       </div>
     </div>
     <script>
@@ -479,7 +483,7 @@
         L.control.layers(baseMaps, overlays).addTo(map);
       };
       $.getJSON(
-        "./json/q19.json",
+        "./json/Q19.json",
         loadJson
       );
     </script>

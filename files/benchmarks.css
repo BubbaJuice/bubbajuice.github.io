@@ -44,11 +44,21 @@ body {
   width: 50%;
 }
 
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 50%;
+  padding: 4px;
+}
+
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
   width: 180px;
+  flex: 0 0 23%;
+  margin-bottom: 5px;
 }
 
 div.gallery:hover {
@@ -58,6 +68,7 @@ div.gallery:hover {
 div.gallery img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 div.desc {
