@@ -34,7 +34,7 @@
   "azimuthName": "RESERVE RESET",
   "azimuthCoordLat": "31.82120",
   "azimuthCoordLong": "-110.92253",
-  "azimuthStatus": "none",
+  "azimuthStatus": "azimuthGood",
   "azimuthURL": "/benchmarks/reserve_reset",
   "gpx": "n",
   "gpxFile": "n",

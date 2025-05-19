@@ -217,20 +217,15 @@
         }
       );
       async function fetchJsonFiles() {
-        const folderUrl = "benchmarks\\json\\";
-        const files = [
-          '206.5.json', '6883.json', '6_MDC.json', 'A348_reset.json', 'A6_MDC.json', 'A77.json', 'ACE.json', 'altos.json', 'B19.json', 'baldy.json', 'bell2.json', 'big_wash.json', 'C884.json', 'cass.json', 'chiricaqua.json', 'city.json', 'clum.json', 'comstock.json', 'comstock_hill.json', 'curtis.json', 'del.json', 'E3.json', 'eare.json', 'F77.json', 'G87.json', 'G88.json', 'gila_butte.json', 'granite.json', 'griswold.json', 'H27-az.json', 'H27.json', 'H77.json', 'highway.json', 'indian.json', 'J27.json', 'juniper.json', 'K27.json', 'K32.json', 'L112.json', 'L295.json', 'L424.json', 'L88.json', 'la43.json', 'luces_point.json', 'ludi.json', 'M19.json', 'magnetic.json', 'mike.json', 'mule.json', 'N27.json', 'nogls1899.json', 'nogls1940.json', 'nogls2573.json', 'nogls2596_reset.json', 'nogls2835.json', 'nogls3140.json', 'nogls3290.json', 'nogls3531.json', 'nogls3653.json', 'nogls3721.json', 'nogls3891.json', 'nogls3969.json', 'nogls4040.json', 'nogls4200.json', 'nogls4503_reset.json', 'nogls4526.json', 'nogls4534.json', 'nogls4632.json', 'nogls4653.json', 'nogls4772.json', 'nogls4835.json', 'nogls4997.json', 'nogls5442.json', 'nogls5496.json', 'oro.json', 'pa2.json', 'pass-picacho.json', 'pass.json', 'prsct5346.json', 'prsct5557.json', 'purkiss.json', 'pusch.json', 'Q19.json', 'Q27.json', 'Q365.json', 'Q87.json', 'R27.json', 'R87.json', 'reserve.json', 'rolland.json', 'san.json', 'santa.json', 'sf200.json', 'sopori.json', 'sotol.json', 'stanford.json', 'strong.json', 'summerhaven.json', 'sutton.json', 'T20SR17ES24S25T20SR18ES19SC.json', 'T87.json', 'table.json', 'tamarack.json', 'tucson.json', 'tucson_camera.json', 'tucson_gravity.json', 'U27.json', 'U313.json', 'U340.json', 'U87.json', 'V19.json', 'V27.json', 'va8826.json', 'va9795.json', 'W2.json', 'wally.json', 'wasson.json', 'wolfe.json', 'Y18.json', 'Y19.json', 'Z18.json', 'Z419.json'
-        ];
-
-        const data = [];
-
-        for (const file of files) {
-          const response = await fetch(folderUrl + file);
-          const json = await response.json();
-          data.push(json);
+        const fileUrl = "benchmarks/json/all_data.json";
+        try {
+          const response = await fetch(fileUrl);
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching JSON data:", error);
+          throw error;
         }
-
-        return data;
       }
 
       var mainGood = new L.Icon({
@@ -279,45 +274,42 @@
         });
       }
 
-      function createLink(url) {
-        return checkLinkExistence(url).then(exists => {
-          const link = document.createElement('a');
-          link.href = url;
-          link.target = '_blank';
-          
+      async function createLink(url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.textContent = 'More Info';
+
+        // Check link existence asynchronously
+        checkLinkExistence(url).then(exists => {
           if (!exists) {
             link.classList.add('red');
             link.textContent = 'Link not available';
-          } else {
-            link.textContent = 'More Info';
           }
-      
-          return link.outerHTML;
         });
+
+        return link.outerHTML;
       }
 
       async function initializeMap(data) {
         var map = L.map("map", {
-          center: [39.5, -98.7],
-          zoom: 5,
+          center: [38.9, -126.0],
+          zoom: 4,
           layers: osm,
         });
         L.control.layers(baseMaps).addTo(map);
       
-        await Promise.all(data.map(async point => {
-          const promises = [];
+        data.forEach(async point => {
           const mainLat = parseFloat(point.mainCoordLat);
           const mainLong = parseFloat(point.mainCoordLong);
       
           if (!isNaN(mainLat) && !isNaN(mainLong)) {
-            promises.push(
-              createLink(point.mainURL).then(mainURL => {
-                L.marker([mainLat, mainLong], {
-                  icon: statusToIcon(point.mainStatus),
-                }).addTo(map)
-                  .bindPopup(`<b>${point.mainName}</b><br>Status: ${point.mainStatus}<br>${mainURL}`);
-              })
-            );
+            const marker = L.marker([mainLat, mainLong], {
+              icon: statusToIcon(point.mainStatus),
+            }).addTo(map);
+      
+            const mainURL = await createLink(point.mainURL);
+            marker.bindPopup(`<b>${point.mainName}</b><br>Status: ${point.mainStatus}<br>${mainURL}`);
           }
       
           for (let i = 1; i <= 6; i++) {
@@ -328,14 +320,12 @@
             const refURL = point[`referenceURL${i}`];
       
             if (!isNaN(refLat) && !isNaN(refLong) && refName !== 'n') {
-              promises.push(
-                createLink(refURL).then(refURL => {
-                  L.marker([refLat, refLong], {
-                    icon: statusToIcon(point[`referenceStatus${i}`]),
-                  }).addTo(map)
-                    .bindPopup(`<b>${refName}</b><br>Status: ${refStatus}<br>${refURL}`);
-                })
-              );
+              const marker = L.marker([refLat, refLong], {
+                icon: statusToIcon(refStatus),
+              }).addTo(map);
+      
+              const refLink = await createLink(refURL);
+              marker.bindPopup(`<b>${refName}</b><br>Status: ${refStatus}<br>${refLink}`);
             }
           }
       
@@ -346,37 +336,15 @@
           const azimuthURL = point.azimuthURL;
       
           if (!isNaN(azimuthLat) && !isNaN(azimuthLong)) {
-            promises.push(
-              createLink(azimuthURL).then(azimuthURL => {
-                L.marker([azimuthLat, azimuthLong], {
-                  icon: statusToIcon(point.azimuthStatus),
-                }).addTo(map)
-                  .bindPopup(`<b>${azimuthName}</b><br>Status: ${azimuthStatus}<br>${azimuthURL}`);
-              })
-            );
+            const marker = L.marker([azimuthLat, azimuthLong], {
+              icon: statusToIcon(azimuthStatus),
+            }).addTo(map);
+      
+            const azimuthLink = await createLink(azimuthURL);
+            marker.bindPopup(`<b>${azimuthName}</b><br>Status: ${azimuthStatus}<br>${azimuthLink}`);
           }
+        });
       
-          await Promise.all(promises);
-      
-          for (let i = 1; i <= 6; i++) {
-            const azimuthLat = parseFloat(point[`azimuthCoordLat${i}`]);
-            const azimuthLong = parseFloat(point[`azimuthCoordLong${i}`]);
-            const azimuthName = point[`azimuthName${i}`];
-            const azimuthStatus = point[`azimuthStatus${i}`];
-            const azimuthURL = point[`azimuthURL${i}`];
-      
-            if (!isNaN(azimuthLat) && !isNaN(azimuthLong) && azimuthName !== 'n') {
-              promises.push(
-                createLink(azimuthURL).then(azimuthURL => {
-                  L.marker([azimuthLat, azimuthLong], {
-                    icon: statusToIcon(point[`azimuthStatus${i}`]),
-                  }).addTo(map)
-                    .bindPopup(`<b>${azimuthName}</b><br>Status: ${azimuthStatus}<br>${azimuthURL}`);
-                })
-              );
-            }
-          }
-        }));
         document.getElementById('loading-overlay').style.display = 'none';
         document.getElementById('loading-wheel').style.display = 'none';
       }
