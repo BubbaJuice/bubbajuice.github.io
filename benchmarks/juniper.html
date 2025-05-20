@@ -30,74 +30,7 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
-    <style>
-      body {
-        font-family: "Open Sans";
-        background-color: #36393f;
-        color: #ffffff;
-      }
-
-      .link {
-        color: #2f8aee;
-      }
-
-      .redLink {
-        color: #ff0000;
-      }
-
-      .image {
-        border-color: mediumpurple;
-        border-style: solid;
-        border-radius: 12px;
-        margin: 10px;
-        box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
-        float: left;
-      }
-
-      #map {
-        height: 400px;
-        width: 600px;
-      }
-
-      .whiteBorder {
-        border: 1px solid #ffffff;
-      }
-
-      .table {
-        height: 400px;
-        width: 600px;
-        top: 415px;
-      }
-
-      .right {
-        float: right;
-      }
-
-      .descr {
-        width: 50%;
-      }
-
-      div.gallery {
-        margin: 5px;
-        border: 1px solid #ccc;
-        float: left;
-        width: 180px;
-      }
-
-      div.gallery:hover {
-        border: 1px solid #777;
-      }
-
-      div.gallery img {
-        width: 100%;
-        height: auto;
-      }
-
-      div.desc {
-        padding: 15px;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="/files/benchmarks.css">
   </head>
   <body>
     <script
@@ -303,97 +236,96 @@
         </p>
       </div>
       <div class="gallery-container">
-<!-- Gallery -->
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPER.png">
-          <img
-            src="images/JUNIPER.png"
-            alt="JUNIPER benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER up close.</div>
-      </div>
+        <!-- Gallery -->
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPER.png">
+            <img
+              src="images/JUNIPER.png"
+              alt="JUNIPER benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER up close.</div>
+        </div>
 
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPERand2.png">
-          <img
-            src="images/JUNIPERand2.png"
-            alt="JUNIPER benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER (left) and RM 2 (behind vegetation).</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPERshadow.png">
-          <img
-            src="images/JUNIPERshadow.png"
-            alt="JUNIPER benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER in a shadow.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPER_1.png">
-          <img
-            src="images/JUNIPER_1.png"
-            alt="JUNIPER NO 1 benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER NO 1.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPER_1andMain.png">
-          <img
-            src="images/JUNIPER_1andMain.png"
-            alt="JUNIPER NO 1 benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">RM 1 (bottom) and the main (top right).</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPER_2.png">
-          <img
-            src="images/JUNIPER_2.png"
-            alt="JUNIPER NO 2 benchmark"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER NO 2.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPER_1938.png">
-          <img
-            src="images/JUNIPER_1938.png"
-            alt="JUNIPER 1938 azmk"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER azimuth mark.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="images/JUNIPER_1938view.png">
-          <img
-            src="images/JUNIPER_1938view.png"
-            alt="JUNIPER 1938 azmk"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">JUNIPER azimuth mark looking towards the main.</div>
-</div>
-
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPERand2.png">
+            <img
+              src="images/JUNIPERand2.png"
+              alt="JUNIPER benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER (left) and RM 2 (behind vegetation).</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPERshadow.png">
+            <img
+              src="images/JUNIPERshadow.png"
+              alt="JUNIPER benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER in a shadow.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPER_1.png">
+            <img
+              src="images/JUNIPER_1.png"
+              alt="JUNIPER NO 1 benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER NO 1.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPER_1andMain.png">
+            <img
+              src="images/JUNIPER_1andMain.png"
+              alt="JUNIPER NO 1 benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">RM 1 (bottom) and the main (top right).</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPER_2.png">
+            <img
+              src="images/JUNIPER_2.png"
+              alt="JUNIPER NO 2 benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER NO 2.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPER_1938.png">
+            <img
+              src="images/JUNIPER_1938.png"
+              alt="JUNIPER 1938 azmk"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER azimuth mark.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/JUNIPER_1938view.png">
+            <img
+              src="images/JUNIPER_1938view.png"
+              alt="JUNIPER 1938 azmk"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">JUNIPER azimuth mark looking towards the main.</div>
+        </div>
       </div>
     </div>
     <script>

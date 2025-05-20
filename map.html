@@ -329,19 +329,73 @@
             }
           }
       
-          const azimuthLat = parseFloat(point.azimuthCoordLat);
-          const azimuthLong = parseFloat(point.azimuthCoordLong);
-          const azimuthName = point.azimuthName;
-          const azimuthStatus = point.azimuthStatus;
-          const azimuthURL = point.azimuthURL;
-      
-          if (!isNaN(azimuthLat) && !isNaN(azimuthLong)) {
-            const marker = L.marker([azimuthLat, azimuthLong], {
-              icon: statusToIcon(azimuthStatus),
-            }).addTo(map);
-      
-            const azimuthLink = await createLink(azimuthURL);
-            marker.bindPopup(`<b>${azimuthName}</b><br>Status: ${azimuthStatus}<br>${azimuthLink}`);
+          const azimuthCount = point.azimuth === 'y' ? 2 : 0;
+          for (let i = 1; i <= azimuthCount; i++) {
+            const azimuthLat = parseFloat(point[`azimuthCoordLat${i}`]);
+            const azimuthLong = parseFloat(point[`azimuthCoordLong${i}`]);
+            const azimuthName = point[`azimuthName${i}`];
+            const azimuthStatus = point[`azimuthStatus${i}`];
+            const azimuthURL = point[`azimuthURL${i}`];
+
+            if (!isNaN(azimuthLat) && !isNaN(azimuthLong)) {
+              const marker = L.marker([azimuthLat, azimuthLong], {
+                icon: statusToIcon(azimuthStatus),
+              }).addTo(map);
+
+              const azimuthLink = await createLink(azimuthURL);
+              marker.bindPopup(`<b>${azimuthName}</b><br>Status: ${azimuthStatus}<br>${azimuthLink}`);
+            }
+          }
+
+          // Handle old single azimuth format
+          if (point.azimuthName !== 'n' && point.azimuth !== 'y') {
+            const azimuthLat = parseFloat(point.azimuthCoordLat);
+            const azimuthLong = parseFloat(point.azimuthCoordLong);
+
+            if (!isNaN(azimuthLat) && !isNaN(azimuthLong)) {
+              const marker = L.marker([azimuthLat, azimuthLong], {
+                icon: statusToIcon(point.azimuthStatus),
+              }).addTo(map);
+
+              const azimuthLink = await createLink(point.azimuthURL);
+              marker.bindPopup(`<b>${point.azimuthName}</b><br>Status: ${point.azimuthStatus}<br>${azimuthLink}`);
+            }
+          }
+          // Handle both single and dual azimuth formats
+          if (point.azimuth === 'y') {
+            // Check if it's the new dual azimuth format
+            if (point.azimuthName1) {
+              for (let i = 1; i <= 2; i++) {
+                const azimuthLat = parseFloat(point[`azimuthCoordLat${i}`]);
+                const azimuthLong = parseFloat(point[`azimuthCoordLong${i}`]);
+                const azimuthName = point[`azimuthName${i}`];
+                const azimuthStatus = point[`azimuthStatus${i}`];
+                const azimuthURL = point[`azimuthURL${i}`];
+
+                if (!isNaN(azimuthLat) && !isNaN(azimuthLong)) {
+                  const marker = L.marker([azimuthLat, azimuthLong], {
+                    icon: statusToIcon(azimuthStatus),
+                  }).addTo(map);
+
+                  const azimuthLink = await createLink(azimuthURL);
+                  marker.bindPopup(`<b>${azimuthName}</b><br>Status: ${azimuthStatus}<br>${azimuthLink}`);
+                }
+              }
+            } 
+            // Handle old single azimuth format
+            else {
+              const azimuthLat = parseFloat(point.azimuthCoordLat);
+              const azimuthLong = parseFloat(point.azimuthCoordLong);
+
+              if (!isNaN(azimuthLat) && !isNaN(azimuthLong)) {
+                const marker = L.marker([azimuthLat, azimuthLong], {
+                  icon: statusToIcon(point.azimuthStatus),
+                }).addTo(map);
+
+                const azimuthLink = await createLink(point.azimuthURL);
+                marker.bindPopup(`<b>${point.azimuthName}</b><br>Status: ${point.azimuthStatus}<br>${azimuthLink}`);
+              }
+            }
           }
         });
       
