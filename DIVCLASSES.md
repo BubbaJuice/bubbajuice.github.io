@@ -78,6 +78,7 @@ The condition of the benchmark.
 ## type
 
 WIP - The type/style of the benchmark.
+Currently, the benchmarks.html needs to be updated to match this WIP guide.
 
 | number | meaning | image |
 |--|--|--|

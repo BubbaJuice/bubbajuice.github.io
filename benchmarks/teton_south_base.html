@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>e</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open%20Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/files/benchmarks.css"> 
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Title -->
+    <center>
+      <h1><strong>NOGLS 4997</strong></h1>
+      <p>
+        <a href="/benchmarks" class="link"
+          >Benchmarks</a>
+        <a href="/apps" class="link">Apps</a>
+        <a href="/" class="link">Home</a>
+        <a href="/gcstats" class="link"
+          >Geocaching Stats</a>
+      </p>
+    </center>
+    <hr />
+    <!-- Make markers -->
+    <div style="margin-left: 10%">
+      <div class="right" style="margin-right: 10%">
+        <div id="map"></div>
+        <div class="table">
+          <table style="float: right; margin-top: 10px">
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Main benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Reference benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks recovered in good or poor condition.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>Azimuth benchmarks that have been destroyed.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <img
+                  src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png"
+                  width="25"
+                  height="41"
+                />
+              </td>
+              <td>A main, reference, or azimuth benchmark not searched for.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Start of description -->
+      <h2>"TETON SOUTH BASE"</h2>
+      <table>
+        <tr>
+          <td><strong>NGS PointID: </strong></td>
+          <td>OX0832</td>
+        </tr>
+        <tr>
+          <!-- RED LINKS APPLIED, FIX ONCE PAGES ADDED -->
+          <td><strong>Reference Benchmarks: </strong></td>
+          <td>
+            <a
+              href="/benchmarks/teton_south_base_1"
+              class="redLink"
+              >TETON SOUTH BASE NO 1</a
+            >,
+            <a
+              href="/benchmarks/teton_south_base_2"
+              class="redLink"
+              >TETON SOUTH BASE NO 2</a
+            >,
+            <a
+              href="/benchmarks/teton_south_base_north"
+              class="redLink"
+              >TETON SOUTH BASE RP NORTH</a
+            >,
+            <a
+              href="/benchmarks/teton_south_base_east"
+              class="redLink"
+              >TETON SOUTH BASE RP EAST</a
+            >,
+            <a
+              href="/benchmarks/teton_south_base_south"
+              class="redLink"
+              >TETON SOUTH BASE RP SOUTH</a
+            >,
+            <a
+              href="/benchmarks/teton_south_base_west"
+              class="redLink"
+              >TETON SOUTH BASE RP WEST</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Azimuth Benchmark: </strong></td>
+          <td>
+            <a
+              href="/benchmarks/D41"
+              class="redLink"
+              >D 41</a
+            >
+        </tr>
+        <tr>
+          <td><strong>Condition: </strong></td>
+          <td>Scratches and ware present.</td>
+        </tr>
+        <tr>
+          <td><strong>Stamping: </strong></td>
+          <td>6627 BM</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinates: </strong></td>
+          <td>43.692475, -110.723503</td>
+        </tr>
+        <!-- Source: USGS Datasheet -->
+        <tr>
+          <td><strong>Elevation: </strong></td>
+          <td>6631 ft (2021 m)</td>
+        </tr>
+        <!-- Source: Datasheet -->
+        <tr>
+          <td><strong>Setting: </strong></td>
+          <td>Boulder.</td>
+        </tr>
+        <tr>
+          <td><strong>Monumentor: </strong></td>
+          <td>USGS</td>
+        </tr>
+      </table>
+      <p><strong>USGS Datasheet Description (1898):</strong></p>
+      <p class="descr">
+        Is located about one-fourth mile northeast of the wagon road crossing Cottonwood Creek, 
+        about one-half mile northwest of two tall pine
+        trees that grow on the north bank of Cottonwood Creek, 3 miles
+        north of Menor's ferry, 1½ miles southeast of the south end of the
+        long island of timber situated southeast of Jennys Lake.
+      </p>
+      <p class="descr">
+        Station mark: A bronze tablet leaded into a large bowlder buried flush with the ground.
+      </p>
+      <p class="descr">
+        Reference marks: On each side of the tablet, on, and in the prolongation of the base line, 
+        is buried flush with the ground a stone with
+        a cross (+) chiseled on it. 
+      </p>
+      <p class="descr"> 
+        Reference marks are standard bronze disks set in concrete.
+      </p>
+      <p><strong>Truncated NGS Datasheet Description (1946):</strong></p>
+      <p class="descr">
+        The station is located on a low flat gravelly bench 3 miles
+        north by east of Moose and the bridge over the Snake River, 0.4
+        mile east of where U.S. Highway No. 187 crosses Cottonwood
+        Creek and 1-1/2 miles southeast of the south end of the island
+        of timber situated southeast of Jenny Lake.  It is a U.S.
+        Geological Survey bench mark disk leaded into the top of a
+        large buried boulder flush with the surface of the ground, 27
+        feet east of the center of a track road and is stamped 6627
+        (ft.).
+      </p>
+      <p class="descr"> 
+        Four reference marks, (boulders with chiseled crosses, set north,
+        south, east and west of the station, the north and south boulders
+        being on the base line and prolongation thereof), established
+        by the U.S. Geological survey were recovered and found in
+        good condition.  The north boulder is flush with the ground, the
+        east boulder is about 6 inches in diameter and and projects
+        about 1 inch, the south boulder is about 4 inches in diameter
+        and projects about 1 inch and the west boulder is about 8 inches in
+        diameter and projects about 4 inches.
+      </p>
+      <p class="descr"> 
+        Reference Mark No. 1 is a disk set in a concrete monument
+        projecting about 3 inches, southwest of the station, 13 feet east
+        of the center of the track road and is stamped TETON S BASE
+        USGS NO 1 1946.
+      </p>
+      <p class="descr"> 
+        Reference Mark No. 2 is a disk set in a concrete monument flush
+        with the ground, west northwest of the station, in the west
+        rack of the road and is stamped TETON S BASE USGS NO 2 1946.
+      </p>
+      <p class="descr"> 
+        The azimuth mark is about 0.7 mile north by west of the station.
+        It is a coast and geodetic survey bench mark disk set flush in the
+        head of a concrete culvert 15 feet west of the center of U.S.
+        Highway No. 187, 3 feet north of the south end of the culvert
+        and is stamped D41 1934.  To reach from the station go west 0.4
+        mile to Highway No. 187, turn right on the highway and go north
+        for 0.7 mile to the mark on the left as described.
+      </p>
+      <div class="descr">
+        <hr style="margin-top: 30px; margin-bottom: 30px" />
+        <p>
+          "TETON SOUTH BASE" is a benchmark monumented by the USGS in 1896 located in Teton County, Wyoming. 
+          It had six reference marks and an non-dedicated azimuth mark.
+        </p>
+        <p>
+          Nowadays, there are no roads going to the benchmark, just a .5 mile bushwhack through sagebrush steppe.
+        </p>
+        <p>
+          This benchmark is particularly notable because of its age, being placed in the first year that the USGS began placing 
+          benchmark disks/pipes. USGS datasheets for the quad signify this benchmark 
+          being placed in 1896 by <a class=link href="https://en.wikipedia.org/wiki/Frank_Tweedy">Frank Tweedy</a>, an accomplished
+          surveyor for the USGS. This prominence is further exemplified for the measurement of the TETON baseline accurate to 
+          <u style="text-decoration: underline;">8 inches</u> to the modern measurement. Not to mention, this was measured using a 300 foot steel tape. 
+          Measuring was done at night and with the aid of thermometers to avoid the expansion and contraction of the tape. The distance was also measured 
+          using the measurements from Sheridan to the baseline.
+          This benchmark was also linked to Sheridan, a town 200 miles away over several 11-thousand-foot mountain ranges. 
+          However, it can be considered one of the most obscure of the set because the measurement was from the north base to Sheridan.
+          The measurement of the north base to Sheridan however was done only being 25 meters or 82 feet off of the modern measurement 
+          of 319,772 meters, 0.008% of the distance. It's impressive.
+        </p>
+        <p>
+          Interestingly, this benchmark has "DATUM" on the disk, when most 1896 disks lack "DATUM" and "ABOVE SEA LEVEL". 
+          See <a href="benchmarks/types/usgs" class="link">The Evolution of USGS Benchmarks</a>.
+        </p>
+        <p>
+          This benchmark is stamped as apart of the BM or B&M datum, the Burlington and Missouri Railroad datum. This was most 
+          likely done by T. M. Bannon The railroad extended to Sheridan.
+        </p>
+        <p>
+          Please read more about some of the history surrounding this benchmark here: <a href="https://geologistsofjacksonhole.org/wp-content/uploads/2016/11/The-1899-USGS-Grand-Teton-Quad.compressed.pdf" class="link">https://geologistsofjacksonhole.org/wp-content/uploads/2016/11/The-1899-USGS-Grand-Teton-Quad.compressed.pdf</a> 
+          & <a href="https://www.plsw.org/wp-content/uploads/2022/11/28-4-Oct2017.pdf" class="link">https://www.plsw.org/wp-content/uploads/2022/11/28-4-Oct2017.pdf</a> (Beginning on pdf page 10, document page 9) 
+          & <a href="https://wyofile.com/wyoming-monument-middle-nowhere/" class="link">https://wyofile.com/wyoming-monument-middle-nowhere/</a>.
+        </p>
+      </div>
+      <div class="gallery-container">
+        <!-- Gallery -->
+        <div class="gallery">
+          <a target="_blank" href="images/6627.png">
+            <img
+              src="images/6627.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE close up. This is an edited photo merging photos to remove shadows/rocks obscuring the mark.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/6627above.png">
+            <img
+              src="images/6627above.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE from above.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/6627covered.png">
+            <img
+              src="images/6627covered.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE covered with dirt, with the small ring of rocks outlining the disk.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/6627viewNEE.png">
+            <img
+              src="images/6627viewNEE.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE looking northeast-east.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/6627viewNWW.png">
+            <img
+              src="images/6627viewNWW.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE looking northwest-west.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/6627viewW.png">
+            <img
+              src="images/6627viewW.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE looking west.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/6627viewSW.png">
+            <img
+              src="images/6627viewSW.png"
+              alt="TETON SOUTH BASE benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE looking southwest.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/TETON_SOUTH_BASE_1.png">
+            <img
+              src="images/TETON_SOUTH_BASE_1.png"
+              alt="TETON SOUTH BASE RM 1 benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE NO 1.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/TETON_SOUTH_BASE_2.png">
+            <img
+              src="images/TETON_SOUTH_BASE_2.png"
+              alt="TETON SOUTH BASE RM 2 benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE NO 2.</div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="images/TETON_SOUTH_BASE_RPwest.png">
+            <img
+              src="images/TETON_SOUTH_BASE_RPwest.png"
+              alt="TETON SOUTH BASE west RP benchmark"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">TETON SOUTH BASE WEST RP boulder.</div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      var loadJson = function (obj) {
+        /* Add icons for marker status. */
+        var mainGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthGood = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var mainBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var refBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var azimuthBad = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        var none = new L.Icon({
+          iconUrl:
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+          shadowUrl:
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        });
+
+        /* Convert status in JSON to variable for interpretation below */
+        var main = L.layerGroup();
+        function statusToIcon(status) {
+          if (status == "mainGood") {
+            return mainGood;
+          }
+          if (status == "mainBad") {
+            return mainBad;
+          }
+          if (status == "refGood") {
+            return refGood;
+          }
+          if (status == "refBad") {
+            return refBad;
+          }
+          if (status == "azimuthGood") {
+            return azimuthGood;
+          }
+          if (status == "azimuthBad") {
+            return azimuthBad;
+          }
+          if (status == "none") {
+            return none;
+          }
+          console.log("Couldn't find a status!")
+        }
+
+        /* Main marker icon */
+        L.marker([obj.mainCoordLat, obj.mainCoordLong], {
+          icon: statusToIcon(obj.mainStatus),
+        })
+          .addTo(main)
+          .bindPopup(obj.mainName)
+          .openPopup();
+
+        /* Base Layers */
+        var caltopo = L.tileLayer(
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            {
+              attribution:
+                '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
+              maxNativeZoom: 16,
+            }
+          ),
+
+          osm = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            {
+              attribution: 
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ),
+
+          naip = L.tileLayer(
+            "https://naip.maptiles.arcgis.com/arcgis/rest/services/NAIP/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution: 
+                "USDA-NAIP",
+            }
+          );
+
+          usgsImagery = L.tileLayer(
+            "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+            { 
+              attribution: 
+                "USDA-NAIP", 
+              maxNativeZoom: 16 
+            }
+          );
+
+          ersi = L.tileLayer(
+            "https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, Maxar, Earthstar Geographics, USDA FSA, USGS, Aerogrid, IGN, IGP, and the GIS User Community",
+            }
+          );
+
+          ersiClarity = L.tileLayer(
+            "https://clarity.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Esri, DigitalGlobe, GeoEye, Earthstar Geographics, and the GIS User Community",
+            }
+          );
+
+        var route = L.layerGroup();
+
+        var layers = [caltopo, main, route];
+
+        var overlays = {};
+
+        var overlays = Object.assign({
+          "GPX Route": route
+        }, overlays );
+
+        /* Azimuth Markers */
+        if (obj.azimuth == "y") {
+          var azimuth = L.layerGroup();
+          L.marker([obj.azimuthCoordLat, obj.azimuthCoordLong], {
+            icon: statusToIcon(obj.azimuthStatus),
+          })
+            .addTo(azimuth)
+            .bindPopup(obj.azimuthName)
+            .openPopup();
+          layers.push(azimuth);
+          overlays = Object.assign({"Azimuth": azimuth}, overlays);
+        }
+
+        /* Reference mark icons */  
+        if (obj.reference == "y") {
+          var reference = L.layerGroup();
+
+          L.marker([obj.referenceCoordLat1, obj.referenceCoordLong1], {
+            icon: statusToIcon(obj.referenceStatus1),
+          })
+            .addTo(reference)
+            .bindPopup(obj.referenceName1)
+            .openPopup();
+          if (obj.referenceCoordLat2 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat2, obj.referenceCoordLong2], {
+              icon: statusToIcon(obj.referenceStatus2),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName2)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat3 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat3, obj.referenceCoordLong3], {
+              icon: statusToIcon(obj.referenceStatus3),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName3)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat4 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat4, obj.referenceCoordLong4], {
+              icon: statusToIcon(obj.referenceStatus4),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName4)
+              .openPopup();
+          }
+          if (obj.referenceCoordLat5 == "n") {
+          } else {
+            L.marker([obj.referenceCoordLat5, obj.referenceCoordLong5], {
+              icon: statusToIcon(obj.referenceStatus5),
+            })
+              .addTo(reference)
+              .bindPopup(obj.referenceName5)
+              .openPopup();
+          }
+          layers.push(reference);
+          overlays = Object.assign({"Reference Marks": reference}, overlays);
+        }
+
+        var overlays = Object.assign({
+          "Benchmark": main,
+        }, overlays );
+
+        if (obj.gpx == "n") {
+          } else {
+          var gpx = "/benchmarks/gpx/" + obj.gpxFile;
+          new L.GPX(gpx, {
+            async: true,
+            marker_options: {
+              startIconUrl: "../images/empty.png",
+              endIconUrl: "../images/empty.png",
+              shadowUrl: "../images/empty.png",
+              iconSize: [1, 1],
+            },
+          })
+            .on("loaded", function (e) {})
+            .addTo(route);
+        }
+
+        var baseMaps = {
+          "Scanned USGS Topo Maps": caltopo,
+          OpenStreetMap: osm,
+          NAIP: naip,
+          "USGS Imagery": usgsImagery,
+          "Ersi World Imagery": ersi,
+          "Ersi Clarity": ersiClarity,
+        };
+
+        var map = L.map("map", {
+          center: [obj.mapCenterLat, obj.mapCenterLong],
+          zoom: obj.mapZoom,
+          layers: layers,
+        });
+        L.control.layers(baseMaps, overlays).addTo(map);
+      };
+      $.getJSON(
+        "./json/teton_south_base.json",
+        loadJson
+      );
+    </script>
+    <div class="toggle-container">
+      <label for="toggle-background">Enable Glitter Background</label>
+      <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
+    </div>
+    <script src="/files/glitter.js"></script>
+  </body>
+</html>

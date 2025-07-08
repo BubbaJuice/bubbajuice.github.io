@@ -55,8 +55,6 @@
         border-color: #9370d8;
         border-style: solid;
         border-radius: 12px;
-        margin: 10px;
-        margin-right: 20px;
         box-shadow: -7px 10px rgba(172, 177, 185, 0.24);
         float: left;
       }
@@ -78,8 +76,18 @@
       }
 
       .benchmark-image {
-        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 275px;
+        flex: 0 0 auto;
+        padding: 0;
+      }
+
+      .benchmark-image .image {
+        float: none !important;
+        margin: 0 auto !important;
+        display: block;
       }
 
       .benchmark-info {
@@ -100,6 +108,200 @@
         margin: 0;
         padding: 0;
         list-style: none;
+      }
+
+      .grid-view {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .grid-view .benchmark {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0.5rem 0.5rem 0.4rem 0.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        background: #36393f;
+        min-width: 0;
+        min-height: 0;
+        border: 1px solid #4b4f58;
+      }
+
+      .grid-view .benchmark img {
+        display: block;
+        max-width: 90%;
+        height: auto;
+        margin: 0 0 0.4rem 0;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      }
+
+      .grid-view .benchmark .name {
+        margin: 0.15rem 0 0 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        text-align: center;
+        color: #e0e0e0;
+      }
+
+      .grid-toggle-btn {
+        margin: 1rem 0 0.5rem 0;
+        padding: 0.5rem 1.5rem;
+        background: mediumpurple;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        box-shadow: -2px 2px rgba(172, 177, 185, 0.24);
+      }
+      .grid-toggle-btn.active {
+        background: #7a4cd9;
+      }
+      /* List view tweaks for tighter spacing */
+      #benchmarksContainer:not(.grid-view) .benchmark {
+        margin-bottom: 0.5rem;
+        border-radius: 6px;
+        padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+      }
+
+      .toggle-list-grid {
+        display: inline-flex;
+        align-items: center;
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0 0.5rem 0 0.5rem;
+        cursor: pointer;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: -2px 2px rgba(172, 177, 185, 0.24);
+        outline: 2px solid mediumpurple;
+        transition: box-shadow 0.2s;
+        vertical-align: middle;
+        height: 2.75em;
+        line-height: 1.5;
+        position: relative;
+        top: -.25em;
+      }
+      .toggle-list-grid svg {
+        display: block;
+        width: 4.5em;
+        height: 4.5em;
+        margin: 0;
+      }
+      .toggle-list-grid .toggle-bg {
+        fill: #36393f;
+        transition: fill 0.2s;
+      }
+      .toggle-list-grid .toggle-half {
+        transition: fill 0.2s;
+      }
+      .toggle-list-grid.list .toggle-half-left {
+        fill: mediumpurple;
+      }
+      .toggle-list-grid.list .toggle-half-right {
+        fill: #36393f;
+      }
+      .toggle-list-grid.grid .toggle-half-left {
+        fill: #36393f;
+      }
+      .toggle-list-grid.grid .toggle-half-right {
+        fill: mediumpurple;
+      }
+      .toggle-list-grid .hamburger {
+        stroke: #fff;
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+      .toggle-list-grid .waffle {
+        position: relative;
+        top: .25em;
+        fill: #fff;
+        stroke: none;
+      }
+      .toggle-list-grid .toggle-half-hover {
+        fill: #7a4cd9 !important;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .toggle-list-grid .toggle-half-overlay {
+        cursor: pointer;
+        fill: transparent;
+      }
+      /* Hover highlight for non-selected half */
+      .toggle-list-grid.list:hover .toggle-half-right,
+      .toggle-list-grid.grid:hover .toggle-half-left {
+        fill: #7a4cd9;
+        opacity: 0.7;
+      }
+
+      #searchCriteria,
+      #sortCriteria,
+      #agencyCriteria,
+      #typeCriteria {
+        background: #36393f;
+        color: #fff;
+        border: 2px solid mediumpurple;
+        border-radius: 6px;
+        padding: 0.4em 0.8em;
+        margin: 0 0.2em 0.5em 0.2em;
+        font-size: 1em;
+        font-family: "Open Sans", sans-serif;
+        box-shadow: -2px 2px rgba(172, 177, 185, 0.18);
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        vertical-align: middle;
+      }
+
+      #searchCriteria:focus,
+      #sortCriteria:focus,
+      #agencyCriteria:focus,
+      #typeCriteria:focus {
+        border-color: #7a4cd9;
+        box-shadow: 0 0 0 2px #7a4cd9;
+      }
+
+      button:not(.toggle-list-grid):not(#myBtn):not(#sortButton) {
+        background: mediumpurple;
+        color: #fff;
+        border: 2px solid mediumpurple;
+        border-radius: 6px;
+        padding: 0.4em 1.2em;
+        margin: 0 0.2em 0.5em 0.2em;
+        font-size: 1em;
+        font-family: "Open Sans", sans-serif;
+        cursor: pointer;
+        box-shadow: -2px 2px rgba(172, 177, 185, 0.18);
+        outline: 2px solid mediumpurple;
+        outline-offset: 2px;
+        transition: background 0.2s, border-color 0.2s, outline-color 0.2s;
+        vertical-align: middle;
+      }
+
+      #sortButton {
+        background: mediumpurple;
+        color: #fff;
+        border: 2px solid mediumpurple;
+        border-radius: 6px;
+        padding: 0.4em 1.2em;
+        margin: 0 0.2em 0.5em 0.2em;
+        font-size: 1em;
+        font-family: "Open Sans", sans-serif;
+        cursor: pointer;
+        box-shadow: -2px 2px rgba(172, 177, 185, 0.18);
+        transition: background 0.2s, border-color 0.2s, outline-color 0.2s;
+        vertical-align: middle;
+      }
+
+      button:not(.toggle-list-grid):not(#myBtn):hover {
+        background: #7a4cd9;
+        border-color: #7a4cd9;
+        outline-color: #7a4cd9;
       }
     </style>
   </head>
@@ -229,7 +431,37 @@
           <option value="67">other agency rod</option>
           <option value="68">boundary disk</option>
         </select>
-        <button onclick="sortBenchmarks()">Sort</button>
+        <button id="sortButton" onclick="sortBenchmarks()">Sort</button>
+        <button class="toggle-list-grid list" id="toggleGridBtn" onclick="toggleGridView()" aria-label="Toggle grid/list view" type="button">
+          <svg viewBox="0 0 48 32" aria-hidden="true">
+            <!-- Background with rounded corners -->
+            <rect class="toggle-bg" x="0" y="0" width="48" height="32" rx="6" />
+            <!-- Left (list) half, always rounded on left -->
+            <rect class="toggle-half toggle-half-left" x="0" y="0" width="24" height="32" rx="6 0 0 6" />
+            <!-- Right (grid) half, only round right corners when selected -->
+            <rect class="toggle-half toggle-half-right" x="24" y="0" width="24" height="32"
+              rx="0 6 6 0" />
+            <!-- Hamburger icon (left, square 16x16 centered in left half) -->
+            <g class="hamburger">
+              <rect x="4" y="8" width="16" height="16" rx="3" fill="none" stroke="none"/>
+              <line x1="7" y1="12" x2="17" y2="12"/>
+              <line x1="7" y1="16" x2="17" y2="16"/>
+              <line x1="7" y1="20" x2="17" y2="20"/>
+            </g>
+            <!-- Waffle icon (right, 3x3 grid, 12x12 centered in right half) -->
+            <g class="waffle">
+              <rect x="29" y="10" width="3" height="3"/>
+              <rect x="34" y="10" width="3" height="3"/>
+              <rect x="39" y="10" width="3" height="3"/>
+              <rect x="29" y="15" width="3" height="3"/>
+              <rect x="34" y="15" width="3" height="3"/>
+              <rect x="39" y="15" width="3" height="3"/>
+              <rect x="29" y="20" width="3" height="3"/>
+              <rect x="34" y="20" width="3" height="3"/>
+              <rect x="39" y="20" width="3" height="3"/>
+            </g>
+          </svg>
+        </button>
       </center>
       <div id="benchmarksContainer">
         <!-- PUSCH -->
@@ -328,6 +560,51 @@
           </div>
         </div>
 
+        <!-- TETON SOUTH BASE -->
+        <div agency="1" class="benchmark" con="" material="" mon="1896" name="TETON SOUTH BASE" ngs-id="OX0832" rr="" setting="" type="2">
+          <div class="benchmark-image"><a href="/benchmarks/teton_south_base"><img alt="TETON SOUTH BASE disk" class="image" height="275" src="benchmarks/images/compressed/6627-c.png" width="275"/></a></div>
+          <div class="benchmark-info">
+            <p class="benchmark-title"><strong>TETON SOUTH BASE</strong> - OX0832
+          </p>
+            <p class="benchmark-description">"TETON SOUTH BASE" is a benchmark monumented by the USGS in 1896 located in Teton County, Wyoming. It had six reference marks and an non-dedicated azimuth mark.</p>
+              <div class="benchmark-links">
+              <p><a class="link" href="https://pubs.usgs.gov/ar/21-1/report.pdf" rel="noopener noreferrer" target="_blank">Datasheet</a> (on pdf page 304, document page 304)</p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=OX0832" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
+              <p><a class="link" href="https://web.archive.org/web/20221228181503/https://www.geocaching.com/mark/details.aspx?PID=OX0832" rel="noopener noreferrer" target="_blank">Geocaching Recoveries</a></p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=OX0832" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=OX0832" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=OX0832" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+          </div>
+        </div>
+
+        <div agency="2" class="benchmark" con="" material="" mon="1946" name="TETON SOUTH BASE NO 1" ngs-id="CP5917" rr="" setting="" type="31">
+          <div class="benchmark-image"><a href="/benchmarks/teton_south_base_1"><img alt="TETON SOUTH BASE NO 1 disk" class="image" height="275" src="benchmarks/images/compressed/TETON_SOUTH_BASE_1-c.png" width="275"/></a></div>
+          <div class="benchmark-info">
+            <p class="benchmark-title"><strong>TETON SOUTH BASE NO 1</strong> - CP5917
+          </p>
+            <p class="benchmark-description">"TETON SOUTH BASE NO 1" is a benchmark monumented by the USC&amp;GS in 1946 located in Teton County, Wyoming. It is a dedicated reference mark for <a class="link" href="/benchmarks/teton_south_base">TETON SOUTH BASE</a>.</p>
+              <div class="benchmark-links">
+              <p><a class="link" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CP5917" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CP5917" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CP5917" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CP5917" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+          </div>
+        </div>
+
+        <div agency="2" class="benchmark" con="" material="" mon="1946" name="TETON SOUTH BASE NO 2" ngs-id="CP5918" rr="" setting="" type="31">
+          <div class="benchmark-image"><a href="/benchmarks/teton_south_base_2"><img alt="TETON SOUTH BASE NO 2 disk" class="image" height="275" src="benchmarks/images/compressed/TETON_SOUTH_BASE_2-c.png" width="275"/></a></div>
+          <div class="benchmark-info">
+            <p class="benchmark-title"><strong>TETON SOUTH BASE NO 2</strong> - CP5918
+          </p>
+            <p class="benchmark-description">"TETON SOUTH BASE NO 2" is a benchmark monumented by the USC&amp;GS in 1946 located in Teton County, Wyoming. It is a dedicated reference mark for <a class="link" href="/benchmarks/teton_south_base">TETON SOUTH BASE</a>.</p>
+              <div class="benchmark-links">
+              <p><a class="link" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CP5918" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CP5918" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
+              <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CP5918" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CP5918" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+          </div>
+        </div>
+        
         <!-- SOTOL -->
         <div agency="1" class="benchmark" con="" material="" mon="1946" name="SOTOL" ngs-id="CZ1887" rr="" setting="" type="11">
           <div class="benchmark-image"><a href="/benchmarks/sotol"><img alt="SOTOL disk" class="image" height="275" src="benchmarks/images/compressed/SOTOL-c.png" width="275"/></a></div>
@@ -371,7 +648,7 @@
               <p><a class="link" href="https://web.archive.org/web/20230101141028/https://www.geocaching.com/mark/details.aspx?PID=CZ1835" rel="noopener noreferrer" target="_blank">Geocaching Recoveries</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CZ1835" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CZ1835" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
-              <p><a class="redLink" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CZ1835" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CZ1835" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
           </div>
         </div>
 
@@ -385,7 +662,7 @@
               <p><a class="redLink" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CC7928" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CC7928" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CC7928" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
-              <p><a class="redLink" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CC7928" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CC7928" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
           </div>
         </div>
 
@@ -399,7 +676,7 @@
               <p><a class="redLink" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CR8310" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CR8310" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CR8310" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
-              <p><a class="redLink" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CR8310git " rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CR8310git " rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
           </div>
         </div>
 
@@ -414,7 +691,7 @@
               <p><a class="redLink" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CH5703" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CH5703" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CH5703" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
-              <p><a class="redLink" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CH5703" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CH5703" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
           </div>
         </div>
 
@@ -1036,10 +1313,10 @@
               <div class="benchmark-links">
               <p><a class="link" href="https://pubs.usgs.gov/bul/0463/report.pdf" rel="noopener noreferrer" target="_blank">Datasheet</a> (on pdf page 29, document page 28)</p>
               <p><a class="link" href="https://www.ngs.noaa.gov/cgi-bin/ds_mark.prl?PidBox=CG1001" rel="noopener noreferrer" target="_blank">NGS Datasheet</a></p>
-              <p><a class="link" href="https://web.archive.org/web/20221228013925/https://www.geocaching.com/mark/details.aspx?PID=CG1001" rel="noopener noreferrer" target="_blank">Geocaching Recoveries</a></p>
+              <p><a class="link" href="https://web.archive.org/web/20221228033647/https://www.geocaching.com/mark/details.aspx?PID=CG1001" rel="noopener noreferrer" target="_blank">Geocaching Recoveries</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/neighbors41/discreps?PIDS=CG1001" rel="noopener noreferrer" target="_blank">Benchmark Data</a></p>
               <p><a class="link" href="https://www.ngs.noaa.gov/piddesc/getdesc?PID=CG1001" rel="noopener noreferrer" target="_blank">Benchmark Description</a></p>
-              <p><a class="redLink" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CG1001" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
+              <p><a class="link" href="https://geodesy.noaa.gov/cgi-bin/get_image.prl?PROCESSING=list&amp;PID=CG1001" rel="noopener noreferrer" target="_blank">Photographs</a></p></div>
           </div>
         </div>
 
@@ -2244,10 +2521,28 @@
       });
       let originalBenchmarks = []; // This will hold the original list
 
+      function toggleGridView() {
+        const container = document.getElementById('benchmarksContainer');
+        const btn = document.getElementById('toggleGridBtn');
+        const isGrid = container.classList.toggle('grid-view');
+        btn.classList.toggle('grid', isGrid);
+        btn.classList.toggle('list', !isGrid);
+        btn.setAttribute('aria-label', isGrid ? 'Switch to list view' : 'Switch to grid view');
+        localStorage.setItem('benchmarksGridView', isGrid ? '1' : '0');
+      }
+
       document.addEventListener("DOMContentLoaded", function() {
         const benchmarks = document.querySelectorAll(".benchmark");
         originalBenchmarks = Array.from(benchmarks); // Store original benchmarks
         console.log("benchmarks stored")
+
+        const container = document.getElementById('benchmarksContainer');
+        const btn = document.getElementById('toggleGridBtn');
+        const isGrid = localStorage.getItem('benchmarksGridView') === '1';
+        container.classList.toggle('grid-view', isGrid);
+        btn.classList.toggle('grid', isGrid);
+        btn.classList.toggle('list', !isGrid);
+        btn.setAttribute('aria-label', isGrid ? 'Switch to list view' : 'Switch to grid view');
       });
       document.getElementById("searchCriteria").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
@@ -2345,7 +2640,7 @@
         benchmarksArr.forEach(benchmark => container.appendChild(benchmark));
       }
     </script>
-<script>
+    <script>
       // Function to apply the saved background state
       function applyBackgroundState() {
         const body = document.body;
