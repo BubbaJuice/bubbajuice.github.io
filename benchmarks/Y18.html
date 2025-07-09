@@ -198,9 +198,9 @@
       <div class="gallery-container">
 <!-- Gallery -->
       <div class="gallery">
-        <a target="_blank" href="images/Y18.png">
+        <a target="_blank" href="images/Y18.avif">
           <img
-            src="images/Y18.png"
+            src="images/Y18.avif"
             alt="Y 18 benchmark"
             width="600"
             height="400"
@@ -216,9 +216,9 @@
         /* Add icons for marker status. */
         var mainGood = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -227,9 +227,9 @@
 
         var refGood = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -238,9 +238,9 @@
 
         var azimuthGood = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -249,9 +249,9 @@
 
         var mainBad = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -260,9 +260,9 @@
 
         var refBad = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -271,9 +271,9 @@
 
         var azimuthBad = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -282,9 +282,9 @@
 
         var none = new L.Icon({
           iconUrl:
-            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png",
+            "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.avif",
           shadowUrl:
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.avif",
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           popupAnchor: [1, -34],
@@ -328,7 +328,7 @@
 
         /* Base Layers */
         var caltopo = L.tileLayer(
-            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.png",
+            "https://caltopo.s3.amazonaws.com/topo/{z}/{x}/{y}.avif",
             {
               attribution:
                 '&copy; <a href="https://caltopo.com/map.html">Caltopo</a>',
@@ -337,7 +337,7 @@
           ),
 
           osm = L.tileLayer(
-            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.avif", 
             {
               attribution: 
                 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -460,9 +460,9 @@
           new L.GPX(gpx, {
             async: true,
             marker_options: {
-              startIconUrl: "../images/empty.png",
-              endIconUrl: "../images/empty.png",
-              shadowUrl: "../images/empty.png",
+              startIconUrl: "../images/empty.avif",
+              endIconUrl: "../images/empty.avif",
+              shadowUrl: "../images/empty.avif",
               iconSize: [1, 1],
             },
           })
