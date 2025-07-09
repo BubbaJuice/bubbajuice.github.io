@@ -19,7 +19,7 @@ jobs:
       uses: cicirello/generate-sitemap@v1.10.1
       with:
         base-url-path: https://bubbajuice.github.io
-        drop-html-extension: false
+        drop-html-extension: true
 
     - name: Output stats
       run: |
