@@ -1,9 +1,9 @@
 {
-  "mainName": "NOGLS 2835",
-  "mainCoordLat": "32.440820",
-  "mainCoordLong": "-110.933579",
+  "mainName": "R 92",
+  "mainCoordLat": "32.5240",
+  "mainCoordLong": "-111.7328",
   "mainStatus": "mainGood",
-  "mainURL": "/benchmarks/nogls2835",
+  "mainURL": "/benchmarks/R92",
   "reference": "n",
   "referenceName1": "n",
   "referenceName2": "n",
@@ -38,7 +38,7 @@
   "azimuthURL": "n",
   "gpx": "n",
   "gpxFile": "n",
-  "mapCenterLat": "32.440820",
-  "mapCenterLong": "-110.933579",
+  "mapCenterLat": "32.5240",
+  "mapCenterLong": "-111.7328",
   "mapZoom": "18"
 }

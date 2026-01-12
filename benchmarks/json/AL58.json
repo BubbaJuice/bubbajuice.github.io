@@ -1,9 +1,9 @@
 {
-  "mainName": "NOGLS 2835",
-  "mainCoordLat": "32.440820",
-  "mainCoordLong": "-110.933579",
+  "mainName": "AL 58",
+  "mainCoordLat": "32.67508575",
+  "mainCoordLong": "-111.63727026",
   "mainStatus": "mainGood",
-  "mainURL": "/benchmarks/nogls2835",
+  "mainURL": "/benchmarks/al58",
   "reference": "n",
   "referenceName1": "n",
   "referenceName2": "n",
@@ -38,7 +38,7 @@
   "azimuthURL": "n",
   "gpx": "n",
   "gpxFile": "n",
-  "mapCenterLat": "32.440820",
-  "mapCenterLong": "-110.933579",
+  "mapCenterLat": "32.67508575",
+  "mapCenterLong": "-111.63727026",
   "mapZoom": "18"
 }
