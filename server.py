@@ -1,7 +1,7 @@
 import os
 import posixpath
 import urllib
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 # modify this to add additional routes
 ROUTES = (
@@ -79,7 +79,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
             super().send_error(code, message)
 
 if __name__ == '__main__':
-    myServer = HTTPServer(('0.0.0.0', 8000), RequestHandler)
+    myServer = ThreadingHTTPServer(('0.0.0.0', 8000), RequestHandler)
     print("Ready to begin serving files.")
     try:
         myServer.serve_forever()

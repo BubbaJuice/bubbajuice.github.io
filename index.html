@@ -12,13 +12,93 @@
         height: 100%;
         margin: 0;
         font-family: "Open Sans";
-        background-color:#36393f;
-        color: #ffffff;
+        background-image: url("/images/teton.png");
+        background-size: cover;
+        image-rendering: pixelated;
+        color: #36393f;
         text-align: center;
-        overflow-x: hidden
+        overflow-x: hidden;
+        background-size: 100% auto;
+        min-height: 120vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .butterfly {
+        position: fixed;
+        width: 33px;
+        height: 24px;
+        top: 40%;
+        left: -60px;
+        animation: fly 15s linear infinite;
+        image-rendering: pixelated;
+        cursor: pointer;
+        scale: 1.3;
+      }
+
+      #infoBox {
+        display: none;
+        position: absolute;
+        background: #fff8dc;
+        color: black;
+        border: 2px solid black;
+        padding: 10px;
+        width: 220px;
+        border-radius: 8px;
+        box-shadow: 3px 3px 0px black;
+      }
+
+      #closeBtn {
+        position: relative;
+        float: right;
+        margin-left: 8px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        background: none;
+        border: 1px solid #333;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        color: #333;
+      }
+
+      @keyframes fly {
+        0% {
+          transform: translateX(0) translateY(0);
+        }
+        25% {
+          transform: translateX(25vw) translateY(-30px);
+        }
+        50% {
+          transform: translateX(50vw) translateY(20px);
+        }
+        75% {
+          transform: translateX(75vw) translateY(-10px);
+        }
+        100% {
+          transform: translateX(110vw) translateY(0);
+        }
       }
       .link {
-      color: #2f8aee;
+      color: #004896;
+      }
+      .textbacking {
+        background-color: rgba(165, 195, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .cc0 {
+        width: 88px;
+        height: 31px;
+        vertical-align: middle;
       }
       .toggle-container {
         position: fixed;
@@ -37,11 +117,108 @@
     <h1><strong >Hey!</strong></h1>
     <p><a href="/benchmarks" class="link">Benchmarks</a> <a href="/apps" class="link">Apps</a> <a href="/" class="link">Home</a> <a href="/gcstats" class="link">Geocaching Stats</a></p>
     <hr></div>
-    <p style="margin-left: 30%; margin-right: 30%">Welcome to my website! I go by a few names, like "BubbaJuice" and "e". I enjoy hiking, geocaching, benchmarking, and swimming. The main highlight of the website are the benchmarks. Check them out <a href="/benchmarks" class="link">here</a>! I have written <a href="/ang" class="link">an article</a> and made a few <a href="/apps" class="link">apps</a> that you can see through my <a href="https://github.com/BubbaJuice" class="link">Github</a> that I have made through Java.</p>
+    <div class="textbacking">
+      <p>
+        Welcome to my website! I go by a few names, like "BubbaJuice" and "e". I enjoy hiking, benchmarking, and swimming. The main highlight 
+        of the website are the benchmarks. Check them out <a href="/benchmarks" class="link">here</a>! I have written <a href="/ang" class="link">an article</a> 
+        and made a few <a href="/apps" class="link">apps</a> that you can see through my <a href="https://github.com/BubbaJuice" class="link">Github</a> that I 
+        have made through Java.
+      </p>
+    </div>
+    <footer style="margin-top: auto; padding: 10px;"><hr><p class="textbacking">All pages, information, images, and code licensed 
+      under <a href="https://raw.githubusercontent.com/BubbaJuice/bubbajuice.github.io/refs/heads/main/LICENSE.md" class="link">CC0</a> unless 
+      stated otherwise. <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/CC0_button.svg" alt="CC0" class="cc0">
+    </p></footer>
     <div class="toggle-container">
       <label for="toggle-background">Enable Glitter Background</label>
       <input type="checkbox" id="toggle-background" onclick="toggleBackground()">
     </div>
+    <div id="infoBox">
+      <button id="closeBtn">&#215;</button>
+      <strong>Eastern Tiger Swallowtail</strong><br><br>
+      The butterfly found on the cover of Paramore's "Brand New Eyes."
+    </div>
     <script src="/files/glitter.js"></script>
+    <script>
+      // Function to create butterflies
+      function createButterflies() {
+        const numButterflies = 20; // Number of butterflies to create
+        const infoBox = document.getElementById("infoBox");
+        const closeBtn = document.getElementById("closeBtn");
+
+        // Close button functionality
+        closeBtn.addEventListener("click", function() {
+          infoBox.style.display = "none";
+        });
+
+        // Hide popup when clicking outside
+        document.addEventListener("click", function(event) {
+          if (!infoBox.contains(event.target) && !event.target.classList.contains('butterfly')) {
+            infoBox.style.display = "none";
+          }
+        });
+
+        for (let i = 0; i < numButterflies; i++) {
+          const butterfly = document.createElement('img');
+          butterfly.src = '/images/butterfly.gif';
+          butterfly.className = 'butterfly';
+          butterfly.style.top = Math.random() * 80 + 10 + '%'; // Random vertical position between 10% and 90%
+          butterfly.style.left = -60 + 'px';
+          butterfly.style.animationDelay = Math.random() * 15 + 's'; // Random delay up to 15s
+          butterfly.style.animationDuration = (15 + Math.random() * 10) + 's'; // Random duration between 15-25s
+          
+          // Add click event listener to each butterfly
+          butterfly.addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevent the document click from hiding immediately
+            // play pop sound if available
+            try {
+              const pop = document.getElementById('popAudio');
+              if (pop) {
+                pop.currentTime = 0;
+                pop.play().catch(()=>{});
+              }
+            } catch (err) {
+              console.error(err);
+            }
+            infoBox.style.display = "block";
+            infoBox.style.left = event.pageX + "px";
+            infoBox.style.top = event.pageY + "px";
+          });
+          
+          document.body.appendChild(butterfly);
+        }
+      }
+
+      // Create butterflies when page loads
+      window.addEventListener('load', createButterflies);
+    </script>
+    <audio id="popAudio" src="/files/pop.flac" preload="auto"></audio>
+    <audio id="periodicAudio" src="/files/flap.ogg" preload="auto"></audio>
+    <script>
+      (function(){
+        const audio = document.getElementById('periodicAudio');
+        audio.volume = 0.5;
+        function tryPlay(){
+          audio.currentTime = 0;
+          audio.play().catch(()=>{ document.addEventListener('click', ()=> audio.play(), { once: true }); });
+        }
+        window.addEventListener('load', function(){
+          setTimeout(tryPlay, 1000);
+          setInterval(tryPlay, 10000);
+        });
+        // Toggle mute on/off when user presses "m"
+        document.addEventListener('keydown', function(e){
+          try {
+            if (!e || !e.key) return;
+            if (e.key.toLowerCase() === 'm') {
+              audio.muted = !audio.muted;
+              console.log('Audio muted:', audio.muted);
+            }
+          } catch (err) {
+            console.error(err);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
