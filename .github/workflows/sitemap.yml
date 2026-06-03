@@ -16,10 +16,18 @@ jobs:
         fetch-depth: 0 
 
     - name: Generate the sitemap
-      uses: cicirello/generate-sitemap@v1.10.1
+      uses: cicirello/generate-sitemap@v1.10.4
       with:
         base-url-path: https://bubbajuice.github.io
         drop-html-extension: true
+        sitemap-path: sitemap.xml
+
+    - name: Generate the sitemap
+      uses: cicirello/generate-sitemap@v1.10.4
+      with:
+        base-url-path: https://bubbajuice.github.io
+        drop-html-extension: true
+        sitemap-path: sitemap_index.xml
 
     - name: Output stats
       run: |
@@ -32,6 +40,7 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add sitemap.xml
+        git add sitemap_index.xml
         if git diff --cached --quiet; then
           echo "No changes to commit."
         else
